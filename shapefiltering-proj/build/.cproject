@@ -1,0 +1,1495 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?>
+
+<cproject>
+<storageModule moduleId="org.eclipse.cdt.core.settings">
+<cconfiguration id="org.eclipse.cdt.core.default.config.1">
+<storageModule buildSystemId="org.eclipse.cdt.core.defaultConfigDataProvider" id="org.eclipse.cdt.core.default.config.1" moduleId="org.eclipse.cdt.core.settings" name="Configuration">
+<externalSettings/>
+<extensions>
+<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser">
+<attribute key="addr2line" value="addr2line"/>
+<attribute key="c++filt" value="c++filt"/>
+</extension>
+</extensions>
+</storageModule>
+<storageModule moduleId="org.eclipse.cdt.core.language.mapping">
+<project-mappings/>
+</storageModule>
+<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+<storageModule moduleId="org.eclipse.cdt.core.pathentry">
+<pathentry excluding="**/CMakeFiles/" kind="out" path=""/>
+<pathentry kind="mac" name="__STDC__" path="" value="1"/>
+<pathentry kind="mac" name="__STDC_HOSTED__" path="" value="1"/>
+<pathentry kind="mac" name="__GNUC__" path="" value="4"/>
+<pathentry kind="mac" name="__GNUC_MINOR__" path="" value="8"/>
+<pathentry kind="mac" name="__GNUC_PATCHLEVEL__" path="" value="2"/>
+<pathentry kind="mac" name="__VERSION__" path="" value="&quot;4.8.2&quot;"/>
+<pathentry kind="mac" name="__ATOMIC_RELAXED" path="" value=" "/>
+<pathentry kind="mac" name="__ATOMIC_SEQ_CST" path="" value="5"/>
+<pathentry kind="mac" name="__ATOMIC_ACQUIRE" path="" value="2"/>
+<pathentry kind="mac" name="__ATOMIC_RELEASE" path="" value="3"/>
+<pathentry kind="mac" name="__ATOMIC_ACQ_REL" path="" value="4"/>
+<pathentry kind="mac" name="__ATOMIC_CONSUME" path="" value="1"/>
+<pathentry kind="mac" name="__FINITE_MATH_ONLY__" path="" value=" "/>
+<pathentry kind="mac" name="_LP64" path="" value="1"/>
+<pathentry kind="mac" name="__LP64__" path="" value="1"/>
+<pathentry kind="mac" name="__SIZEOF_INT__" path="" value="4"/>
+<pathentry kind="mac" name="__SIZEOF_LONG__" path="" value="8"/>
+<pathentry kind="mac" name="__SIZEOF_LONG_LONG__" path="" value="8"/>
+<pathentry kind="mac" name="__SIZEOF_SHORT__" path="" value="2"/>
+<pathentry kind="mac" name="__SIZEOF_FLOAT__" path="" value="4"/>
+<pathentry kind="mac" name="__SIZEOF_DOUBLE__" path="" value="8"/>
+<pathentry kind="mac" name="__SIZEOF_LONG_DOUBLE__" path="" value="16"/>
+<pathentry kind="mac" name="__SIZEOF_SIZE_T__" path="" value="8"/>
+<pathentry kind="mac" name="__CHAR_BIT__" path="" value="8"/>
+<pathentry kind="mac" name="__BIGGEST_ALIGNMENT__" path="" value="16"/>
+<pathentry kind="mac" name="__ORDER_LITTLE_ENDIAN__" path="" value="1234"/>
+<pathentry kind="mac" name="__ORDER_BIG_ENDIAN__" path="" value="4321"/>
+<pathentry kind="mac" name="__ORDER_PDP_ENDIAN__" path="" value="3412"/>
+<pathentry kind="mac" name="__BYTE_ORDER__" path="" value="__ORDER_LITTLE_ENDIAN__"/>
+<pathentry kind="mac" name="__FLOAT_WORD_ORDER__" path="" value="__ORDER_LITTLE_ENDIAN__"/>
+<pathentry kind="mac" name="__SIZEOF_POINTER__" path="" value="8"/>
+<pathentry kind="mac" name="__SIZE_TYPE__" path="" value="long unsigned int"/>
+<pathentry kind="mac" name="__PTRDIFF_TYPE__" path="" value="long int"/>
+<pathentry kind="mac" name="__WCHAR_TYPE__" path="" value="int"/>
+<pathentry kind="mac" name="__WINT_TYPE__" path="" value="unsigned int"/>
+<pathentry kind="mac" name="__INTMAX_TYPE__" path="" value="long int"/>
+<pathentry kind="mac" name="__UINTMAX_TYPE__" path="" value="long unsigned int"/>
+<pathentry kind="mac" name="__CHAR16_TYPE__" path="" value="short unsigned int"/>
+<pathentry kind="mac" name="__CHAR32_TYPE__" path="" value="unsigned int"/>
+<pathentry kind="mac" name="__SIG_ATOMIC_TYPE__" path="" value="int"/>
+<pathentry kind="mac" name="__INT8_TYPE__" path="" value="signed char"/>
+<pathentry kind="mac" name="__INT16_TYPE__" path="" value="short int"/>
+<pathentry kind="mac" name="__INT32_TYPE__" path="" value="int"/>
+<pathentry kind="mac" name="__INT64_TYPE__" path="" value="long int"/>
+<pathentry kind="mac" name="__UINT8_TYPE__" path="" value="unsigned char"/>
+<pathentry kind="mac" name="__UINT16_TYPE__" path="" value="short unsigned int"/>
+<pathentry kind="mac" name="__UINT32_TYPE__" path="" value="unsigned int"/>
+<pathentry kind="mac" name="__UINT64_TYPE__" path="" value="long unsigned int"/>
+<pathentry kind="mac" name="__INT_LEAST8_TYPE__" path="" value="signed char"/>
+<pathentry kind="mac" name="__INT_LEAST16_TYPE__" path="" value="short int"/>
+<pathentry kind="mac" name="__INT_LEAST32_TYPE__" path="" value="int"/>
+<pathentry kind="mac" name="__INT_LEAST64_TYPE__" path="" value="long int"/>
+<pathentry kind="mac" name="__UINT_LEAST8_TYPE__" path="" value="unsigned char"/>
+<pathentry kind="mac" name="__UINT_LEAST16_TYPE__" path="" value="short unsigned int"/>
+<pathentry kind="mac" name="__UINT_LEAST32_TYPE__" path="" value="unsigned int"/>
+<pathentry kind="mac" name="__UINT_LEAST64_TYPE__" path="" value="long unsigned int"/>
+<pathentry kind="mac" name="__INT_FAST8_TYPE__" path="" value="signed char"/>
+<pathentry kind="mac" name="__INT_FAST16_TYPE__" path="" value="long int"/>
+<pathentry kind="mac" name="__INT_FAST32_TYPE__" path="" value="long int"/>
+<pathentry kind="mac" name="__INT_FAST64_TYPE__" path="" value="long int"/>
+<pathentry kind="mac" name="__UINT_FAST8_TYPE__" path="" value="unsigned char"/>
+<pathentry kind="mac" name="__UINT_FAST16_TYPE__" path="" value="long unsigned int"/>
+<pathentry kind="mac" name="__UINT_FAST32_TYPE__" path="" value="long unsigned int"/>
+<pathentry kind="mac" name="__UINT_FAST64_TYPE__" path="" value="long unsigned int"/>
+<pathentry kind="mac" name="__INTPTR_TYPE__" path="" value="long int"/>
+<pathentry kind="mac" name="__UINTPTR_TYPE__" path="" value="long unsigned int"/>
+<pathentry kind="mac" name="__GXX_ABI_VERSION" path="" value="1002"/>
+<pathentry kind="mac" name="__SCHAR_MAX__" path="" value="127"/>
+<pathentry kind="mac" name="__SHRT_MAX__" path="" value="32767"/>
+<pathentry kind="mac" name="__INT_MAX__" path="" value="2147483647"/>
+<pathentry kind="mac" name="__LONG_MAX__" path="" value="9223372036854775807L"/>
+<pathentry kind="mac" name="__LONG_LONG_MAX__" path="" value="9223372036854775807LL"/>
+<pathentry kind="mac" name="__WCHAR_MAX__" path="" value="2147483647"/>
+<pathentry kind="mac" name="__WCHAR_MIN__" path="" value="(-__WCHAR_MAX__ - 1)"/>
+<pathentry kind="mac" name="__WINT_MAX__" path="" value="4294967295U"/>
+<pathentry kind="mac" name="__WINT_MIN__" path="" value="0U"/>
+<pathentry kind="mac" name="__PTRDIFF_MAX__" path="" value="9223372036854775807L"/>
+<pathentry kind="mac" name="__SIZE_MAX__" path="" value="18446744073709551615UL"/>
+<pathentry kind="mac" name="__INTMAX_MAX__" path="" value="9223372036854775807L"/>
+<pathentry kind="mac" name="__INTMAX_C(c)" path="" value="c ## L"/>
+<pathentry kind="mac" name="__UINTMAX_MAX__" path="" value="18446744073709551615UL"/>
+<pathentry kind="mac" name="__UINTMAX_C(c)" path="" value="c ## UL"/>
+<pathentry kind="mac" name="__SIG_ATOMIC_MAX__" path="" value="2147483647"/>
+<pathentry kind="mac" name="__SIG_ATOMIC_MIN__" path="" value="(-__SIG_ATOMIC_MAX__ - 1)"/>
+<pathentry kind="mac" name="__INT8_MAX__" path="" value="127"/>
+<pathentry kind="mac" name="__INT16_MAX__" path="" value="32767"/>
+<pathentry kind="mac" name="__INT32_MAX__" path="" value="2147483647"/>
+<pathentry kind="mac" name="__INT64_MAX__" path="" value="9223372036854775807L"/>
+<pathentry kind="mac" name="__UINT8_MAX__" path="" value="255"/>
+<pathentry kind="mac" name="__UINT16_MAX__" path="" value="65535"/>
+<pathentry kind="mac" name="__UINT32_MAX__" path="" value="4294967295U"/>
+<pathentry kind="mac" name="__UINT64_MAX__" path="" value="18446744073709551615UL"/>
+<pathentry kind="mac" name="__INT_LEAST8_MAX__" path="" value="127"/>
+<pathentry kind="mac" name="__INT8_C(c)" path="" value="c"/>
+<pathentry kind="mac" name="__INT_LEAST16_MAX__" path="" value="32767"/>
+<pathentry kind="mac" name="__INT16_C(c)" path="" value="c"/>
+<pathentry kind="mac" name="__INT_LEAST32_MAX__" path="" value="2147483647"/>
+<pathentry kind="mac" name="__INT32_C(c)" path="" value="c"/>
+<pathentry kind="mac" name="__INT_LEAST64_MAX__" path="" value="9223372036854775807L"/>
+<pathentry kind="mac" name="__INT64_C(c)" path="" value="c ## L"/>
+<pathentry kind="mac" name="__UINT_LEAST8_MAX__" path="" value="255"/>
+<pathentry kind="mac" name="__UINT8_C(c)" path="" value="c"/>
+<pathentry kind="mac" name="__UINT_LEAST16_MAX__" path="" value="65535"/>
+<pathentry kind="mac" name="__UINT16_C(c)" path="" value="c"/>
+<pathentry kind="mac" name="__UINT_LEAST32_MAX__" path="" value="4294967295U"/>
+<pathentry kind="mac" name="__UINT32_C(c)" path="" value="c ## U"/>
+<pathentry kind="mac" name="__UINT_LEAST64_MAX__" path="" value="18446744073709551615UL"/>
+<pathentry kind="mac" name="__UINT64_C(c)" path="" value="c ## UL"/>
+<pathentry kind="mac" name="__INT_FAST8_MAX__" path="" value="127"/>
+<pathentry kind="mac" name="__INT_FAST16_MAX__" path="" value="9223372036854775807L"/>
+<pathentry kind="mac" name="__INT_FAST32_MAX__" path="" value="9223372036854775807L"/>
+<pathentry kind="mac" name="__INT_FAST64_MAX__" path="" value="9223372036854775807L"/>
+<pathentry kind="mac" name="__UINT_FAST8_MAX__" path="" value="255"/>
+<pathentry kind="mac" name="__UINT_FAST16_MAX__" path="" value="18446744073709551615UL"/>
+<pathentry kind="mac" name="__UINT_FAST32_MAX__" path="" value="18446744073709551615UL"/>
+<pathentry kind="mac" name="__UINT_FAST64_MAX__" path="" value="18446744073709551615UL"/>
+<pathentry kind="mac" name="__INTPTR_MAX__" path="" value="9223372036854775807L"/>
+<pathentry kind="mac" name="__UINTPTR_MAX__" path="" value="18446744073709551615UL"/>
+<pathentry kind="mac" name="__FLT_EVAL_METHOD__" path="" value=" "/>
+<pathentry kind="mac" name="__DEC_EVAL_METHOD__" path="" value="2"/>
+<pathentry kind="mac" name="__FLT_RADIX__" path="" value="2"/>
+<pathentry kind="mac" name="__FLT_MANT_DIG__" path="" value="24"/>
+<pathentry kind="mac" name="__FLT_DIG__" path="" value="6"/>
+<pathentry kind="mac" name="__FLT_MIN_EXP__" path="" value="(-125)"/>
+<pathentry kind="mac" name="__FLT_MIN_10_EXP__" path="" value="(-37)"/>
+<pathentry kind="mac" name="__FLT_MAX_EXP__" path="" value="128"/>
+<pathentry kind="mac" name="__FLT_MAX_10_EXP__" path="" value="38"/>
+<pathentry kind="mac" name="__FLT_DECIMAL_DIG__" path="" value="9"/>
+<pathentry kind="mac" name="__FLT_MAX__" path="" value="3.40282346638528859812e+38F"/>
+<pathentry kind="mac" name="__FLT_MIN__" path="" value="1.17549435082228750797e-38F"/>
+<pathentry kind="mac" name="__FLT_EPSILON__" path="" value="1.19209289550781250000e-7F"/>
+<pathentry kind="mac" name="__FLT_DENORM_MIN__" path="" value="1.40129846432481707092e-45F"/>
+<pathentry kind="mac" name="__FLT_HAS_DENORM__" path="" value="1"/>
+<pathentry kind="mac" name="__FLT_HAS_INFINITY__" path="" value="1"/>
+<pathentry kind="mac" name="__FLT_HAS_QUIET_NAN__" path="" value="1"/>
+<pathentry kind="mac" name="__DBL_MANT_DIG__" path="" value="53"/>
+<pathentry kind="mac" name="__DBL_DIG__" path="" value="15"/>
+<pathentry kind="mac" name="__DBL_MIN_EXP__" path="" value="(-1021)"/>
+<pathentry kind="mac" name="__DBL_MIN_10_EXP__" path="" value="(-307)"/>
+<pathentry kind="mac" name="__DBL_MAX_EXP__" path="" value="1024"/>
+<pathentry kind="mac" name="__DBL_MAX_10_EXP__" path="" value="308"/>
+<pathentry kind="mac" name="__DBL_DECIMAL_DIG__" path="" value="17"/>
+<pathentry kind="mac" name="__DBL_MAX__" path="" value="((double)1.79769313486231570815e+308L)"/>
+<pathentry kind="mac" name="__DBL_MIN__" path="" value="((double)2.22507385850720138309e-308L)"/>
+<pathentry kind="mac" name="__DBL_EPSILON__" path="" value="((double)2.22044604925031308085e-16L)"/>
+<pathentry kind="mac" name="__DBL_DENORM_MIN__" path="" value="((double)4.94065645841246544177e-324L)"/>
+<pathentry kind="mac" name="__DBL_HAS_DENORM__" path="" value="1"/>
+<pathentry kind="mac" name="__DBL_HAS_INFINITY__" path="" value="1"/>
+<pathentry kind="mac" name="__DBL_HAS_QUIET_NAN__" path="" value="1"/>
+<pathentry kind="mac" name="__LDBL_MANT_DIG__" path="" value="64"/>
+<pathentry kind="mac" name="__LDBL_DIG__" path="" value="18"/>
+<pathentry kind="mac" name="__LDBL_MIN_EXP__" path="" value="(-16381)"/>
+<pathentry kind="mac" name="__LDBL_MIN_10_EXP__" path="" value="(-4931)"/>
+<pathentry kind="mac" name="__LDBL_MAX_EXP__" path="" value="16384"/>
+<pathentry kind="mac" name="__LDBL_MAX_10_EXP__" path="" value="4932"/>
+<pathentry kind="mac" name="__DECIMAL_DIG__" path="" value="21"/>
+<pathentry kind="mac" name="__LDBL_MAX__" path="" value="1.18973149535723176502e+4932L"/>
+<pathentry kind="mac" name="__LDBL_MIN__" path="" value="3.36210314311209350626e-4932L"/>
+<pathentry kind="mac" name="__LDBL_EPSILON__" path="" value="1.08420217248550443401e-19L"/>
+<pathentry kind="mac" name="__LDBL_DENORM_MIN__" path="" value="3.64519953188247460253e-4951L"/>
+<pathentry kind="mac" name="__LDBL_HAS_DENORM__" path="" value="1"/>
+<pathentry kind="mac" name="__LDBL_HAS_INFINITY__" path="" value="1"/>
+<pathentry kind="mac" name="__LDBL_HAS_QUIET_NAN__" path="" value="1"/>
+<pathentry kind="mac" name="__DEC32_MANT_DIG__" path="" value="7"/>
+<pathentry kind="mac" name="__DEC32_MIN_EXP__" path="" value="(-94)"/>
+<pathentry kind="mac" name="__DEC32_MAX_EXP__" path="" value="97"/>
+<pathentry kind="mac" name="__DEC32_MIN__" path="" value="1E-95DF"/>
+<pathentry kind="mac" name="__DEC32_MAX__" path="" value="9.999999E96DF"/>
+<pathentry kind="mac" name="__DEC32_EPSILON__" path="" value="1E-6DF"/>
+<pathentry kind="mac" name="__DEC32_SUBNORMAL_MIN__" path="" value="0.000001E-95DF"/>
+<pathentry kind="mac" name="__DEC64_MANT_DIG__" path="" value="16"/>
+<pathentry kind="mac" name="__DEC64_MIN_EXP__" path="" value="(-382)"/>
+<pathentry kind="mac" name="__DEC64_MAX_EXP__" path="" value="385"/>
+<pathentry kind="mac" name="__DEC64_MIN__" path="" value="1E-383DD"/>
+<pathentry kind="mac" name="__DEC64_MAX__" path="" value="9.999999999999999E384DD"/>
+<pathentry kind="mac" name="__DEC64_EPSILON__" path="" value="1E-15DD"/>
+<pathentry kind="mac" name="__DEC64_SUBNORMAL_MIN__" path="" value="0.000000000000001E-383DD"/>
+<pathentry kind="mac" name="__DEC128_MANT_DIG__" path="" value="34"/>
+<pathentry kind="mac" name="__DEC128_MIN_EXP__" path="" value="(-6142)"/>
+<pathentry kind="mac" name="__DEC128_MAX_EXP__" path="" value="6145"/>
+<pathentry kind="mac" name="__DEC128_MIN__" path="" value="1E-6143DL"/>
+<pathentry kind="mac" name="__DEC128_MAX__" path="" value="9.999999999999999999999999999999999E6144DL"/>
+<pathentry kind="mac" name="__DEC128_EPSILON__" path="" value="1E-33DL"/>
+<pathentry kind="mac" name="__DEC128_SUBNORMAL_MIN__" path="" value="0.000000000000000000000000000000001E-6143DL"/>
+<pathentry kind="mac" name="__REGISTER_PREFIX__" path="" value=" "/>
+<pathentry kind="mac" name="__USER_LABEL_PREFIX__" path="" value=" "/>
+<pathentry kind="mac" name="__GNUC_GNU_INLINE__" path="" value="1"/>
+<pathentry kind="mac" name="__NO_INLINE__" path="" value="1"/>
+<pathentry kind="mac" name="__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1" path="" value="1"/>
+<pathentry kind="mac" name="__GCC_HAVE_SYNC_COMPARE_AND_SWAP_2" path="" value="1"/>
+<pathentry kind="mac" name="__GCC_HAVE_SYNC_COMPARE_AND_SWAP_4" path="" value="1"/>
+<pathentry kind="mac" name="__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8" path="" value="1"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_BOOL_LOCK_FREE" path="" value="2"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_CHAR_LOCK_FREE" path="" value="2"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_CHAR16_T_LOCK_FREE" path="" value="2"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_CHAR32_T_LOCK_FREE" path="" value="2"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_WCHAR_T_LOCK_FREE" path="" value="2"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_SHORT_LOCK_FREE" path="" value="2"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_INT_LOCK_FREE" path="" value="2"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_LONG_LOCK_FREE" path="" value="2"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_LLONG_LOCK_FREE" path="" value="2"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_TEST_AND_SET_TRUEVAL" path="" value="1"/>
+<pathentry kind="mac" name="__GCC_ATOMIC_POINTER_LOCK_FREE" path="" value="2"/>
+<pathentry kind="mac" name="__GCC_HAVE_DWARF2_CFI_ASM" path="" value="1"/>
+<pathentry kind="mac" name="__PRAGMA_REDEFINE_EXTNAME" path="" value="1"/>
+<pathentry kind="mac" name="__SSP__" path="" value="1"/>
+<pathentry kind="mac" name="__SIZEOF_INT128__" path="" value="16"/>
+<pathentry kind="mac" name="__SIZEOF_WCHAR_T__" path="" value="4"/>
+<pathentry kind="mac" name="__SIZEOF_WINT_T__" path="" value="4"/>
+<pathentry kind="mac" name="__SIZEOF_PTRDIFF_T__" path="" value="8"/>
+<pathentry kind="mac" name="__amd64" path="" value="1"/>
+<pathentry kind="mac" name="__amd64__" path="" value="1"/>
+<pathentry kind="mac" name="__x86_64" path="" value="1"/>
+<pathentry kind="mac" name="__x86_64__" path="" value="1"/>
+<pathentry kind="mac" name="__ATOMIC_HLE_ACQUIRE" path="" value="65536"/>
+<pathentry kind="mac" name="__ATOMIC_HLE_RELEASE" path="" value="131072"/>
+<pathentry kind="mac" name="__k8" path="" value="1"/>
+<pathentry kind="mac" name="__k8__" path="" value="1"/>
+<pathentry kind="mac" name="__code_model_small__" path="" value="1"/>
+<pathentry kind="mac" name="__MMX__" path="" value="1"/>
+<pathentry kind="mac" name="__SSE__" path="" value="1"/>
+<pathentry kind="mac" name="__SSE2__" path="" value="1"/>
+<pathentry kind="mac" name="__FXSR__" path="" value="1"/>
+<pathentry kind="mac" name="__SSE_MATH__" path="" value="1"/>
+<pathentry kind="mac" name="__SSE2_MATH__" path="" value="1"/>
+<pathentry kind="mac" name="__gnu_linux__" path="" value="1"/>
+<pathentry kind="mac" name="__linux" path="" value="1"/>
+<pathentry kind="mac" name="__linux__" path="" value="1"/>
+<pathentry kind="mac" name="linux" path="" value="1"/>
+<pathentry kind="mac" name="__unix" path="" value="1"/>
+<pathentry kind="mac" name="__unix__" path="" value="1"/>
+<pathentry kind="mac" name="unix" path="" value="1"/>
+<pathentry kind="mac" name="__ELF__" path="" value="1"/>
+<pathentry kind="mac" name="__DECIMAL_BID_FORMAT__" path="" value="1"/>
+<pathentry kind="mac" name="_STDC_PREDEF_H" path="" value="1"/>
+<pathentry kind="mac" name="__STDC_IEC_559__" path="" value="1"/>
+<pathentry kind="mac" name="__STDC_IEC_559_COMPLEX__" path="" value="1"/>
+<pathentry kind="mac" name="__STDC_ISO_10646__" path="" value="201103L"/>
+<pathentry kind="mac" name="__STDC_NO_THREADS__" path="" value="1"/>
+<pathentry kind="mac" name="__cplusplus" path="" value="199711L"/>
+<pathentry kind="mac" name="__GNUG__" path="" value="4"/>
+<pathentry kind="mac" name="__GXX_WEAK__" path="" value="1"/>
+<pathentry kind="mac" name="__DEPRECATED" path="" value="1"/>
+<pathentry kind="mac" name="__GXX_RTTI" path="" value="1"/>
+<pathentry kind="mac" name="__EXCEPTIONS" path="" value="1"/>
+<pathentry kind="mac" name="_GNU_SOURCE" path="" value="1"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/release" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/include/opencv" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/core/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/flann/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/imgproc/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/highgui/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/features2d/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/calib3d/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/ml/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/video/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/legacy/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/objdetect/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/photo/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/gpu/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/ocl/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/nonfree/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/contrib/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/stitching/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/superres/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/ts/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/videostab/include" kind="inc" path="" system="true"/>
+<pathentry include="/home/proglibs/opencv-2.4.9/modules/viz/include" kind="inc" path="" system="true"/>
+<pathentry include="/usr/lib/gcc/x86_64-linux-gnu/4.8/include" kind="inc" path="" system="true"/>
+<pathentry include="/usr/local/include" kind="inc" path="" system="true"/>
+<pathentry include="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" kind="inc" path="" system="true"/>
+<pathentry include="/usr/include/x86_64-linux-gnu" kind="inc" path="" system="true"/>
+<pathentry include="/usr/include" kind="inc" path="" system="true"/>
+<pathentry include="/usr/include/c++/4.8" kind="inc" path="" system="true"/>
+<pathentry include="/usr/include/x86_64-linux-gnu/c++/4.8" kind="inc" path="" system="true"/>
+<pathentry include="/usr/include/c++/4.8/backward" kind="inc" path="" system="true"/>
+</storageModule>
+<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
+<buildTargets>
+<target name="[exe] moda14_gg-shapefilter050" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>moda14_gg-shapefilter050</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[exe] moda14_gg-shapefilter050/fast" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>moda14_gg-shapefilter050/fast</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="Build" path="[Targets]/[exe] moda14_gg-shapefilter050" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-C "/home/jpc/Portsmouth/programming/moda14/gg/0.0051/shapefiltering-proj/build" -j4</buildArguments>
+<buildTarget>moda14_gg-shapefilter050</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="Clean" path="[Targets]/[exe] moda14_gg-shapefilter050" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/cmake</buildCommand>
+<buildArguments>-E chdir "/home/jpc/Portsmouth/programming/moda14/gg/0.0051/shapefiltering-proj/build" "/usr/bin/cmake" -P "CMakeFiles/moda14_gg-shapefilter050.dir/cmake_clean.cmake"</buildArguments>
+<buildTarget></buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name=": rebuild_cache" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>rebuild_cache</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name=": all" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>all</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name=": clean" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>clean</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/mainhelperfuncs.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/mainhelperfuncs.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/mainhelperfuncs.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/mainhelperfuncs.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/mainhelperfuncs.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/mainhelperfuncs.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ACDefinitions.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ACDefinitions.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ACDefinitions.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ACDefinitions.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ACDefinitions.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ACDefinitions.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/bwlabel.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/bwlabel.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/bwlabel.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/bwlabel.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/bwlabel.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/bwlabel.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/connected.cc.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/connected.cc.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/connected.cc.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/connected.cc.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/connected.cc.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/connected.cc.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/csvfiling.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/csvfiling.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/csvfiling.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/csvfiling.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/csvfiling.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/csvfiling.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggbgfgsegmenters.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggbgfgsegmenters.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggbgfgsegmenters.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggbgfgsegmenters.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggbgfgsegmenters.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggbgfgsegmenters.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassification.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassification.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassification.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassification.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassification.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassification.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassify.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassify.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassify.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassify.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassify.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggclassify.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexceptions.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexceptions.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexceptions.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexceptions.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexceptions.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexceptions.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexporters.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexporters.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexporters.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexporters.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexporters.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggexporters.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggframe.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggframe.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggframe.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggframe.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggframe.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggframe.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggheadtracker.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggheadtracker.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggheadtracker.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggheadtracker.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggheadtracker.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggheadtracker.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gghelpers.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gghelpers.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gghelpers.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gghelpers.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gghelpers.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gghelpers.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggidxatt.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggidxatt.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggidxatt.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggidxatt.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggidxatt.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggidxatt.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglowpass.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglowpass.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglowpass.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglowpass.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglowpass.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglowpass.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglpanalysis.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglpanalysis.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglpanalysis.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglpanalysis.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglpanalysis.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglpanalysis.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglphisto.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglphisto.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglphisto.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglphisto.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglphisto.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gglphisto.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggmath.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggmath.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggmath.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggmath.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggmath.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggmath.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggpropagating.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggpropagating.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggpropagating.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggpropagating.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggpropagating.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggpropagating.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregcompare.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregcompare.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregcompare.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregcompare.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregcompare.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregcompare.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionhierarchy.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionhierarchy.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionhierarchy.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionhierarchy.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionhierarchy.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionhierarchy.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionprops.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionprops.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionprops.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionprops.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionprops.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregionprops.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontrack.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontrack.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontrack.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontrack.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontrack.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontrack.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontracker.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontracker.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontracker.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontracker.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontracker.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggregiontracker.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggsimcorr.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggsimcorr.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggsimcorr.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggsimcorr.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggsimcorr.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggsimcorr.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtimewindow.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtimewindow.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtimewindow.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtimewindow.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtimewindow.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtimewindow.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracker.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracker.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracker.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracker.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracker.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracker.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracks.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracks.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracks.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracks.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracks.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggtracks.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggutils.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggutils.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggutils.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggutils.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggutils.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/ggutils.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gguuid.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gguuid.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gguuid.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gguuid.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gguuid.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/gguuid.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/BootStrapProjector.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/BootStrapProjector.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/BootStrapProjector.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/BootStrapProjector.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/BootStrapProjector.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/BootStrapProjector.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ClusterPnts.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ClusterPnts.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ClusterPnts.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ClusterPnts.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ClusterPnts.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ClusterPnts.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/FeatPnts.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/FeatPnts.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/FeatPnts.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/FeatPnts.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/FeatPnts.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/FeatPnts.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/MotClustNS.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/MotClustNS.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/MotClustNS.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/MotClustNS.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/MotClustNS.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/MotClustNS.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmatlearn.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmatlearn.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmatlearn.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmatlearn.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmatlearn.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmatlearn.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmotionsegment.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmotionsegment.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmotionsegment.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmotionsegment.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmotionsegment.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/ggmotionsegment.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdBackProjector.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdBackProjector.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdBackProjector.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdBackProjector.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdBackProjector.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdBackProjector.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdMotionCluster.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdMotionCluster.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdMotionCluster.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdMotionCluster.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdMotionCluster.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdMotionCluster.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdRasterVoronoi.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdRasterVoronoi.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdRasterVoronoi.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdRasterVoronoi.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdRasterVoronoi.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdRasterVoronoi.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdShapeCluster.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdShapeCluster.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdShapeCluster.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdShapeCluster.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdShapeCluster.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdShapeCluster.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdSpatialCluster.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdSpatialCluster.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdSpatialCluster.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdSpatialCluster.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdSpatialCluster.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mdSpatialCluster.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mkutilsopencv.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mkutilsopencv.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mkutilsopencv.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mkutilsopencv.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mkutilsopencv.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/motion/mkutilsopencv.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/frbdp.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/frbdp.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/frbdp.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/frbdp.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/frbdp.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/frbdp.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/ggpca.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/ggpca.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/ggpca.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/ggpca.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/ggpca.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/ggpca.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/is2fsrob.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/is2fsrob.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/is2fsrob.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/is2fsrob.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/is2fsrob.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/is2fsrob.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/utility.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/utility.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/utility.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/utility.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/utility.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/utility.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/xjlinalg.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/xjlinalg.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/xjlinalg.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/xjlinalg.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/xjlinalg.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/pca/xjlinalg.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/region.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/region.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/region.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/region.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/region.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/region.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggregconsist.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggregconsist.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggregconsist.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggregconsist.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggregconsist.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggregconsist.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapeextractor.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapeextractor.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapeextractor.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapeextractor.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapeextractor.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapeextractor.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackfilter.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackfilter.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackfilter.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackfilter.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackfilter.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackfilter.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackproperties.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackproperties.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackproperties.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackproperties.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackproperties.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>home/jpc/Portsmouth/programming/moda14/gg/0.0051/src/shape/ggshapetrackproperties.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[obj] main.cpp.o" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>main.cpp.o</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[pre] main.cpp.i" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>main.cpp.i</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+<target name="[to asm] main.cpp.s" path="" targetID="org.eclipse.cdt.make.MakeTargetBuilder">
+<buildCommand>/usr/bin/make</buildCommand>
+<buildArguments>-j4</buildArguments>
+<buildTarget>main.cpp.s</buildTarget>
+<stopOnError>true</stopOnError>
+<useDefaultCommand>false</useDefaultCommand>
+</target>
+</buildTargets>
+</storageModule>
+<storageModule moduleId="scannerConfiguration">
+<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile"/>
+<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerProjectProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="specsFile">
+<runAction arguments="-E -P -v -dD ${plugin_state_location}/${specs_file}" command="/usr/bin/cc" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+<profile id="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile">
+<buildOutputProvider>
+<openAction enabled="true" filePath=""/>
+<parser enabled="true"/>
+</buildOutputProvider>
+<scannerInfoProvider id="makefileGenerator">
+<runAction arguments="-f ${project_name}_scd.mk" command="/usr/bin/make" useDefault="true"/>
+<parser enabled="true"/>
+</scannerInfoProvider>
+</profile>
+</storageModule>
+</cconfiguration>
+</storageModule>
+<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+<project id="shapefilter.null.1" name="shapefilter"/>
+</storageModule>
+</cproject>
