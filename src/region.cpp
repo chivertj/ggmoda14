@@ -34,6 +34,10 @@ namespace region{
 	  cvThreshold(img,img,225,255,CV_THRESH_BINARY);
 	imgvect.push_back(img);
       }
+      else {
+	std::cout <<"ERROR LOADING:"<<imgfile<<std::endl;
+	exit(0);
+      }
     }
   }
   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -126,7 +130,10 @@ namespace region{
   void ExportImages(const IREGv &imgvect, std::string basefilename, int pad) {
     for (int i=0;i<imgvect.size();i++) {
       std::string opfilename=basefilename+ACDefinitions::StringAndZeroPad(i,pad)+".jpg";
-      ACDefinitions::ACSaveImg(imgvect[i],opfilename);
+      if (imgvect[i]->nChannels==1)
+	ACDefinitions::ACSaveImg(imgvect[i],opfilename);
+      else
+	cvSaveImage(opfilename.c_str(),imgvect[i]);
     }
   }
   void ExportImages(std::list<IplImage*> &imglist, std::string basefilename, int pad) {

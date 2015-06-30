@@ -54,6 +54,29 @@ namespace gg {
     f.set(img);
   }
   //#####################
+  void LoadFrame(const std::vector<cv::Rect> &regs, size_t nregs, const cv::Mat &img, frame &f) {
+    f.unset();
+    cv::Mat mask(img.size(),cv::DataType<uchar>::type);
+    f.resize(nregs);
+    std::cout <<"Constructing regions"<<std::endl;
+    for (size_t i=0;i<nregs;i++) {
+      mask=cv::Scalar(0);
+      cv::rectangle(mask,regs[i],cv::Scalar(255));
+      REGIONPNTS r;
+      region::ExtractPnts(mask,r,false);
+      cv::Mat regpnts=cv::Mat(r);
+      
+      regionhierarchy regprops(img,mask,regpnts);
+      std::cout <<"REGION:"<<i<<"\t"
+		<<"CENTER:"<<regprops.getboundbox().center.x<<","<<regprops.getboundbox().center.y<<"\t"
+		<<"SIZE:"<<regprops.getboundbox().size.width<<","<<regprops.getboundbox().size.height<<"\t";
+      f[i].set(mask,regprops);
+      std::cout <<"ID:"<<f[i].uid_hash()<<std::endl;
+    }
+    //    f.recountvalid();
+    f.set(img);
+  }
+  //#####################
   int LoadFrame(const region::REGIONS &regs, size_t nregs, const cv::Mat &img, const HeadClassifier &headclass, const Heads &heads, frame &f) {
     f.unset();
 

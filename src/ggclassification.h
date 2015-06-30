@@ -28,7 +28,7 @@ namespace gg {
   class discreteclassification {
   public:
     typedef int classT;
-    const static classT NOCLASSIFICATION=0;
+    static const classT NOCLASSIFICATION=0;
     discreteclassification(void) : c(0) {}
     discreteclassification(classT _c) : c(_c) {}
     discreteclassification(const discreteclassification &_c) : c(_c.c) {}
@@ -46,18 +46,11 @@ namespace gg {
     static std::string str(const classT &_c)  {
       return std::string("NOCLASSIFICATION");
     }
-    static bool is(const classT &_c) {
-      bool _is=false;
-      switch (_c) {
-      case NOCLASSIFICATION:
-        _is=true;
-        break;
-      }
-      return _is;
-    }
+    static bool is(const classT &_c);
   protected:
     classT c;
   };
+  //  const discreteclassification::classT discreteclassification::NOCLASSIFICATION;
   //############################################
   //############################################
   /**
@@ -68,9 +61,9 @@ namespace gg {
    */
   class helmetclassification : public discreteclassification {
   public:
-    typedef discreteclassification::classT classT;
-    const static classT HELMET=1;
-    const static classT NOHELMET=2;
+    //    typedef discreteclassification::classT classT;
+    static const classT HELMET=1;
+    static const classT NOHELMET=2;
     helmetclassification(const discreteclassification &dc) {
       c=dc.get();
     }
@@ -78,38 +71,14 @@ namespace gg {
       this->c=dc.get();
       return *this;
     }
-    static std::string str(const classT &_c) {
-      std::string val;
-      switch (_c) {
-      case HELMET:
-        val=std::string("HELMET");
-        break;
-      case NOHELMET:
-        val=std::string("NOHELMET");
-        break;
-      default:
-        val=discreteclassification::str(_c);
-        break;
-      }
-      return val;
-    }
+    static std::string str(const classT &_c);
     std::string str(void) {
       return str(c);
     }
-    static bool is(const classT &_c) {
-      bool _is=false;
-      switch (_c) {
-      case HELMET:
-      case NOHELMET:
-        _is=true;
-        break;
-      default:
-        _is=discreteclassification::is(_c);
-        break;
-      }
-      return _is;
-    }
+    static bool is(const classT &_c);
   };
+  //  const discreteclassification::classT helmetclassification::HELMET;
+  //  const discreteclassification::classT helmetclassification::NOHELMET;
   //############################################
   //############################################
   /**
@@ -121,8 +90,8 @@ namespace gg {
   class vehicleclassification : public discreteclassification {
   public:
     typedef discreteclassification::classT classT;
-    const static classT MOTORBIKE=3;
-    const static classT NOTMOTORBIKE=4;
+    static const classT MOTORBIKE=3;
+    static const classT NOTMOTORBIKE=4;
     vehicleclassification(const discreteclassification &dc) {
           c=dc.get();
     }
@@ -130,38 +99,14 @@ namespace gg {
           this->c=dc.get();
           return *this;
     }
-    static std::string str(const classT &_c) {
-      std::string val;
-      switch (_c) {
-      case MOTORBIKE:
-        val=std::string("MOTORBIKE");
-        break;
-      case NOTMOTORBIKE:
-        val=std::string("NOTMOTORBIKE");
-        break;
-      default:
-        val=discreteclassification::str(_c);
-        break;
-      }
-      return val;
-    }
+    static std::string str(const classT &_c);
     std::string str(void) {
       return str(c);
     }
-    static bool is(const classT &_c) {
-      bool _is=false;
-      switch (_c) {
-      case MOTORBIKE:
-      case NOTMOTORBIKE:
-        _is=true;
-        break;
-      default:
-        _is=discreteclassification::is(_c);
-        break;
-      }
-      return _is;
-    }
+    static bool is(const classT &_c);
   };
+  //  const discreteclassification::classT vehicleclassification::MOTORBIKE;
+  //  const discreteclassification::classT vehicleclassification::NOTMOTORBIKE;
 }
 
 #endif //GGCLASSIFICATION
