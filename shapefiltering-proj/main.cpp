@@ -27,37 +27,37 @@
 #include "../src/ggregiontrack.h"
 
 int main(int argc, char** argv) {
-	if (argc<3) {
-		std::cout <<"Need:\t\t file with list of shapes\n \t\t file with list of corresponding images.\n";
-		return -1;
-	}
-	std::string shapesfilename(argv[1]),imgsfilename(argv[2]);
-	region::MREGv shapes;
-	region::ReadImages(shapes,shapesfilename);
-	region::MREGv imgs;
-	region::ReadImages(imgs,imgsfilename);
+  if (argc<3) {
+    std::cout <<"Need:\t\t file with list of shapes\n \t\t file with list of corresponding images.\n";
+    return -1;
+  }
+  std::string shapesfilename(argv[1]),imgsfilename(argv[2]);
+  region::MREGv shapes;
+  region::ReadImages(shapes,shapesfilename);
+  region::MREGv imgs;
+  region::ReadImages(imgs,imgsfilename);
 
-	if (shapes.size()!=imgs.size()) {
-		std::cout <<"Unequal number of shapes and images\n";
-		return -1;
-	}
+  if (shapes.size()!=imgs.size()) {
+    std::cout <<"Unequal number of shapes and images\n";
+    return -1;
+  }
 
-	//set image data via void setimgdata(const imgsequencedata &isd) (in ggregiontrack.h)
-	//imgsequencedata is in ggframe.h
-	gg::imgsequencedata isd;
-	for (int i=0;i<imgs.size();i++)
-		isd.add(imgs[i]);
+  //set image data via void setimgdata(const imgsequencedata &isd) (in ggregiontrack.h)
+  //imgsequencedata is in ggframe.h
+  gg::imgsequencedata isd;
+  for (int i=0;i<imgs.size();i++)
+    isd.add(imgs[i]);
 
-	gg::imgtrackproperties itps;
-	itps.setimgdata(isd);
+  gg::imgtrackproperties itps;
+  itps.setimgdata(isd);
 
-	gg::shapetrackproperties stps(itps);
-	stps.setshapes(shapes);
+  gg::shapetrackproperties stps(itps);
+  stps.setshapes(shapes);
 
-	jj::shapetrackfilter stf;
-	stf(stps);
+  jj::shapetrackfilter stf;
+  stf(stps);
 
-	std::string sequencefilename;
+  std::string sequencefilename;
     sequencefilename="box-";
     sequencefilename+=stps.uid_str();
     sequencefilename+="-";

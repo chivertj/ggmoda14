@@ -27,8 +27,8 @@ namespace mainhelpers {
     uint widthStep=edges->widthStep;
     for (int y=0;y<edges->height;y++) {
       for (int x=0;x<edges->width;x++) {
-	if (edgedata[y*widthStep+x]>0) 
-	  cvSet2D(colorop,y,x,coloredge);
+  if (edgedata[y*widthStep+x]>0) 
+    cvSet2D(colorop,y,x,coloredge);
       }
     }
     cvReleaseImage(&edges);
@@ -44,17 +44,18 @@ namespace mainhelpers {
   //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   void LabelRegion(cv::Mat &img, const gg::frameregion &freg, cv::Scalar color) {
-    cv::putText(img,std::to_string(freg.uid_hash()),freg.getregprops().getcog(),cv::FONT_HERSHEY_PLAIN,1.,color);
+    cv::putText(img,std::to_string(freg.uid_hash()),freg.getregprops().getcog(),cv::FONT_HERSHEY_PLAIN,2.,color,3);
   }
   //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   void DrawBox(const cv::RotatedRect &R, cv::Scalar color, IplImage *colorop) {
     CvPoint2D32f Rvts[4];
     cvBoxPoints(R,Rvts);
-    cvLine(colorop,R2Ipnt(Rvts[0]),R2Ipnt(Rvts[1]),color,3);
-    cvLine(colorop,R2Ipnt(Rvts[1]),R2Ipnt(Rvts[2]),color,3);
-    cvLine(colorop,R2Ipnt(Rvts[2]),R2Ipnt(Rvts[3]),color,3);
-    cvLine(colorop,R2Ipnt(Rvts[3]),R2Ipnt(Rvts[0]),color,3);
+    int thickness=5;
+    cvLine(colorop,R2Ipnt(Rvts[0]),R2Ipnt(Rvts[1]),color,thickness);
+    cvLine(colorop,R2Ipnt(Rvts[1]),R2Ipnt(Rvts[2]),color,thickness);
+    cvLine(colorop,R2Ipnt(Rvts[2]),R2Ipnt(Rvts[3]),color,thickness);
+    cvLine(colorop,R2Ipnt(Rvts[3]),R2Ipnt(Rvts[0]),color,thickness);
   }
   //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
   //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -62,25 +63,25 @@ namespace mainhelpers {
     new_nregs=0;
     for (size_t i=0;i<nregs;i++) {
       if (regs[i].size()>region::MINREGIONSIZE) {
-	newregs[new_nregs++]=regs[i];
+  newregs[new_nregs++]=regs[i];
       }
     }
     if (new_nregs>=region::MAXNOREGIONS) {
       std::vector<bool> sampled(new_nregs);
       region::REGIONS newnewregs(region::MAXNOREGIONSB4TRIM);
       for (size_t i=0;i<new_nregs;i++)
-	sampled[i]=false;
+  sampled[i]=false;
       size_t newnew_nregs=0;
       std::srand(time(NULL));
       size_t nloops=0,maxnloops=region::MAXNOREGIONSB4TRIM;
       do {
-	size_t sidx=std::rand()%new_nregs;
-	if (!sampled[sidx]) {
-	  sampled[sidx]=true;
-	  newnewregs[newnew_nregs]=newregs[sidx];
-	  newnew_nregs++;
-	}
-	nloops++;
+  size_t sidx=std::rand()%new_nregs;
+  if (!sampled[sidx]) {
+    sampled[sidx]=true;
+    newnewregs[newnew_nregs]=newregs[sidx];
+    newnew_nregs++;
+  }
+  nloops++;
       }while (newnew_nregs<(region::MAXNOREGIONS-1) && nloops<maxnloops);
       newregs=newnewregs;
       new_nregs=newnew_nregs;
@@ -110,11 +111,10 @@ namespace mainhelpers {
     IplImage *tmpbinimg=cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,1);
     std::cout <<"Draw_bgheads"<<std::endl;
     for (size_t i=0;i<framedata.size();i++) {
-      const cv::Mat &rpsM=
-	framedata[i].getregprops().getbgsubregprops().getpnts();
+      const cv::Mat &rpsM=framedata[i].getregprops().getbgsubregprops().getpnts();
       std::cout <<rpsM.rows<<","<<rpsM.cols<<"\t";
       region::cvMat2REGIONPNTS<int>(rpsM,rps);
-	//      region::cvMat2REGIONPNTS<int>(framedata[i].getregprops().getbgsubregprops().getpnts(),rps);
+  //      region::cvMat2REGIONPNTS<int>(framedata[i].getregprops().getbgsubregprops().getpnts(),rps);
       std::cout <<rps.size()<<std::endl;
       region::SetBinImg(rps,tmpbinimg,true);
       FGOutlines(tmpbinimg,img,cvScalar(0,0,255));

@@ -26,7 +26,7 @@ void gg::FGOutlines(IplImage *fgmap, IplImage *colorop) {
   for (int y=0;y<edges->height;y++) {
     for (int x=0;x<edges->width;x++) {
       if (edgedata[y*widthStep+x]>0) 
-	cvSet2D(colorop,y,x,coloredge);
+  cvSet2D(colorop,y,x,coloredge);
     }
   }
   cvReleaseImage(&edges);
@@ -46,10 +46,10 @@ region::IDXT gg::LabelHeads(IplImage *fgmap, region::REGIONS &regs, int numregio
     float xdist=maxxmaxy.x-minxminy.x;
     float ydist=maxxmaxy.y-minxminy.y;
     if ( headsize>50 && headsize<100*100 && ydist>0 && 
-	 ydist>xdist*.4) {
+   ydist>xdist*.4) {
       headregs.push_back(i);
       for (size_t j=0;float(j)<headsize;j++) {
-	data[regs[i][j].y*widthStep+regs[i][j].x]=255;
+  data[regs[i][j].y*widthStep+regs[i][j].x]=255;
       }
     }
   }
@@ -109,8 +109,8 @@ void gg::SubRegions(const IplImage *region, region::IREGv &subregions) {
   for (int y=0;y<region->height;y++) {
     for (int x=0;x<region->width;x++) {
       if (rawregdata[y*region->widthStep+x]) {
-	int quadrant=gg::GetQuadrant(cog,x,y);
-	rawsubregions[quadrant][y*subregions[quadrant]->widthStep+x]=(uchar)255;
+  int quadrant=gg::GetQuadrant(cog,x,y);
+  rawsubregions[quadrant][y*subregions[quadrant]->widthStep+x]=(uchar)255;
       }
     }
   }

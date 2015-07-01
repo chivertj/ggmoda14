@@ -271,10 +271,10 @@ namespace region {
     for (int j=0;j<img.rows;j++) {
       const T *rawdata=img.ptr<T>(j);
       for (int i=0;i<img.cols;i++) {
-	if (rawdata[i]) {
-	  if (i>maxs.x) maxs.x=i;
-	  if (j>maxs.y) maxs.y=j;
-	}
+  if (rawdata[i]) {
+    if (i>maxs.x) maxs.x=i;
+    if (j>maxs.y) maxs.y=j;
+  }
       }
     }
     return maxs;
@@ -285,10 +285,10 @@ namespace region {
     for (int j=img.rows-1;j>=0;j--) {
       const T *rawdata=img.ptr<T>(j);
       for (int i=img.cols-1;i>=0;i--) {
-	if (rawdata[i]) {
-	  if (i<mins.x) mins.x=i;
-	  if (j<mins.y) mins.y=j;
-	}
+  if (rawdata[i]) {
+    if (i<mins.x) mins.x=i;
+    if (j<mins.y) mins.y=j;
+  }
       }
     }
     return mins;
@@ -300,11 +300,11 @@ namespace region {
     for (int j=0;j<img.rows;j++) {
       const T *rawdata=img.ptr<T>(j);
       for (int i=0;i<img.cols;i++) {
-	if (rawdata[i]) {
-	  cog.x+=i; 
-	  cog.y+=j;
-	  cogcnt++;
-	}
+  if (rawdata[i]) {
+    cog.x+=i; 
+    cog.y+=j;
+    cogcnt++;
+  }
       }
     }
     cog.x/=float(cogcnt);

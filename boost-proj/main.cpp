@@ -151,10 +151,10 @@ void LocalBSProj(IplImage *img, IplImage *globalmask, IplImage *op) {
       //      std::cout <<sum.val[0]<<","<<fgbgcount<<","<<fgbgcount*255<<","<<fgbgcount*255*fraction<<std::endl;
 
       if (sum.val[0]<fgbgcount*255*fraction) { 
-	cvConvertScale(bsproject.BorrowResult(),tmpop);
-	cvAdd(tmpop,opsum,opsum);
-	cvConvertScale(localfgbg,tmplocalfgbg);
-	cvAdd(div,tmplocalfgbg,div);
+  cvConvertScale(bsproject.BorrowResult(),tmpop);
+  cvAdd(tmpop,opsum,opsum);
+  cvConvertScale(localfgbg,tmplocalfgbg);
+  cvAdd(div,tmplocalfgbg,div);
       }
     }
   }

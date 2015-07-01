@@ -101,19 +101,19 @@ void CDistTSkel::RemoveIsolatedPoints(void) {
     for (int x=1;x<width-1;x++) {
       pos=y*width+x;
       if (rawSkel[pos]>0.) {
-	has_neighbour=false;
-	for (int in_y=-1;in_y<=1;in_y++) {
-	  for (int in_x=-1;in_x<=1;in_x++) {
-	    if (!(in_y==0 && in_x==0)) {
-	      in_pos=(y+in_y)*width+x+in_x;
-	      if (rawSkel[in_pos]>0.) {
-		has_neighbour=true;
-	      }
-	    }
-	  }
-	}
-	if (!has_neighbour)
-	  rawSkel[pos]=0.;
+  has_neighbour=false;
+  for (int in_y=-1;in_y<=1;in_y++) {
+    for (int in_x=-1;in_x<=1;in_x++) {
+      if (!(in_y==0 && in_x==0)) {
+        in_pos=(y+in_y)*width+x+in_x;
+        if (rawSkel[in_pos]>0.) {
+    has_neighbour=true;
+        }
+      }
+    }
+  }
+  if (!has_neighbour)
+    rawSkel[pos]=0.;
       }
     }
   }
@@ -139,24 +139,24 @@ void CDistTSkel::LocalMax(IplImage *img, float dist1, float dist2, IplImage *loc
       nbourIdx=0;
       localMaxFlag=true;
       for (int in_y=-1;in_y<=1;in_y++) {
-	for (int in_x=-1;in_x<=1;in_x++) {
-	  if (in_x!=0 || in_y!=0) {
-	    in_pos=(y+in_y)*X+x+in_x;
-	    if (in_x==0 || in_y==0) 
-	      activeDist=dist1;
-	    else
-	      activeDist=dist2;
-	    nbourVals[nbourIdx]=activeDist+rawImg[in_pos];
-	    if ((nbourVals[nbourIdx]>rawImg[pos] && !inverse) || (nbourVals[nbourIdx]<rawImg[pos] && inverse)) 
-	      localMaxFlag=false;
-	    nbourIdx++;
-	  }
-	  if (!localMaxFlag) break;
-	}
-	if (!localMaxFlag) break;
+  for (int in_x=-1;in_x<=1;in_x++) {
+    if (in_x!=0 || in_y!=0) {
+      in_pos=(y+in_y)*X+x+in_x;
+      if (in_x==0 || in_y==0) 
+        activeDist=dist1;
+      else
+        activeDist=dist2;
+      nbourVals[nbourIdx]=activeDist+rawImg[in_pos];
+      if ((nbourVals[nbourIdx]>rawImg[pos] && !inverse) || (nbourVals[nbourIdx]<rawImg[pos] && inverse)) 
+        localMaxFlag=false;
+      nbourIdx++;
+    }
+    if (!localMaxFlag) break;
+  }
+  if (!localMaxFlag) break;
       }
       if ((inverse && localMaxFlag && rawImg[pos]<threshold) || (!inverse && localMaxFlag && rawImg[pos]>threshold)) {
-	rawLocalMax[pos]=255;
+  rawLocalMax[pos]=255;
       }
     }
   }
@@ -180,33 +180,33 @@ bool CDistTSkel::GrowPnts(IplImage *img, float dist1, float dist2, IplImage *dis
     for (int x=1;x<X-1;x++) {
       pos=y*X+x;
       if (rawImg[pos]==255.f) {
-	nbourIdx=0;
-	maxGrad=0;
-	maxInPos=-1;
-	for (int in_y=-1;in_y<=1;in_y++) {
-	  for (int in_x=-1;in_x<=1;in_x++) {
-	    if (in_x!=0 || in_y!=0) {
-	      in_pos=(in_y+y)*X+in_x+x;
-	      if (in_x==0 || in_y==0) 
-		activeDist=dist1;
-	      else
-		activeDist=dist2;
-	      if (!inverse)
-		nbourGrads[nbourIdx]=1.f/activeDist*(rawDist[in_pos]-rawDist[pos]);
-	      else
-		nbourGrads[nbourIdx]=1.f/activeDist*(rawDist[pos]-rawDist[in_pos]);
-	      if (((nbourGrads[nbourIdx]>maxGrad && inverse) || (nbourGrads[nbourIdx]<maxGrad && !inverse))) {
-		maxGrad=nbourGrads[nbourIdx];
-		maxInPos=in_pos;
-	      }
-	      nbourIdx++;
-	    }
-	  }
-	}
-	if (((maxGrad>0 && inverse) || (maxGrad<0 && !inverse))  && maxInPos>=0 && rawImg[maxInPos]<255.f) {
-	  rawImg[maxInPos]=255;
-	  change=true;
-	}
+  nbourIdx=0;
+  maxGrad=0;
+  maxInPos=-1;
+  for (int in_y=-1;in_y<=1;in_y++) {
+    for (int in_x=-1;in_x<=1;in_x++) {
+      if (in_x!=0 || in_y!=0) {
+        in_pos=(in_y+y)*X+in_x+x;
+        if (in_x==0 || in_y==0) 
+    activeDist=dist1;
+        else
+    activeDist=dist2;
+        if (!inverse)
+    nbourGrads[nbourIdx]=1.f/activeDist*(rawDist[in_pos]-rawDist[pos]);
+        else
+    nbourGrads[nbourIdx]=1.f/activeDist*(rawDist[pos]-rawDist[in_pos]);
+        if (((nbourGrads[nbourIdx]>maxGrad && inverse) || (nbourGrads[nbourIdx]<maxGrad && !inverse))) {
+    maxGrad=nbourGrads[nbourIdx];
+    maxInPos=in_pos;
+        }
+        nbourIdx++;
+      }
+    }
+  }
+  if (((maxGrad>0 && inverse) || (maxGrad<0 && !inverse))  && maxInPos>=0 && rawImg[maxInPos]<255.f) {
+    rawImg[maxInPos]=255;
+    change=true;
+  }
       }
     }
   }
@@ -237,34 +237,34 @@ void CDistTSkel::BinaryThin(IplImage *image)
     KeepOn = false;
     for(int j=minJ; j<maxJ; j++) {
       for (int i=minI; i<maxI; i++) {
-	pos=j*I+i;
-	if (rawImg[pos] == BM_SET) {
-	  GetNineNeighbours(nghbrs,(IMAGEBYTE_T*)(rawImg),i,j,I);
-	  pixCnt = CountNeighbours(nghbrs);
-	  if (pixCnt>=2 && pixCnt<=6) {
-	    trans=CountNeighbourTransitions(nghbrs);
-	    if (trans==1) {
-	      if (!turn && (nghbrs[3]==BM_NOTSET || nghbrs[5]==BM_NOTSET || (nghbrs[1]==BM_NOTSET && nghbrs[7]==BM_NOTSET))) {
-		rawWrkImg[pos]=BM_SET;
-		KeepOn = true; 
-	      }
-	      if (turn && (nghbrs[1]==BM_NOTSET || nghbrs[7]==BM_NOTSET || (nghbrs[3]==BM_NOTSET && nghbrs[5]==BM_NOTSET))) {    
-		rawWrkImg[pos]=BM_SET;
-		KeepOn = true; 
-	      }	 
-	    }
-	  }
-	}
+  pos=j*I+i;
+  if (rawImg[pos] == BM_SET) {
+    GetNineNeighbours(nghbrs,(IMAGEBYTE_T*)(rawImg),i,j,I);
+    pixCnt = CountNeighbours(nghbrs);
+    if (pixCnt>=2 && pixCnt<=6) {
+      trans=CountNeighbourTransitions(nghbrs);
+      if (trans==1) {
+        if (!turn && (nghbrs[3]==BM_NOTSET || nghbrs[5]==BM_NOTSET || (nghbrs[1]==BM_NOTSET && nghbrs[7]==BM_NOTSET))) {
+    rawWrkImg[pos]=BM_SET;
+    KeepOn = true; 
+        }
+        if (turn && (nghbrs[1]==BM_NOTSET || nghbrs[7]==BM_NOTSET || (nghbrs[3]==BM_NOTSET && nghbrs[5]==BM_NOTSET))) {    
+    rawWrkImg[pos]=BM_SET;
+    KeepOn = true; 
+        }  
+      }
+    }
+  }
       }
     }
 
     for(int j=minJ; j<maxJ; j++) {
       for (int i=minI; i<maxI; i++) {
-	pos=j*I+i;
-	if (rawWrkImg[pos]==BM_SET) {
-	  rawWrkImg[pos]=BM_NOTSET;
-	  rawImg[pos]=BM_NOTSET;
-	}
+  pos=j*I+i;
+  if (rawWrkImg[pos]==BM_SET) {
+    rawWrkImg[pos]=BM_NOTSET;
+    rawImg[pos]=BM_NOTSET;
+  }
       }
     }
 
@@ -310,15 +310,15 @@ void CDistTSkel::RemoveBoundaryPnts(double skelVal, bool min) {
   if (min) {
     for (int i=0;i<imgSize;i++)
       if (rawDistSkel[i]<skelVal) {
-	rawDistSkel[i]=0.;
-	rawSkel[i]=0.;
+  rawDistSkel[i]=0.;
+  rawSkel[i]=0.;
       }
   }
   else {
     for (int i=0;i<imgSize;i++)
       if (rawDistSkel[i]>skelVal) {
-	rawDistSkel[i]=0.;
-	rawSkel[i]=0.;
+  rawDistSkel[i]=0.;
+  rawSkel[i]=0.;
       }
   }
   //  cout <<"Removed boundary points"<<endl;

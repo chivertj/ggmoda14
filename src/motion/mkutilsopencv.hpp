@@ -50,17 +50,17 @@ namespace mk {
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       template<class T> void ReshapeMatND(MKMAT *matIn, CvMatND *matOut) {
-	assert(matIn);
-	assert(matOut);
-	int ttlSizeIn=matIn->rows*matIn->cols;
+  assert(matIn);
+  assert(matOut);
+  int ttlSizeIn=matIn->rows*matIn->cols;
 #ifdef DEBUG
-	int ttlSizeOut=1;
-	for (int i=0;i<matOut->dims;i++)
-	  ttlSizeOut*=matOut->dim[i].size;
-	assert(ttlSizeIn==ttlSizeOut);
-	printf("DEBUG CHECK\n");
+  int ttlSizeOut=1;
+  for (int i=0;i<matOut->dims;i++)
+    ttlSizeOut*=matOut->dim[i].size;
+  assert(ttlSizeIn==ttlSizeOut);
+  printf("DEBUG CHECK\n");
 #endif
-	memcpy(matOut->data.ptr,matIn->data.ptr,sizeof(T)*ttlSizeIn);
+  memcpy(matOut->data.ptr,matIn->data.ptr,sizeof(T)*ttlSizeIn);
       }
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       void CopyImg(MKIMG *imgIn, MKIMG **imgOut);
@@ -72,30 +72,30 @@ namespace mk {
       //IPL_DEPTH_8U, IPL_DEPTH_8S, IPL_DEPTH_16U, IPL_DEPTH_16S, IPL_DEPTH_32S, IPL_DEPTH_32F and IPL_DEPTH_64F 
 
       template<class T> inline void ResizeMat(MKMAT **mat, int newrows, int newcols, int rowoff=0, int coloff=0) { //this is a bit bad because mat could be pointing to a different place which isn't really ideal as someone might assume that it was just the data that has changed...
-	assert(*mat); 
-	int rows=(*mat)->rows, cols=(*mat)->cols;
-	if (rows==newrows && cols==newcols) return; 
-	MKMAT *newmat=MakeMat<T>(newrows,newcols);
-	cvZero(newmat);
-	T *rawnew=GetMPtr<T>(newmat);
-	T *rawold=GetMPtr<T>(*mat);
-	for (int j=rowoff;j<rows && j<newrows;j++) {
-	  for (int i=coloff;i<cols && i<newcols;i++)
-	    rawnew[j*newrows+i]=rawold[j*rows+i];
-	}
-	cvReleaseMat(mat);
-	*mat=newmat;
+  assert(*mat); 
+  int rows=(*mat)->rows, cols=(*mat)->cols;
+  if (rows==newrows && cols==newcols) return; 
+  MKMAT *newmat=MakeMat<T>(newrows,newcols);
+  cvZero(newmat);
+  T *rawnew=GetMPtr<T>(newmat);
+  T *rawold=GetMPtr<T>(*mat);
+  for (int j=rowoff;j<rows && j<newrows;j++) {
+    for (int i=coloff;i<cols && i<newcols;i++)
+      rawnew[j*newrows+i]=rawold[j*rows+i];
+  }
+  cvReleaseMat(mat);
+  *mat=newmat;
       }
       //------------------------------------
       template<class T> inline void CopyMatContent(MKMAT *inmat, MKMAT *outmat) {
-	assert(inmat);    assert(outmat);
-	T *rawin=GetMPtr<T>(inmat);    T *rawout=GetMPtr<T>(outmat);
-	int inrows=inmat->rows, incols=inmat->cols, outrows=outmat->rows, outcols=outmat->cols;
-	cvZero(outmat);
-	for (int j=0; j<inrows && j<outrows; j++) {
-	  for (int i=0; i<incols && i<outcols; i++)
-	    rawout[j*outcols+i]=rawin[j*incols+i];
-	}
+  assert(inmat);    assert(outmat);
+  T *rawin=GetMPtr<T>(inmat);    T *rawout=GetMPtr<T>(outmat);
+  int inrows=inmat->rows, incols=inmat->cols, outrows=outmat->rows, outcols=outmat->cols;
+  cvZero(outmat);
+  for (int j=0; j<inrows && j<outrows; j++) {
+    for (int i=0; i<incols && i<outcols; i++)
+      rawout[j*outcols+i]=rawin[j*incols+i];
+  }
       }
 
       void CopyMat(MKMAT *inmat, MKMAT **outmat);

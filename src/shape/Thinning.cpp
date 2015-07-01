@@ -21,7 +21,7 @@ using namespace std;
 using namespace ACDefinitions;
 
 CThinning::CThinning(void) : m_image(0), m_result(0),
-			     BYTEMATRIX(1),BM_SET(255),BM_NOTSET(0)
+           BYTEMATRIX(1),BM_SET(255),BM_NOTSET(0)
 {
 }
 
@@ -69,34 +69,34 @@ void CThinning::BinaryThin(IplImage *image)
     KeepOn = false;
     for(int j=minJ; j<maxJ; j++) {
       for (int i=minI; i<maxI; i++) {
-	pos=j*I+i;
-	if (rawImg[pos] == BM_SET) {
-	  GetNineNeighbours(nghbrs,(IMAGEBYTE_T*)(rawImg),i,j,I);
-	  pixCnt = CountNeighbours(nghbrs);
-	  if (pixCnt>=2 && pixCnt<=6) {
-	    trans=CountNeighbourTransitions(nghbrs);
-	    if (trans==1) {
-	      if (!turn && (nghbrs[3]==BM_NOTSET || nghbrs[5]==BM_NOTSET || (nghbrs[1]==BM_NOTSET && nghbrs[7]==BM_NOTSET))) {
-		rawWrkImg[pos]=BM_SET;
-		KeepOn = true; 
-	      }
-	      if (turn && (nghbrs[1]==BM_NOTSET || nghbrs[7]==BM_NOTSET || (nghbrs[3]==BM_NOTSET && nghbrs[5]==BM_NOTSET))) {    
-		rawWrkImg[pos]=BM_SET;
-		KeepOn = true; 
-	      }	 
-	    }
-	  }
-	}
+  pos=j*I+i;
+  if (rawImg[pos] == BM_SET) {
+    GetNineNeighbours(nghbrs,(IMAGEBYTE_T*)(rawImg),i,j,I);
+    pixCnt = CountNeighbours(nghbrs);
+    if (pixCnt>=2 && pixCnt<=6) {
+      trans=CountNeighbourTransitions(nghbrs);
+      if (trans==1) {
+        if (!turn && (nghbrs[3]==BM_NOTSET || nghbrs[5]==BM_NOTSET || (nghbrs[1]==BM_NOTSET && nghbrs[7]==BM_NOTSET))) {
+    rawWrkImg[pos]=BM_SET;
+    KeepOn = true; 
+        }
+        if (turn && (nghbrs[1]==BM_NOTSET || nghbrs[7]==BM_NOTSET || (nghbrs[3]==BM_NOTSET && nghbrs[5]==BM_NOTSET))) {    
+    rawWrkImg[pos]=BM_SET;
+    KeepOn = true; 
+        }  
+      }
+    }
+  }
       }
     }
 
     for(int j=minJ; j<maxJ; j++) {
       for (int i=minI; i<maxI; i++) {
-	pos=j*I+i;
-	if (rawWrkImg[pos]==BM_SET) {
-	  rawWrkImg[pos]=BM_NOTSET;
-	  rawImg[pos]=BM_NOTSET;
-	}
+  pos=j*I+i;
+  if (rawWrkImg[pos]==BM_SET) {
+    rawWrkImg[pos]=BM_NOTSET;
+    rawImg[pos]=BM_NOTSET;
+  }
       }
     }
 
@@ -123,7 +123,7 @@ inline
 int CThinning::CountNeighbourTransitions(IMAGEBYTE_T *neighbours) {
     int trans = 0;
     for (int p=0;p<=7;p++)
-	if (neighbours[p]==BM_NOTSET && neighbours[p+1]==BM_SET) trans++;
+  if (neighbours[p]==BM_NOTSET && neighbours[p+1]==BM_SET) trans++;
     return trans;
 }
 
@@ -131,7 +131,7 @@ inline
 int CThinning::CountNeighbours(IMAGEBYTE_T *neighbours) {
     int neighboursCnt=0;
     for (int p=0;p<7;p++)
-	if (neighbours[p]==BM_SET) neighboursCnt++;
+  if (neighbours[p]==BM_SET) neighboursCnt++;
     return neighboursCnt;
 }
 
@@ -193,33 +193,33 @@ void CThinning::MakeOnePixel(IplImage *image) {
     for (int x=2;x<(X-2);x++) {
       pos=y*X+x;
       if (rawTmpRes[pos]==BM_SET) {
-	if (rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos+X]==BM_SET && rawTmpRes[pos+X-1]==BM_SET) {
-	  if (rawTmpRes[pos+X*2+1]==BM_NOTSET)
-	    rawRes[pos+X]=BM_NOTSET;
-	}
-	if (rawTmpRes[pos-X]==BM_SET && rawTmpRes[pos-X-1]==BM_SET && rawTmpRes[pos+1]==BM_SET) {
-	  if (rawTmpRes[pos-X*2+1]==BM_NOTSET)
-	    rawRes[pos-X]=BM_NOTSET;
-	}
-	if (rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-X+1]==BM_SET && rawTmpRes[pos+X]==BM_SET) {
-	  if (rawTmpRes[pos+X+2]==BM_NOTSET)
-	    rawRes[pos+1]=BM_NOTSET;
-	}
-	if (rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos+X+1]==BM_SET && rawTmpRes[pos-X]==BM_SET) {
-	  if (rawTmpRes[pos-X+2]==BM_NOTSET)
-	    rawRes[pos+1]=BM_NOTSET;
-	}
-	if (rawTmpRes[pos+X+1]==BM_NOTSET && rawTmpRes[pos+X-1]==BM_NOTSET && rawTmpRes[pos-X-1]==BM_NOTSET && rawTmpRes[pos-X+1]==BM_NOTSET) {
-	  if (((rawTmpRes[pos-X]==BM_NOTSET && rawTmpRes[pos+X]==BM_SET) ||
-	       (rawTmpRes[pos+X]==BM_NOTSET && rawTmpRes[pos-X]==BM_SET)) &&
-	      ((rawTmpRes[pos+1]==BM_NOTSET && rawTmpRes[pos-1]==BM_SET) || 
-	       (rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-1]==BM_NOTSET)))
-	    rawRes[pos]=BM_NOTSET;
-	  if ((rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-1]==BM_SET) && ((rawTmpRes[pos+X]==BM_SET && rawTmpRes[pos-X]==BM_NOTSET) || (rawTmpRes[pos-X]==BM_SET && rawTmpRes[pos+X]==BM_NOTSET)))
-	    rawRes[pos]=BM_NOTSET;
-	  else if ((rawTmpRes[pos+X]==BM_SET && rawTmpRes[pos-X]==BM_SET) && ((rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-1]==BM_NOTSET) || (rawTmpRes[pos-1]==BM_SET && rawTmpRes[pos+1]==BM_NOTSET)))
-	    rawRes[pos]=BM_NOTSET;
-	}
+  if (rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos+X]==BM_SET && rawTmpRes[pos+X-1]==BM_SET) {
+    if (rawTmpRes[pos+X*2+1]==BM_NOTSET)
+      rawRes[pos+X]=BM_NOTSET;
+  }
+  if (rawTmpRes[pos-X]==BM_SET && rawTmpRes[pos-X-1]==BM_SET && rawTmpRes[pos+1]==BM_SET) {
+    if (rawTmpRes[pos-X*2+1]==BM_NOTSET)
+      rawRes[pos-X]=BM_NOTSET;
+  }
+  if (rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-X+1]==BM_SET && rawTmpRes[pos+X]==BM_SET) {
+    if (rawTmpRes[pos+X+2]==BM_NOTSET)
+      rawRes[pos+1]=BM_NOTSET;
+  }
+  if (rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos+X+1]==BM_SET && rawTmpRes[pos-X]==BM_SET) {
+    if (rawTmpRes[pos-X+2]==BM_NOTSET)
+      rawRes[pos+1]=BM_NOTSET;
+  }
+  if (rawTmpRes[pos+X+1]==BM_NOTSET && rawTmpRes[pos+X-1]==BM_NOTSET && rawTmpRes[pos-X-1]==BM_NOTSET && rawTmpRes[pos-X+1]==BM_NOTSET) {
+    if (((rawTmpRes[pos-X]==BM_NOTSET && rawTmpRes[pos+X]==BM_SET) ||
+         (rawTmpRes[pos+X]==BM_NOTSET && rawTmpRes[pos-X]==BM_SET)) &&
+        ((rawTmpRes[pos+1]==BM_NOTSET && rawTmpRes[pos-1]==BM_SET) || 
+         (rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-1]==BM_NOTSET)))
+      rawRes[pos]=BM_NOTSET;
+    if ((rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-1]==BM_SET) && ((rawTmpRes[pos+X]==BM_SET && rawTmpRes[pos-X]==BM_NOTSET) || (rawTmpRes[pos-X]==BM_SET && rawTmpRes[pos+X]==BM_NOTSET)))
+      rawRes[pos]=BM_NOTSET;
+    else if ((rawTmpRes[pos+X]==BM_SET && rawTmpRes[pos-X]==BM_SET) && ((rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-1]==BM_NOTSET) || (rawTmpRes[pos-1]==BM_SET && rawTmpRes[pos+1]==BM_NOTSET)))
+      rawRes[pos]=BM_NOTSET;
+  }
 
       }
     }
@@ -228,12 +228,12 @@ void CThinning::MakeOnePixel(IplImage *image) {
     for (int x=2;x<(X-2);x++) {
       pos=y*X+x;
       if (rawTmpRes[pos]==BM_SET) {
-	if (rawTmpRes[pos+X+1]==BM_NOTSET && rawTmpRes[pos+X-1]==BM_NOTSET && rawTmpRes[pos-X-1]==BM_NOTSET && rawTmpRes[pos-X+1]==BM_NOTSET) {
-	  if ((rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-1]==BM_SET) && ((rawTmpRes[pos+X]==BM_SET && rawTmpRes[pos-X]==BM_NOTSET) || (rawTmpRes[pos-X]==BM_SET && rawTmpRes[pos+X]==BM_NOTSET)))
-	    rawRes[pos]=BM_NOTSET;
-	  else if ((rawTmpRes[pos+X]==BM_SET && rawTmpRes[pos-X]==BM_SET) && ((rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-1]==BM_NOTSET) || (rawTmpRes[pos-1]==BM_SET && rawTmpRes[pos+1]==BM_NOTSET)))
-	    rawRes[pos]=BM_NOTSET;
-	}
+  if (rawTmpRes[pos+X+1]==BM_NOTSET && rawTmpRes[pos+X-1]==BM_NOTSET && rawTmpRes[pos-X-1]==BM_NOTSET && rawTmpRes[pos-X+1]==BM_NOTSET) {
+    if ((rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-1]==BM_SET) && ((rawTmpRes[pos+X]==BM_SET && rawTmpRes[pos-X]==BM_NOTSET) || (rawTmpRes[pos-X]==BM_SET && rawTmpRes[pos+X]==BM_NOTSET)))
+      rawRes[pos]=BM_NOTSET;
+    else if ((rawTmpRes[pos+X]==BM_SET && rawTmpRes[pos-X]==BM_SET) && ((rawTmpRes[pos+1]==BM_SET && rawTmpRes[pos-1]==BM_NOTSET) || (rawTmpRes[pos-1]==BM_SET && rawTmpRes[pos+1]==BM_NOTSET)))
+      rawRes[pos]=BM_NOTSET;
+  }
 
       }
     }

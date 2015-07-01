@@ -72,7 +72,7 @@ inline
 int CDistTSkel::CountNeighbourTransitions(IMAGEBYTE_T *neighbours) {
     int trans = 0;
     for (int p=0;p<=7;p++)
-	if (neighbours[p]==BM_NOTSET && neighbours[p+1]==BM_SET) trans++;
+  if (neighbours[p]==BM_NOTSET && neighbours[p+1]==BM_SET) trans++;
     return trans;
 }
 //·····························································
@@ -80,7 +80,7 @@ inline
 int CDistTSkel::CountNeighbours(IMAGEBYTE_T *neighbours) {
     int neighboursCnt=0;
     for (int p=0;p<7;p++)
-	if (neighbours[p]==BM_SET) neighboursCnt++;
+  if (neighbours[p]==BM_SET) neighboursCnt++;
     return neighboursCnt;
 }
 //·····························································

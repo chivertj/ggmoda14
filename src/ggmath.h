@@ -32,19 +32,19 @@ namespace gg {
     void operator() (const cv::Mat_<T_FEAT> &data) { 
       if (data.cols==0 || data.rows==0) return;
       if (data.cols>data.rows)
-	spect=data.t();
+  spect=data.t();
       else
-	data.copyTo(spect);
+  data.copyTo(spect);
       svd(spect,cv::SVD::FULL_UV);
       cv::Mat_<T_FEAT> wI(spect.rows,spect.cols);
       wI=0.;
       for (size_t i=0;i<spect.cols;i++) {
-	if (svd.w.at<T_FEAT>(i,0)>1e-10)
-	  wI.at<T_FEAT>(i,i)=1.;
+  if (svd.w.at<T_FEAT>(i,0)>1e-10)
+    wI.at<T_FEAT>(i,i)=1.;
       }
       spect=svd.u*wI*svd.vt;
       if (data.cols>data.rows)
-	spect=spect.t();
+  spect=spect.t();
       calccorr();
     }
     const cv::Mat_<T_FEAT> getspect(void) const { return spect; }
@@ -57,13 +57,13 @@ namespace gg {
       corr_rows=0.;
       
       for (size_t j=0;j<spect.rows;j++) {
-	size_t maxidx=gg::maxrowidx<T_FEAT>(spect.row(j));
-	corr_rows.at<T_FEAT>(j,maxidx)=1.;
+  size_t maxidx=gg::maxrowidx<T_FEAT>(spect.row(j));
+  corr_rows.at<T_FEAT>(j,maxidx)=1.;
       }
       for (size_t i=0;i<spect.cols;i++) {
-	size_t maxidx=gg::maxcolidx<T_FEAT>(spect.col(i));
-	if (corr_rows.at<T_FEAT>(maxidx,i)>0.)
-	  corr.at<T_FEAT>(maxidx,i)=1.;
+  size_t maxidx=gg::maxcolidx<T_FEAT>(spect.col(i));
+  if (corr_rows.at<T_FEAT>(maxidx,i)>0.)
+    corr.at<T_FEAT>(maxidx,i)=1.;
       }
 
     }
@@ -86,9 +86,9 @@ namespace gg {
     assert(ip.rows==op.rows && ip.cols==op.cols);
     for (size_t j=0;j<ip.rows;j++) {
       for (size_t i=0;i<ip.cols;i++) {
-	op.template at<T>(j,i)=0.;
-	for (size_t n=0;n<N;n++)
-	  op.template at<T>(j,i)+=ip.template at<cv::Vec<T,N> >(j,i)[n];
+  op.template at<T>(j,i)=0.;
+  for (size_t n=0;n<N;n++)
+    op.template at<T>(j,i)+=ip.template at<cv::Vec<T,N> >(j,i)[n];
       }
     }
   }

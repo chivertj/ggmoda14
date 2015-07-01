@@ -46,11 +46,11 @@ namespace gg {
     //copy data over
     for (int y=0;y<rows;y++) {
       for (int x=0;x<cols;x++) {
-	if (mask.at<MASKT>(y,x)>0) {
-	  for (int j=0;j<m_nfeatures;j++)
-	    trainingsamples.at<featT>(trainingidx,j)=learnimgfeats[j](y,x);
-	  trainingidx++;
-	}
+  if (mask.at<MASKT>(y,x)>0) {
+    for (int j=0;j<m_nfeatures;j++)
+      trainingsamples.at<featT>(trainingidx,j)=learnimgfeats[j](y,x);
+    trainingidx++;
+  }
       }
     }
     std::cout <<"\t training."<<std::endl;

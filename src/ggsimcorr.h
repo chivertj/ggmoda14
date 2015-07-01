@@ -36,16 +36,16 @@ namespace gg {
     {
       T_FEAT L=FSC::LOW,M=FSC::MEDIUM,H=FSC::HIGH;
       T_FEAT tmptrans[8][8]={ { H , M , L , L , M , M , M , M },
-			      { M , H , H , H , L , L , L , L },
-			      { L , H , H , L , L , L , L , L },
-			      { L , H , L , H , L , L , L , L },
-			      { M , L , L , L , H , L , L , L },
-			      { L , L , L , L , H , H , L , L },
-			      { L , L , L , L , L , L , H , L },
-			      { L , L , L , L , L , L , L , H } };
+            { M , H , H , H , L , L , L , L },
+            { L , H , H , L , L , L , L , L },
+            { L , H , L , H , L , L , L , L },
+            { M , L , L , L , H , L , L , L },
+            { L , L , L , L , H , H , L , L },
+            { L , L , L , L , L , L , H , L },
+            { L , L , L , L , L , L , L , H } };
       for (size_t j=0;j<RGS::cv_T::channels;j++) {
-	T_FEAT *rawtrans=table.ptr<T_FEAT>(j);
-	memcpy(rawtrans,tmptrans[j],sizeof(T_FEAT)*RGS::cv_T::channels);
+  T_FEAT *rawtrans=table.ptr<T_FEAT>(j);
+  memcpy(rawtrans,tmptrans[j],sizeof(T_FEAT)*RGS::cv_T::channels);
       }
       rownormalise<T_FEAT>(table);
     }
@@ -118,11 +118,11 @@ namespace gg {
     void operator() (const frame &fA, const frame &fB) {
       //iterate thru regions
       for (size_t ra=0;ra<fA.size();ra++) {
-	for (size_t rb=0;rb<fB.size();rb++) {
-	  rcompare(fA[ra],fB[rb],simdata(ra,rb)); //single matrix of vectors of values for each similarity function
-	  //eq.s 2 and 4
-	  calcstatesims(simdata(ra,rb),statedata(ra,rb)); //single matrix of vectors of values for each state
-	}
+  for (size_t rb=0;rb<fB.size();rb++) {
+    rcompare(fA[ra],fB[rb],simdata(ra,rb)); //single matrix of vectors of values for each similarity function
+    //eq.s 2 and 4
+    calcstatesims(simdata(ra,rb),statedata(ra,rb)); //single matrix of vectors of values for each state
+  }
       }
 //      std::cout <<"fA.size():"<<fA.size()<<" fB.size():"<<fB.size()<<std::endl;
       op_cvMat<FSC::cv_T::value_type,FSC::cv_T::channels>(std::cout,simdata(cv::Range(0,fA.size()),cv::Range(0,fB.size())));
@@ -131,10 +131,10 @@ namespace gg {
   protected:
     void calcstatesims(FSC::cv_T &simvals, RGS::cv_T &simstatevals) {
       for (size_t stateidx=0;stateidx<RGS::cv_T::channels;stateidx++) {
-	T_FEAT *rawwghts=statesimwghts.ptr<T_FEAT>(stateidx);
-	simstatevals[stateidx]=0.;
-	for (size_t simidx=0;simidx<FSC::cv_T::channels;simidx++)
-	  simstatevals[stateidx]+=rawwghts[simidx]*simvals[simidx];
+  T_FEAT *rawwghts=statesimwghts.ptr<T_FEAT>(stateidx);
+  simstatevals[stateidx]=0.;
+  for (size_t simidx=0;simidx<FSC::cv_T::channels;simidx++)
+    simstatevals[stateidx]+=rawwghts[simidx]*simvals[simidx];
       }
     }
 
@@ -158,111 +158,111 @@ namespace gg {
       CORRS prev2curr,curr2prev;
       //######
       void makeprior(size_t Asize, const frame &fB) {
-	//	std::cout <<"makeprior Asize,fB.size:"<<Asize<<","<<fB.size()<<std::endl;
-	regpriorM=RGS::cv_T(0.);
-	for (size_t rb=0;rb<fB.size();rb++) {
-	  REGSTATE fBstate=fB[rb].state();
-	  for (size_t p=0;p<RGS::cv_T::channels;p++) {
-	    //	    std::cout <<"p,fBstate:"<<p<<","<<fBstate<<" ";
-	    T_FEAT tabval=transtable.get()(p,fBstate);
-	    //	      regpriorM(ra,rb)[p]=transtable.get()(p,fBstate); //XXX is fB to p the correct way around for this table? yes because fB is the column which is the previous state and p is the next state which is the variable we haven't decided about yet.
-	    for (size_t ra=0;ra<Asize;ra++) 
-	      regpriorM(ra,rb)[p]=tabval;
-	  }
-	  //	  std::cout <<std::endl;
-	}
+  //  std::cout <<"makeprior Asize,fB.size:"<<Asize<<","<<fB.size()<<std::endl;
+  regpriorM=RGS::cv_T(0.);
+  for (size_t rb=0;rb<fB.size();rb++) {
+    REGSTATE fBstate=fB[rb].state();
+    for (size_t p=0;p<RGS::cv_T::channels;p++) {
+      //      std::cout <<"p,fBstate:"<<p<<","<<fBstate<<" ";
+      T_FEAT tabval=transtable.get()(p,fBstate);
+      //        regpriorM(ra,rb)[p]=transtable.get()(p,fBstate); //XXX is fB to p the correct way around for this table? yes because fB is the column which is the previous state and p is the next state which is the variable we haven't decided about yet.
+      for (size_t ra=0;ra<Asize;ra++) 
+        regpriorM(ra,rb)[p]=tabval;
+    }
+    //    std::cout <<std::endl;
+  }
       }
       void findstatesandmakeveccorr(size_t Asize, size_t Bsize) {
-	regstateMv=0;
-	std::fill(prev2curr.begin(),prev2curr.end(),-1);
-	std::fill(curr2prev.begin(),curr2prev.end(),-1);
-	for (size_t rb=0;rb<Bsize;rb++) {
-	  for (size_t ra=0;ra<Asize;ra++) {
-	    if (speccorr.getcorr()(ra,rb)>0. && regmargM(ra,rb)>0.5) {
-	      prev2curr[rb]=ra;
-	      curr2prev[ra]=rb;
-	      //then find state of region ra
-	      T_FEAT maxval=0.,val;
-	      size_t maxp=0;
-	      for (size_t p=0;p<RGS::cv_T::channels;p++) {
-		val=regpostM(ra,rb)[p];
-		if (val>maxval) {
-		  maxval=val; 
-		  maxp=p;
-		}
-	      }
-	      //	      region state matrix at ra, rb=maxp; //or does this belong somewhere in one of the data structures? probably not yet, let another entity decide as these correspondences will be calculated over a window to give multiple ideas and state values.
-	      regstateMv(0,ra)=maxp;
-	    }
-	  }
-	}
-	std::cout <<"prev2curr"<<std::endl;
-	for (size_t rb=0;rb<Bsize;rb++)
-	  std::cout <<"["<<rb<<"]="<<prev2curr[rb]<<",";
-	std::cout <<std::endl;
+  regstateMv=0;
+  std::fill(prev2curr.begin(),prev2curr.end(),-1);
+  std::fill(curr2prev.begin(),curr2prev.end(),-1);
+  for (size_t rb=0;rb<Bsize;rb++) {
+    for (size_t ra=0;ra<Asize;ra++) {
+      if (speccorr.getcorr()(ra,rb)>0. && regmargM(ra,rb)>0.5) {
+        prev2curr[rb]=ra;
+        curr2prev[ra]=rb;
+        //then find state of region ra
+        T_FEAT maxval=0.,val;
+        size_t maxp=0;
+        for (size_t p=0;p<RGS::cv_T::channels;p++) {
+    val=regpostM(ra,rb)[p];
+    if (val>maxval) {
+      maxval=val; 
+      maxp=p;
+    }
+        }
+        //        region state matrix at ra, rb=maxp; //or does this belong somewhere in one of the data structures? probably not yet, let another entity decide as these correspondences will be calculated over a window to give multiple ideas and state values.
+        regstateMv(0,ra)=maxp;
+      }
+    }
+  }
+  std::cout <<"prev2curr"<<std::endl;
+  for (size_t rb=0;rb<Bsize;rb++)
+    std::cout <<"["<<rb<<"]="<<prev2curr[rb]<<",";
+  std::cout <<std::endl;
 
-	std::cout <<"curr2prev"<<std::endl;
-	for (size_t ra=0;ra<Asize;ra++)
-	  std::cout <<"["<<ra<<"]="<<curr2prev[ra]<<",";
-	std::cout <<std::endl;
+  std::cout <<"curr2prev"<<std::endl;
+  for (size_t ra=0;ra<Asize;ra++)
+    std::cout <<"["<<ra<<"]="<<curr2prev[ra]<<",";
+  std::cout <<std::endl;
 
       }
     public:
       regioncorrespondences(void) 
-	:
-	regcorrM(cv::Mat_<T_FEAT>::zeros(_MAXNREGIONS,_MAXNREGIONS)),
-	regpostM(cv::Mat_<RGS::cv_T>::zeros(_MAXNREGIONS,_MAXNREGIONS)),
-	regpriorM(cv::Mat_<RGS::cv_T>::zeros(_MAXNREGIONS,_MAXNREGIONS)),
-	regmargM(cv::Mat_<T_FEAT>::zeros(_MAXNREGIONS,_MAXNREGIONS)),
-	Asize(0),Bsize(0),
-	regstateMv(cv::Mat_<size_t>::zeros(1,_MAXNREGIONS)),
-	prev2curr(_MAXNREGIONS,-1),
-	curr2prev(_MAXNREGIONS,-1)
+  :
+  regcorrM(cv::Mat_<T_FEAT>::zeros(_MAXNREGIONS,_MAXNREGIONS)),
+  regpostM(cv::Mat_<RGS::cv_T>::zeros(_MAXNREGIONS,_MAXNREGIONS)),
+  regpriorM(cv::Mat_<RGS::cv_T>::zeros(_MAXNREGIONS,_MAXNREGIONS)),
+  regmargM(cv::Mat_<T_FEAT>::zeros(_MAXNREGIONS,_MAXNREGIONS)),
+  Asize(0),Bsize(0),
+  regstateMv(cv::Mat_<size_t>::zeros(1,_MAXNREGIONS)),
+  prev2curr(_MAXNREGIONS,-1),
+  curr2prev(_MAXNREGIONS,-1)
       {
-	regcorrM=0.f;
-	regpostM=RGS::NORM;
-	regpriorM=RGS::NORM;
-	regmargM=0.f;
-	regstateMv=size_t(0);
+  regcorrM=0.f;
+  regpostM=RGS::NORM;
+  regpriorM=RGS::NORM;
+  regmargM=0.f;
+  regstateMv=size_t(0);
       }
       void operator() (const regsims &sim, const frame &fA, const frame &fB) {
-	//now what about eqs 6,7 and 8. 
-	//eq. 8 implicitly needs to know the state of the region but which region? region j of course
-	//loop through all previous regions, find their states x_c^j then multiply the transition probability to go to x_b^i
-	//each time instance should have an associated state array for each region.
-	Asize=fA.size(); Bsize=fB.size();
-	if (Asize>0 && Bsize>0) {
-	  makeprior(fA.size(),fB); //P(x_b^i|x_c^j,m(i,j)) 
-	  regpostM=regpriorM.mul(sim.getstatedata()); //eq. 6 or 7
-	  marginalise<RGS::cv_T::value_type,RGS::cv_T::channels>(regpostM,regmargM); //eq. 8
+  //now what about eqs 6,7 and 8. 
+  //eq. 8 implicitly needs to know the state of the region but which region? region j of course
+  //loop through all previous regions, find their states x_c^j then multiply the transition probability to go to x_b^i
+  //each time instance should have an associated state array for each region.
+  Asize=fA.size(); Bsize=fB.size();
+  if (Asize>0 && Bsize>0) {
+    makeprior(fA.size(),fB); //P(x_b^i|x_c^j,m(i,j)) 
+    regpostM=regpriorM.mul(sim.getstatedata()); //eq. 6 or 7
+    marginalise<RGS::cv_T::value_type,RGS::cv_T::channels>(regpostM,regmargM); //eq. 8
 
-	  std::cout <<"Marginal:"<<std::endl;
-	  op_cvMat<T_FEAT>(std::cout,regmargM(cv::Range(0,Asize),cv::Range(0,Bsize)));
+    std::cout <<"Marginal:"<<std::endl;
+    op_cvMat<T_FEAT>(std::cout,regmargM(cv::Range(0,Asize),cv::Range(0,Bsize)));
 
-	  speccorr(regmargM(cv::Range(0,fA.size()),cv::Range(0,fB.size())));
+    speccorr(regmargM(cv::Range(0,fA.size()),cv::Range(0,fB.size())));
 
-	  std::cout <<"Spect:"<<std::endl;
-	  op_cvMat<T_FEAT>(std::cout,speccorr.getspect());
+    std::cout <<"Spect:"<<std::endl;
+    op_cvMat<T_FEAT>(std::cout,speccorr.getspect());
 
-	  std::cout <<"correspondences"<<std::endl;
-	  op_cvMat<T_FEAT>(std::cout,speccorr.getcorr());
+    std::cout <<"correspondences"<<std::endl;
+    op_cvMat<T_FEAT>(std::cout,speccorr.getcorr());
 
-	  findstatesandmakeveccorr(Asize,Bsize);
-//	  op_cvMat<RGS::cv_T::value_type,RGS::cv_T::channels>(std::cout,regpostM(cv::Range(0,Asize),cv::Range(0,Bsize)));
+    findstatesandmakeveccorr(Asize,Bsize);
+//    op_cvMat<RGS::cv_T::value_type,RGS::cv_T::channels>(std::cout,regpostM(cv::Range(0,Asize),cv::Range(0,Bsize)));
 
 //          prev2curr[rb]=ra;
 //          curr2prev[ra]=rb;
-	  std::cout <<"prev2curr IDs"<<std::endl;
-	  for (size_t rb=0;rb<Bsize;rb++) {
-	    size_t bhash,ahash;
-	    bhash=fB[rb].uid_hash();
-	    if (prev2curr[rb]==-1)
-	      ahash=0;
-	    else
-	      ahash=fA[prev2curr[rb]].uid_hash();
-	    std::cout <<bhash<<"->"<<ahash<<",";
-	  }
-	  std::cout <<std::endl;
+    std::cout <<"prev2curr IDs"<<std::endl;
+    for (size_t rb=0;rb<Bsize;rb++) {
+      size_t bhash,ahash;
+      bhash=fB[rb].uid_hash();
+      if (prev2curr[rb]==-1)
+        ahash=0;
+      else
+        ahash=fA[prev2curr[rb]].uid_hash();
+      std::cout <<bhash<<"->"<<ahash<<",";
+    }
+    std::cout <<std::endl;
           std::cout <<"curr2prev IDs"<<std::endl;
           for (size_t ra=0;ra<Asize;ra++) {
             size_t bhash,ahash;
@@ -274,20 +274,20 @@ namespace gg {
             std::cout <<ahash<<"->"<<bhash<<",";
           }
           std::cout <<std::endl;
-	}
-	else {
-	  std::fill(prev2curr.begin(),prev2curr.end(),-1);
-	  std::fill(curr2prev.begin(),curr2prev.end(),-1);
-	}
+  }
+  else {
+    std::fill(prev2curr.begin(),prev2curr.end(),-1);
+    std::fill(curr2prev.begin(),curr2prev.end(),-1);
+  }
       }
       void setstates(frame &fA) {
-	assert(fA.size()==Asize);
-	for (size_t ra=0;ra<Asize;ra++) 
-	  fA[ra].state(REGSTATE(regstateMv(0,ra)));
+  assert(fA.size()==Asize);
+  for (size_t ra=0;ra<Asize;ra++) 
+    fA[ra].state(REGSTATE(regstateMv(0,ra)));
 #if(0)
-	for (size_t ra=0;ra<Asize;ra++) 
-	  std::cout <<fA[ra].state()<<",";
-	std::cout <<std::endl;
+  for (size_t ra=0;ra<Asize;ra++) 
+    std::cout <<fA[ra].state()<<",";
+  std::cout <<std::endl;
 #endif
       }
       const CORRS& getcurr2prev(void) const {return curr2prev;}

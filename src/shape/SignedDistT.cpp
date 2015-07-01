@@ -57,29 +57,29 @@ void CSignedDistT::PerformOp(void) {
     IMAGEBYTE_T *rawInitSnake=(IMAGEBYTE_T*)(m_img->imageData);
     int pos;
     for(int j=0;j<m_Y;j++) {
-	for(int i=0;i<m_X;i++){
-	    pos = j*m_X+i;
-	    rawInitCurve[pos] = rawInitSnake[pos];
-	    if(rawInitSnake[pos]!=m_contourVal)
-		m_rawInitLevelSet[pos] = SIGNDIST_INFINITY;
-	    else
-		m_rawInitLevelSet[pos] = 0;
-	}
+  for(int i=0;i<m_X;i++){
+      pos = j*m_X+i;
+      rawInitCurve[pos] = rawInitSnake[pos];
+      if(rawInitSnake[pos]!=m_contourVal)
+    m_rawInitLevelSet[pos] = SIGNDIST_INFINITY;
+      else
+    m_rawInitLevelSet[pos] = 0;
+  }
     }
 
     CalcSignMap();
 
     for(int j=0;j<m_Y;j++) {
-	for(int i=0;i<m_X;i++) {
-	    pos=j*m_X+i;
-	    m_rawInitLevelSet[pos] = minForward(pos, i, j);
-	}
+  for(int i=0;i<m_X;i++) {
+      pos=j*m_X+i;
+      m_rawInitLevelSet[pos] = minForward(pos, i, j);
+  }
     }
     for(int j=m_Y-1;j>=0;j--) {
-	for(int i=m_X-1;i>=0;i--) {
-	    pos=j*m_X+i;
-	    m_rawInitLevelSet[pos] = minBackward(pos, i, j);
-	}
+  for(int i=m_X-1;i>=0;i--) {
+      pos=j*m_X+i;
+      m_rawInitLevelSet[pos] = minBackward(pos, i, j);
+  }
     }
 #if(0)
     IplImage *tmpImg=cvCloneImage(m_sgndDistT);
@@ -109,40 +109,40 @@ void CSignedDistT::CalcSignMap(void) {
     int cnt, pos;
 
     do{
-	cnt = 0;
-	for(int j=0;j<m_Y;j++) {
-	    for(int i=0;i<m_X;i++){
-		pos=j*m_X+i;
-		if(rawInitCurve[pos]==SIGNDIST_POSITIVE){
-		    if((i+1<m_X) && (rawInitCurve[pos+1]==0)){
-			rawInitCurve[pos+1] = SIGNDIST_POSITIVE;
-			cnt ++;
-		    }
-		    if((i-1>=0) && (rawInitCurve[pos-1]==0)){
-			rawInitCurve[pos-1] = SIGNDIST_POSITIVE;
-			cnt ++;
-		    }
-		    if((j+1<m_Y) && (rawInitCurve[pos+m_X]==0)){
-			rawInitCurve[pos+m_X] = SIGNDIST_POSITIVE;
-			cnt ++;
-		    }
-		    if((j-1>=0) && (rawInitCurve[pos-m_X]==0)){
-			rawInitCurve[pos-m_X] = SIGNDIST_POSITIVE;
-			cnt ++;
-		    }
-		}
-	    }
-	}
+  cnt = 0;
+  for(int j=0;j<m_Y;j++) {
+      for(int i=0;i<m_X;i++){
+    pos=j*m_X+i;
+    if(rawInitCurve[pos]==SIGNDIST_POSITIVE){
+        if((i+1<m_X) && (rawInitCurve[pos+1]==0)){
+      rawInitCurve[pos+1] = SIGNDIST_POSITIVE;
+      cnt ++;
+        }
+        if((i-1>=0) && (rawInitCurve[pos-1]==0)){
+      rawInitCurve[pos-1] = SIGNDIST_POSITIVE;
+      cnt ++;
+        }
+        if((j+1<m_Y) && (rawInitCurve[pos+m_X]==0)){
+      rawInitCurve[pos+m_X] = SIGNDIST_POSITIVE;
+      cnt ++;
+        }
+        if((j-1>=0) && (rawInitCurve[pos-m_X]==0)){
+      rawInitCurve[pos-m_X] = SIGNDIST_POSITIVE;
+      cnt ++;
+        }
+    }
+      }
+  }
 
     }while(cnt>0);
 
     for(int j=0;j<m_Y;j++) {
-	for(int i=0;i<m_X;i++){
-	    pos=j*m_X+i;
-	    if(rawInitCurve[pos]==SIGNDIST_POSITIVE)
-		rawSignMap[pos] = 1.0f;
-	    else rawSignMap[pos] = -1.0f;
-	}
+  for(int i=0;i<m_X;i++){
+      pos=j*m_X+i;
+      if(rawInitCurve[pos]==SIGNDIST_POSITIVE)
+    rawSignMap[pos] = 1.0f;
+      else rawSignMap[pos] = -1.0f;
+  }
     }
 }
 //++++++++++++++++++++++++++++++++++

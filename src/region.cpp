@@ -29,14 +29,14 @@ namespace region{
     while (std::getline(imglist,imgfile)) {
       //      std::cout <<imgfile<<std::endl;
       if ((img=cvLoadImage(imgfile.c_str(),readflag))!=0) {
-	std::cout <<"Read:"<<imgfile<<std::endl;
-	if (!iscolor)
-	  cvThreshold(img,img,225,255,CV_THRESH_BINARY);
-	imgvect.push_back(img);
+  std::cout <<"Read:"<<imgfile<<std::endl;
+  if (!iscolor)
+    cvThreshold(img,img,225,255,CV_THRESH_BINARY);
+  imgvect.push_back(img);
       }
       else {
-	std::cout <<"ERROR LOADING:"<<imgfile<<std::endl;
-	exit(0);
+  std::cout <<"ERROR LOADING:"<<imgfile<<std::endl;
+  exit(0);
       }
     }
   }
@@ -51,10 +51,10 @@ namespace region{
     while (std::getline(imglist,imgfile)) {
       img=cv::imread(imgfile.c_str(),readflag);
       if (!img.empty()) {
-	std::cout <<"Read:"<<imgfile<<std::endl;
-	if (!iscolor)
-	  cv::threshold(img,img,225,255,CV_THRESH_BINARY);
-	imgvect.push_back(img);
+  std::cout <<"Read:"<<imgfile<<std::endl;
+  if (!iscolor)
+    cv::threshold(img,img,225,255,CV_THRESH_BINARY);
+  imgvect.push_back(img);
       }
       else throw std::exception();
     }
@@ -102,7 +102,7 @@ namespace region{
     for (REGIONPNTS::const_iterator it=a.begin();it!=a.end();++it) {
       x=(*it).x; y=(*it).y;
       if (x>=0 && x<width && y>=0 && y<height)
-	data[y*img->widthStep+x]=255;
+  data[y*img->widthStep+x]=255;
     }
   }
   //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -111,9 +111,9 @@ namespace region{
     for (size_t j=0;j<img.rows;j++) {
       const uchar *raw=img.ptr<uchar>(j);
       for (size_t i=0;i<img.cols;i++) {
-	if (raw[i]>0) 
-	  r.push_back(cv::Point(i,j));
-	  
+  if (raw[i]>0) 
+    r.push_back(cv::Point(i,j));
+    
       }
     }
   }
@@ -131,9 +131,9 @@ namespace region{
     for (int i=0;i<imgvect.size();i++) {
       std::string opfilename=basefilename+ACDefinitions::StringAndZeroPad(i,pad)+".jpg";
       if (imgvect[i]->nChannels==1)
-	ACDefinitions::ACSaveImg(imgvect[i],opfilename);
+  ACDefinitions::ACSaveImg(imgvect[i],opfilename);
       else
-	cvSaveImage(opfilename.c_str(),imgvect[i]);
+  cvSaveImage(opfilename.c_str(),imgvect[i]);
     }
   }
   void ExportImages(std::list<IplImage*> &imglist, std::string basefilename, int pad) {
@@ -175,9 +175,9 @@ namespace region{
       nopntstoinclude=r.size();
     for (uint i=0;i<nopntstoinclude;i++) {
       if (r[i].x<minxminy.x)
-	minxminy.x=r[i].x;
+  minxminy.x=r[i].x;
       if (r[i].y<minxminy.y)
-	minxminy.y=r[i].y;
+  minxminy.y=r[i].y;
     }
     return  minxminy;
   }
@@ -189,9 +189,9 @@ namespace region{
       nopntstoinclude=r.size();
     for (uint i=0;i<nopntstoinclude;i++) {
       if (r[i].x>maxxmaxy.x)
-	maxxmaxy.x=r[i].x;
+  maxxmaxy.x=r[i].x;
       if (r[i].y>maxxmaxy.y)
-	maxxmaxy.y=r[i].y;
+  maxxmaxy.y=r[i].y;
     }
     return  maxxmaxy;
   }
@@ -207,12 +207,12 @@ namespace region{
     //    if (a.type()==cv::DataType<float>::type && b.type()==cv::DataType<float>::type) {
     if (a.cols>0) {
       if (b.cols==0) 
-	b=a;
+  b=a;
       else {
-	const cv::Mat_<cv::Point2f> ta(a);
-	cv::Mat_<cv::Point2f> tb(b);
-	//    AppendMatRowDir<cv::Point2f>(const cv::Mat_<cv::Point2f>(a),cv::Mat_<cv::Point2f>(b));
-	AppendMatRowDir<cv::Point2f>(ta,tb);
+  const cv::Mat_<cv::Point2f> ta(a);
+  cv::Mat_<cv::Point2f> tb(b);
+  //    AppendMatRowDir<cv::Point2f>(const cv::Mat_<cv::Point2f>(a),cv::Mat_<cv::Point2f>(b));
+  AppendMatRowDir<cv::Point2f>(ta,tb);
       }
     }
 #endif

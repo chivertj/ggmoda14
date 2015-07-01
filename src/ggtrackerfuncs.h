@@ -40,14 +40,14 @@ namespace gg {
     std::cout <<"Constructing regions"<<std::endl;
     for (size_t i=0;i<nregs;i++) {
       if (regs[i].size()>0) {
-	region::SetBinImg(regs[i],&cmask,true);
-	cv::Mat regpnts=cv::Mat(regs[i]);
-	regionhierarchy regprops(img,mask,regpnts);
-	std::cout <<"REGION:"<<i<<"\t"
-                  <<"CENTER:"<<regprops.getboundbox().center.x<<","<<regprops.getboundbox().center.y<<"\t"
-                  <<"SIZE:"<<regprops.getboundbox().size.width<<","<<regprops.getboundbox().size.height<<"\t";
-	f[i].set(mask,regprops);
-	std::cout <<"ID:"<<f[i].uid_hash()<<std::endl;
+  region::SetBinImg(regs[i],&cmask,true);
+  cv::Mat regpnts=cv::Mat(regs[i]);
+  regionhierarchy regprops(img,mask,regpnts);
+  std::cout <<"REGION:"<<i<<"\t"
+        <<"CENTER:"<<regprops.getboundbox().center.x<<","<<regprops.getboundbox().center.y<<"\t"
+              <<"SIZE:"<<regprops.getboundbox().size.width<<","<<regprops.getboundbox().size.height<<"\t";
+  f[i].set(mask,regprops);
+  std::cout <<"ID:"<<f[i].uid_hash()<<std::endl;
       }
     }
     //    f.recountvalid();
@@ -68,8 +68,8 @@ namespace gg {
       
       regionhierarchy regprops(img,mask,regpnts);
       std::cout <<"REGION:"<<i<<"\t"
-		<<"CENTER:"<<regprops.getboundbox().center.x<<","<<regprops.getboundbox().center.y<<"\t"
-		<<"SIZE:"<<regprops.getboundbox().size.width<<","<<regprops.getboundbox().size.height<<"\t";
+    <<"CENTER:"<<regprops.getboundbox().center.x<<","<<regprops.getboundbox().center.y<<"\t"
+    <<"SIZE:"<<regprops.getboundbox().size.width<<","<<regprops.getboundbox().size.height<<"\t";
       f[i].set(mask,regprops);
       std::cout <<"ID:"<<f[i].uid_hash()<<std::endl;
     }

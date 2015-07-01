@@ -35,10 +35,10 @@ namespace gg {
       const uchar *rawdata=img.ptr<uchar>(y);
       const uchar *rawmask=mask.ptr<uchar>(y);
       for (size_t x=0;x<imgdims[1];x++) {
-	if (rawmask[x]>0) {
-	  v=bincalc_nobins(float(rawdata[x]),ranges[0],ranges[1],nbins);
-	  hist.at<float>(v)++;
-	}
+  if (rawmask[x]>0) {
+    v=bincalc_nobins(float(rawdata[x]),ranges[0],ranges[1],nbins);
+    hist.at<float>(v)++;
+  }
       }
     }
     if (pdf.dims==0)

@@ -55,7 +55,7 @@ namespace gg {
       const T_PDF *rawpdf=pdf.ptr<T_PDF>(0);
       const T_PDF *rawfpdf=f.pdf.ptr<T_PDF>(0); 
       for (size_t i=0;i<pdf.cols;i++) 
-	val+=pow(rawpdf[i]-rawfpdf[i],2.);
+  val+=pow(rawpdf[i]-rawfpdf[i],2.);
       val/=float(pdf.cols);
       val=sqrt(val);
       return val;

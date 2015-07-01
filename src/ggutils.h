@@ -66,8 +66,8 @@ namespace gg {
     T  maxval=row.ptr<T>(0)[0];
     for (size_t i=0;i<row.cols;i++) {
       if (r[i]>maxval) {
-	maxval=r[i];
-	maxidx=i;
+  maxval=r[i];
+  maxidx=i;
       }
     }
     return maxidx;
@@ -79,8 +79,8 @@ namespace gg {
     T maxval=col.ptr<T>(0)[0];
     for (size_t i=0;i<col.rows;i++) {
       if (col.ptr<T>(i)[0]>maxval) {
-	maxval=col.ptr<T>(i)[0];
-	maxidx=i;
+  maxval=col.ptr<T>(i)[0];
+  maxidx=i;
       }
     }
     return maxidx;
@@ -99,7 +99,7 @@ namespace gg {
     for (size_t i=0;i<data.cols;i++) {
       size_t maxidx=gg::maxcolidx<T>(data.col(i));
       if (max_rows.template at<T>(maxidx,i)>0.)
-	max.at<T>(maxidx,i)=1.;
+  max.at<T>(maxidx,i)=1.;
     }
   }
   //############################################

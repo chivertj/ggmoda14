@@ -38,7 +38,7 @@ namespace gg {
     void init(size_t N) {
       v.resize(N);
       for (size_t n=0;n<N;n++) 
-	v[n].idx=n;
+  v[n].idx=n;
     }
     inline const T& operator [] (size_t n) const { return v[n]; }
     inline idxattribute<T,I>& operator [] (size_t n) { return v[n]; }

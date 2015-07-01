@@ -66,27 +66,27 @@ namespace gg {
         pidx=idx;
         idx=inc(NFRAMES,idx);
 
-	frames[idx].set(f);
+        frames[idx].set(f);
 
-	regtracker.predict();
+        regtracker.predict();
 
-	frames[idx].mergeregions(regtracker.prediction());
+        frames[idx].mergeregions(regtracker.prediction());
 
-	sims[idx](frames[idx],frames[pidx]);
-	corrs[idx](sims[idx],frames[idx],frames[pidx]);
-	corrs[idx].setstates(frames[idx]);
+        sims[idx](frames[idx],frames[pidx]);
+        corrs[idx](sims[idx],frames[idx],frames[pidx]);
+        corrs[idx].setstates(frames[idx]);
 
-//	imgdata.add(f.getimgdata(),timeval);
-	frames[idx].settime(timeval);
+//  imgdata.add(f.getimgdata(),timeval);
+        frames[idx].settime(timeval);
 
-	regtracker.correct(frames[idx],corrs[idx]);
+        regtracker.correct(frames[idx],corrs[idx]);
       }
       else {
-	init=true; 
-	frames[idx].set(f);
+        init=true;
+        frames[idx].set(f);
 
-//	imgdata.add(f.getimgdata(),timeval);
-	frames[idx].settime(timeval);
+//  imgdata.add(f.getimgdata(),timeval);
+        frames[idx].settime(timeval);
       }
       //      region::ExportImage(f.getimgdata(),"timwin",3,framecntr);
       std::cout <<"ggtimewindow timeval:"<<timeval<<std::endl;

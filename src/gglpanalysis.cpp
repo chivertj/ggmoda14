@@ -30,11 +30,11 @@ void gg::LPAnalysis::operator() (region::IREGv &grndtrths, region::IREGv &colori
       region::ExportImage(lowpass.GetLowPassScaled(),"lpimg",3,idx);
       gg::SubRegions(grndtrths[idx], subregions);
       for (int regidx=0;regidx<subregions.size();regidx++) {
-	gg::AnalyseLP(subregions[regidx],lowpass,histo,pdf);
-	if (allpdfs.empty()) 
-	  allpdfs=cv::Mat::zeros(grndtrths.size(),pdf.cols*gg::_nosubregions,pdf.type());
-	cv::Mat allpdfrange=allpdfs(cv::Range(idx,idx+1),cv::Range(regidx*pdf.cols,(regidx+1)*pdf.cols));
-	pdf.copyTo(allpdfrange);
+  gg::AnalyseLP(subregions[regidx],lowpass,histo,pdf);
+  if (allpdfs.empty()) 
+    allpdfs=cv::Mat::zeros(grndtrths.size(),pdf.cols*gg::_nosubregions,pdf.type());
+  cv::Mat allpdfrange=allpdfs(cv::Range(idx,idx+1),cv::Range(regidx*pdf.cols,(regidx+1)*pdf.cols));
+  pdf.copyTo(allpdfrange);
       }
     }
   }  
@@ -53,9 +53,9 @@ void gg::LPAnalysis::operator() (const cv::Mat &fg, const cv::Mat &img, gg::LowP
     for (size_t regidx=0;regidx<subregions.size();regidx++) {
       gg::AnalyseLP(subregions[regidx],lowpass,histo,pdf);
       if (allpdfs.empty())
-	allpdfs=cv::Mat::zeros(1,pdf.cols*gg::_nosubregions,pdf.type());
+  allpdfs=cv::Mat::zeros(1,pdf.cols*gg::_nosubregions,pdf.type());
       cv::Mat allpdfrange=allpdfs.colRange(regidx*pdf.cols,(regidx+1)*pdf.cols);
-	//allpdfs(1,cv::Range(regidx*pdf.cols,(regidx+1)*pdf.cols));
+  //allpdfs(1,cv::Range(regidx*pdf.cols,(regidx+1)*pdf.cols));
 
       pdf.copyTo(allpdfrange);
     }

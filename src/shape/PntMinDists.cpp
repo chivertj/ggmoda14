@@ -38,8 +38,8 @@ void CPntMinDists::Calc(const std::vector<cv::Point> &boundary, const std::vecto
     for (int s=0;s<skeleton.size();s++) {
       dist=sqrt(pow(boundary[b].x-skeleton[s].x,2.)+pow(boundary[b].y-skeleton[s].y,2.));
       if (dist<mindist) {
-	mindist=dist;
-	minidx=s;
+  mindist=dist;
+  minidx=s;
       }
     }
     m_dists[b]=mindist;
@@ -72,10 +72,10 @@ void CPntMinDists::Convert(const cv::Mat &skelimg) {
     const ACDefinitions::IMAGEDATA_T *sdata=skelimg.ptr<const ACDefinitions::IMAGEDATA_T>(y);
     for (int x=0;x<s.width;x++) {
       if (sdata[x]!=0) {
-	m_skeleton[sidx].x=x;
-	m_skeleton[sidx++].y=y;
-	if (sidx==nskeleton)
-	  break;
+  m_skeleton[sidx].x=x;
+  m_skeleton[sidx++].y=y;
+  if (sidx==nskeleton)
+    break;
       }
     }
     if (sidx==nskeleton)

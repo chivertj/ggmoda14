@@ -25,18 +25,18 @@
 
 namespace gg {
   void exportcolm(const cv::Mat &colm, size_t Y, 
-		  const std::string &name, 
-		  bool transpose=false);
+      const std::string &name, 
+      bool transpose=false);
   void exportrowm(const cv::Mat &rowm, size_t X, const std::string &name);
   cv::PCA compressPCA(const cv::Mat& pcaset, int maxComponents,
-		      const cv::Mat& testset, cv::Mat& compressed, 
-		      cv::Mat &reconstructset);
+          const cv::Mat& testset, cv::Mat& compressed, 
+          cv::Mat &reconstructset);
   cv::PCA robcompressPCA(const cv::Mat& pcaset, int maxComponents,
-			 const cv::Mat& testset, 
-			 cv::Mat_<float>& compressed, cv::Mat &reconstructset);
+       const cv::Mat& testset, 
+       cv::Mat_<float>& compressed, cv::Mat &reconstructset);
   int getdata(const std::string &filename, uchar **data);
   void converttocolmat(uchar *rawdata,
-		       size_t nimgs,
-		       size_t X, size_t Y, 
-		       cv::Mat &colmat);
+           size_t nimgs,
+           size_t X, size_t Y, 
+           cv::Mat &colmat);
 }

@@ -80,15 +80,15 @@ IplImage* ACDefinitions::ACZeroContourAndColourMerge(IplImage *image, IplImage *
     CvScalar contourCol=cvScalar(0,255,255);
     //    CvScalar contourCol=cvScalar(0,0,255);
     for (int y=1;y<Y-1;y++) {
-	for (int x=1;x<X-1;x++) {
-	    i=y*X+x;
-	    if (rawLevelSet[i]>(-ACLITTLENUMBER) && rawLevelSet[i]<ACLITTLENUMBER ) {
-	      //		cvSet2D(zeroContour,y,x,cvScalarAll(255));
-		cvSet2D(zeroContour,y,x,contourCol);
-		cvSet2D(zeroContour,y,x-1,contourCol);
-		cvSet2D(zeroContour,y+1,x,contourCol);
-	    }
-	}
+  for (int x=1;x<X-1;x++) {
+      i=y*X+x;
+      if (rawLevelSet[i]>(-ACLITTLENUMBER) && rawLevelSet[i]<ACLITTLENUMBER ) {
+        //    cvSet2D(zeroContour,y,x,cvScalarAll(255));
+    cvSet2D(zeroContour,y,x,contourCol);
+    cvSet2D(zeroContour,y,x-1,contourCol);
+    cvSet2D(zeroContour,y+1,x,contourCol);
+      }
+  }
     }
     return zeroContour;
 }
@@ -103,12 +103,12 @@ IplImage* ACDefinitions::ACPosNegThreshold(IplImage *levelSet, bool negThresh) {
     IMAGEBYTE_T *rawThreshold=(IMAGEBYTE_T*)(threshold->imageData);
     float levelSetVal;
     for (int y=0;y<Y;y++) {
-	for (int x=0;x<X;x++) {
-	    levelSetVal=rawLevelSet[y*X+x];
-	    if ((negThresh && levelSetVal<=0.) || (!negThresh && levelSetVal>=0.)) {
-		rawThreshold[y*X+x]=255;
-	    }
-	}
+  for (int x=0;x<X;x++) {
+      levelSetVal=rawLevelSet[y*X+x];
+      if ((negThresh && levelSetVal<=0.) || (!negThresh && levelSetVal>=0.)) {
+    rawThreshold[y*X+x]=255;
+      }
+  }
     }
     return threshold;
 }

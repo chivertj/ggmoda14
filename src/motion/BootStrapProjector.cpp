@@ -133,14 +133,14 @@ void CBootStrapProjector::BackProject(void) {
     float combMaskCnt=0;
     for (int i=0;i<size;i++) {
       if (rawCombMask[i]>0) {
-	combMaskCnt++;
-	rawI_BN[i]=exp(haloMixtModel.GetLogProb(&rawImg[i*3]));
-	rawI[i]=exp(combMixtModel.GetLogProb(&rawImg[i*3]));
-	rawRes[i]=1.-rawI_BN[i]*bgPrior/(rawI[i]+1e-100);
-	if (rawRes[i]<0.)
-	  rawRes[i]=0.;
-	else if (rawRes[i]>1.)
-	  rawRes[i]=1.;
+  combMaskCnt++;
+  rawI_BN[i]=exp(haloMixtModel.GetLogProb(&rawImg[i*3]));
+  rawI[i]=exp(combMixtModel.GetLogProb(&rawImg[i*3]));
+  rawRes[i]=1.-rawI_BN[i]*bgPrior/(rawI[i]+1e-100);
+  if (rawRes[i]<0.)
+    rawRes[i]=0.;
+  else if (rawRes[i]>1.)
+    rawRes[i]=1.;
       }
     }
     std::cout <<"\t ex inferring..."<<std::endl;
@@ -151,19 +151,19 @@ void CBootStrapProjector::BackProject(void) {
     for (int j=0;j<noIters;j++) {
       ttlFG=0.;
       for (int i=0;i<size;i++)
-	ttlFG+=rawRes[i];
+  ttlFG+=rawRes[i];
       fgPrior=ttlFG/combMaskCnt;
       //    cout <<fgPrior<<" "<<flush;
       bgPrior=1.-fgPrior;
       cvZero(m_mixtModelRes);
       for (int i=0;i<size;i++) {
-	if (rawCombMask[i]>0) {
-	  rawRes[i]=1.-rawI_BN[i]*bgPrior/(rawI[i]+1e-100);
-	  if (rawRes[i]<0.)
-	    rawRes[i]=0.;
-	  else if (rawRes[i]>1.)
-	    rawRes[i]=1.;
-	}
+  if (rawCombMask[i]>0) {
+    rawRes[i]=1.-rawI_BN[i]*bgPrior/(rawI[i]+1e-100);
+    if (rawRes[i]<0.)
+      rawRes[i]=0.;
+    else if (rawRes[i]>1.)
+      rawRes[i]=1.;
+  }
       }
     }
 #endif
@@ -189,8 +189,8 @@ void CBootStrapProjector::BiggestRegion(void) {
       int nononzero=bwlabel.BorrowRegions()[i].size();
       //      std::cout <<i<<":"<<nononzero<<" ";
       if (nononzero>maxnononzero) {
-	maxnononzero=nononzero;
-	maxidx=i;
+  maxnononzero=nononzero;
+  maxidx=i;
       }
     }
     //    std::cout <<std::endl<<"MAX:"<<maxidx<<std::endl;

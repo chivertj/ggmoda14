@@ -51,11 +51,11 @@ public:
     IDXS nonzero;
     for (size_t j=0;j<ipm.rows;j++) {
       if (ipm(j,0)>std::numeric_limits<T>::epsilon() || (std::numeric_limits<T>::is_signed && ipm(j,0)<-std::numeric_limits<T>::epsilon()))
-	nonzero.push_back(j);
+  nonzero.push_back(j);
 #if(0)
       else 
-	if (rng(10)>7) 
-	  nonzero.push_back(j);
+  if (rng(10)>7) 
+    nonzero.push_back(j);
 #endif
     }
     std::cout <<ipm.rows<<"->\t"<<nonzero.size()<<std::endl;
@@ -88,7 +88,7 @@ public:
     IDXS points;
     for (size_t j=0;j<err.rows;j++) {
       if (err(j,0)<=err_marg) 
-	points.push_back(j);
+  points.push_back(j);
     }
     return points;
   }
@@ -111,10 +111,10 @@ public:
     for (size_t j=0;j<N;j++) {
       const cv::Mat_<T> X_col=X.col(j);
       for (size_t i=0;i<nh;i++) {
-	std::cout <<"\t genHypo..."<<std::endl;
-	cv::Mat_<T> Acand_col=genHypo<T>(X_col,Xm,U,k,r,s);
-	std::cout <<"\t copy..."<<std::endl;
-	std::copy(Acand_col.begin(),Acand_col.end(),Acand.col(i).begin());
+  std::cout <<"\t genHypo..."<<std::endl;
+  cv::Mat_<T> Acand_col=genHypo<T>(X_col,Xm,U,k,r,s);
+  std::cout <<"\t copy..."<<std::endl;
+  std::copy(Acand_col.begin(),Acand_col.end(),Acand.col(i).begin());
       }
       std::cout <<"selCoef..."<<std::endl;
       cv::Mat_<T> A_col=selCoef<T>(X_col,Xm,U,Acand,L);
@@ -145,7 +145,7 @@ public:
       s_points=IDXS(s_points_size);
       rng.fill(_s_points,cv::RNG::UNIFORM,cv::Scalar(0.),cv::Scalar(nonzeropnts.size()));
       for (size_t i=0;i<k*K;i++) 
-	s_points[i]=nonzeropnts[_s_points(i,0)];
+  s_points[i]=nonzeropnts[_s_points(i,0)];
     }
     else
       s_points=nonzeropnts;
@@ -179,7 +179,7 @@ public:
       A=select_rows<T>(A,points);
       nbp=points.size();
       for (size_t i=0;i<nbp;i++)
-	points[i]=i;
+  points[i]=i;
       cv::solve(A,B,sol,cv::DECOMP_QR);
       err=cv::abs(A*sol-B); //cv::absdiff(A*sol,B);
     }

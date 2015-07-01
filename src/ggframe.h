@@ -39,7 +39,7 @@ namespace gg {
       props(_props)
     { 
       for (size_t i=0;i<regions.size();i++)
-	regions[i]=frameregion(_props);
+  regions[i]=frameregion(_props);
     }
     frame(const frame &f) :
         regions(_MAXNREGIONS),
@@ -75,14 +75,14 @@ namespace gg {
     frameregion& operator[] (size_t idx) { 
       //      std::cout <<"ggframeL40:"<<idx<<","<<nvalidregions<<std::endl; 
       if (idx>nregions) 
-	throw gg::error("ggframe.hL39"); 
+        throw gg::error("ggframe.hL39");
       return regions[idx]; 
     }
     void unset(void) { for (size_t i=0;i<nvalidregions;i++) regions[i].unset(); nvalidregions=0; }
     void resize(size_t _nvalidregions) {
       //      std::cout <<"ggframe.hL48:"<<nregions<<","<<_nvalidregions<<std::endl;
       if (_nvalidregions>nregions)
-	throw gg::error("ggframe.hL49");
+        throw gg::error("ggframe.hL49");
       unset();
       nvalidregions=_nvalidregions;
     }
@@ -169,13 +169,13 @@ namespace gg {
     //    {}
     frame& operator[] (size_t i) {
       if (i<frames.size())
-	return frames[i];
+  return frames[i];
       throw gg::error("ggframe.hL68");
       return nullframe;
     }
     const frame& operator[] (size_t i) const {
       if (i<frames.size())
-	return frames[i];
+  return frames[i];
       throw gg::error("ggframe.hL74");
       return nullframe;
     }
@@ -198,8 +198,8 @@ namespace gg {
     void add(const cv::Mat &img) {
       imgdata.push_back(img);
       if (times.size()>0) {
-    	  int timessize=times.size();
-    	  times.push_back(times[timessize-1]+1);
+        int timessize=times.size();
+        times.push_back(times[timessize-1]+1);
       }
       else times.push_back(0);
     }

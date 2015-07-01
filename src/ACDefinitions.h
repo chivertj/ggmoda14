@@ -63,13 +63,13 @@ namespace ACDefinitions {
 
 //><-><-><-><-><-><-><-><-><-><-><-><-><-><-><-><-><-><
     template <class ACTUPLE_T>
-	struct AC3TUPLE {
-	    ACTUPLE_T R;
-	    ACTUPLE_T G;
-	    ACTUPLE_T B;
+  struct AC3TUPLE {
+      ACTUPLE_T R;
+      ACTUPLE_T G;
+      ACTUPLE_T B;
       AC3TUPLE(void) : R(0), G(0),B(0) {}
       AC3TUPLE(ACTUPLE_T r, ACTUPLE_T g, ACTUPLE_T b) : R(r), G(g),B(b) {}
-	};
+  };
 //><-><-><-><-><-><-><-><-><-><-><-><-><-><-><-><-><-><
 template <class ACPNT_T>
   struct ACPnt {
@@ -167,7 +167,7 @@ template<> inline IplImage* ACDefinitions::ACPosNeg<double>(IplImage *levelSet, 
     for (int x=0;x<X;x++) {
       levelSetVal=rawLevelSet[y*X+x];
       if ((negThresh && levelSetVal<=0.) || (!negThresh && levelSetVal>=0.)) {
-	rawThreshold[y*X+x]=255;
+  rawThreshold[y*X+x]=255;
       }
     }
   }

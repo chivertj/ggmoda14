@@ -125,23 +125,23 @@ int main(int argc, char** argv)
       std::cout <<"*****************************************"<<std::endl;
       //###################
       if (bgfg_segmenter(queryframe)) {// && fr>1500) {
-	cvCopy(bgfg_segmenter.Get(),ttlfgmap);
-	if (fgmask) 
-	  cvAnd(ttlfgmap,fgmask,ttlfgmap);
+  cvCopy(bgfg_segmenter.Get(),ttlfgmap);
+  if (fgmask) 
+    cvAnd(ttlfgmap,fgmask,ttlfgmap);
 
-	int numregions=labeller.CalcRegions();
-	std::cout <<"NUMREGS:"<<numregions<<std::endl;
-	//###############################
-	labeller.MakeCLabelImg();
-	cvWriteFrame(labelvidout,labeller.BorrowCLabelImg());
-	//###############################
-	region::REGIONS regs=labeller.BorrowRegions();
-	TrimRegions(regs,numregions,trimdregs,trimdnregs);
-	std::cout <<"trimdnregs:"<<trimdnregs<<std::endl;
-	gg::LoadFrame(trimdregs,trimdnregs,queryframe,framedata);
+  int numregions=labeller.CalcRegions();
+  std::cout <<"NUMREGS:"<<numregions<<std::endl;
+  //###############################
+  labeller.MakeCLabelImg();
+  cvWriteFrame(labelvidout,labeller.BorrowCLabelImg());
+  //###############################
+  region::REGIONS regs=labeller.BorrowRegions();
+  TrimRegions(regs,numregions,trimdregs,trimdnregs);
+  std::cout <<"trimdnregs:"<<trimdnregs<<std::endl;
+  gg::LoadFrame(trimdregs,trimdnregs,queryframe,framedata);
 
-	std::cout <<"Before Add Frame:";
-	dump_uidhash(framedata);
+  std::cout <<"Before Add Frame:";
+  dump_uidhash(framedata);
 
         mainhelpers::DrawBoxes(colorop,framedata,cv::Scalar(100,100,255 ));
         trackerdata.addframe(framedata);
@@ -150,13 +150,13 @@ int main(int argc, char** argv)
         std::cout <<"After Add Frame:";
         dump_uidhash(framedata);
 
-	cvZero(trimdregsImgs);
-	for (size_t tx=0;tx<trimdnregs;tx++) 
-	  region::SetBinImg(trimdregs[tx],trimdregsImgs,false);
-	
-	FGOutlines(trimdregsImgs,colorop,cvScalar(255,10,255),false);
-	bgfg_segmenter.render(colorop);
-	mainhelpers::LabelRegions(colorop,framedata,cv::Scalar(255,128,255));
+  cvZero(trimdregsImgs);
+  for (size_t tx=0;tx<trimdnregs;tx++) 
+    region::SetBinImg(trimdregs[tx],trimdregsImgs,false);
+  
+  FGOutlines(trimdregsImgs,colorop,cvScalar(255,10,255),false);
+  bgfg_segmenter.render(colorop);
+  mainhelpers::LabelRegions(colorop,framedata,cv::Scalar(255,128,255));
       }
       cvWriteFrame(videoout,colorop);
       cvCvtColor(ttlfgmap,binaryimg,CV_GRAY2BGR);

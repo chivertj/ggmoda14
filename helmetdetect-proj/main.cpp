@@ -117,29 +117,29 @@ int main(int argc, char** argv)
       //###################
       if (bgfg_segmenter(queryframe)) {
         cvCopy(bgfg_segmenter.Get(),ttlfgmap);
-	if (fgmask){
-	  cvCopy(bgfg_segmenter.Get(),ttlfgmap);
-	  cvAnd(ttlfgmap,fgmask,ttlfgmap);
-	}
-	
-	int numregions=labeller.CalcRegions();
-	std::cout <<">NUMREGS:"<<numregions<<std::endl;
+  if (fgmask){
+    cvCopy(bgfg_segmenter.Get(),ttlfgmap);
+    cvAnd(ttlfgmap,fgmask,ttlfgmap);
+  }
+  
+  int numregions=labeller.CalcRegions();
+  std::cout <<">NUMREGS:"<<numregions<<std::endl;
 
-	region::REGIONS regs=labeller.BorrowRegions();
-	TrimRegions(regs,numregions,trimdregs,trimdnregs);
-	gg::LoadFrame(trimdregs,trimdnregs,queryframe,framedata);
-//	mainhelpers::DrawBoxes(colorop,framedata);
+  region::REGIONS regs=labeller.BorrowRegions();
+  TrimRegions(regs,numregions,trimdregs,trimdnregs);
+  gg::LoadFrame(trimdregs,trimdnregs,queryframe,framedata);
+//  mainhelpers::DrawBoxes(colorop,framedata);
         mainhelpers::DrawBoxes(colorop,framedata,cv::Scalar(0,255,255));
-	trackerdata.addframe(framedata);
-//	mainhelpers::DrawBoxes(colorop,trackerdata.getcurrentframe(),cv::Scalar(255,255,0));
+  trackerdata.addframe(framedata);
+//  mainhelpers::DrawBoxes(colorop,trackerdata.getcurrentframe(),cv::Scalar(255,255,0));
 
-	cvZero(trimdregsImgs);
-	for (size_t tx=0;tx<trimdnregs;tx++) 
-	  region::SetBinImg(trimdregs[tx],trimdregsImgs,false);
-	
-	FGOutlines(trimdregsImgs,colorop,cvScalar(255,255,255),false);
-	if (trimdnregs>0)
-	  LabelRegions(colorop,framedata,cv::Scalar(255,128,255));
+  cvZero(trimdregsImgs);
+  for (size_t tx=0;tx<trimdnregs;tx++) 
+    region::SetBinImg(trimdregs[tx],trimdregsImgs,false);
+  
+  FGOutlines(trimdregsImgs,colorop,cvScalar(255,255,255),false);
+  if (trimdnregs>0)
+    LabelRegions(colorop,framedata,cv::Scalar(255,128,255));
       }
 
       cvWriteFrame(videoout,colorop);
@@ -174,7 +174,7 @@ int main(int argc, char** argv)
       const gg::FRAMENOS &framenos=goodtracks[i].getframenos();
       std::cout <<"frame no size:"<<framenos.size()<<std::endl;
       for (size_t j=0;j<framenos.size();j++)  
-	std::cout <<framenos[j]<<",";
+  std::cout <<framenos[j]<<",";
       std::cout <<std::endl;
     }
 

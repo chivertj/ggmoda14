@@ -119,13 +119,13 @@ template <class PNT_T> void CShapeContour<PNT_T>::CalcContour(void) {
       if (rawProcImg[pos]==255.f) {
         nbourCnt=0.;
         for (int in_y=-1;in_y<=1;in_y++) {
-	  for (int in_x=-1;in_x<=1;in_x++) {
-	    if ((in_y!=0 || in_x!=0) && rawProcImg[(y+in_y)*m_X+(x+in_x)]==0.f) //  && rawProcImg[(y+in_y)*m_X+(x+in_x)]>=0.f) 
-	      nbourCnt++;
-	  }
+    for (int in_x=-1;in_x<=1;in_x++) {
+      if ((in_y!=0 || in_x!=0) && rawProcImg[(y+in_y)*m_X+(x+in_x)]==0.f) //  && rawProcImg[(y+in_y)*m_X+(x+in_x)]>=0.f) 
+        nbourCnt++;
+    }
         }
-	if (nbourCnt>0.f) 
-	  rawProcImg[pos]=(-1)*nbourCnt;
+  if (nbourCnt>0.f) 
+    rawProcImg[pos]=(-1)*nbourCnt;
       }
     }
   }
@@ -142,13 +142,13 @@ template <class PNT_T> void CShapeContour<PNT_T>::CalcContour(void) {
 //(y+1,x+1),(y+1,x-1)->(y+1,x)
 //(y+1,x-1),(y-1,x-1)->(y,x-1)
       if (rawProcImg[(y-1)*m_X+x-1]<0.f && rawProcImg[(y-1)*m_X+x+1]<0.f) // && rawProcImg[(y-1)*m_X+x]==255.f)
-	  rawContour[(y-1)*m_X+x]=CONTOURVAL;
+    rawContour[(y-1)*m_X+x]=CONTOURVAL;
       else if (rawProcImg[(y-1)*m_X+x+1]<0.f && rawProcImg[(y+1)*m_X+x+1]<0.f) // && rawProcImg[y*m_X+x+1]==255.f)
-	  rawContour[y*m_X+x+1]=CONTOURVAL;
+    rawContour[y*m_X+x+1]=CONTOURVAL;
       else if (rawProcImg[(y+1)*m_X+x+1]<0.f && rawProcImg[(y+1)*m_X+x-1]<0.f) // && rawProcImg[(y+1)*m_X+x]==255.f)
-	  rawContour[(y+1)*m_X+x]=CONTOURVAL;
+    rawContour[(y+1)*m_X+x]=CONTOURVAL;
       else if (rawProcImg[(y+1)*m_X+x-1]<0.f && rawProcImg[(y-1)*m_X+x-1]<0.f) // && rawProcImg[y*m_X+x-1]==255.f)
-	  rawContour[y*m_X+x-1]=CONTOURVAL;
+    rawContour[y*m_X+x-1]=CONTOURVAL;
       }
     }
   }
@@ -160,19 +160,19 @@ template <class PNT_T> void CShapeContour<PNT_T>::CalcContour(void) {
     for (int x=1;x<m_X-1;x++) {
       pos=y*m_X+x;
       if (rawProcImg[pos]<-1.f)
-	rawContour[pos]=CONTOURVAL;
+  rawContour[pos]=CONTOURVAL;
       else if (rawProcImg[pos]<0.f) {
-	nbourCnt=0.f;
-	for (int in_y=-1;in_y<=1;in_y++) {
-	  for (int in_x=-1;in_x<=1;in_x++) {
-	    in_pos=(y+in_y)*m_X+(x+in_x);
-	    if ((in_y!=0 || in_x!=0) && rawProcImg[in_pos]<0.f) {
-	      nbourCnt+=rawProcImg[in_pos];
-	    }
-	  }
-	}
-	if (nbourCnt<-6.f)
-	  rawContour[pos]=CONTOURVAL;
+  nbourCnt=0.f;
+  for (int in_y=-1;in_y<=1;in_y++) {
+    for (int in_x=-1;in_x<=1;in_x++) {
+      in_pos=(y+in_y)*m_X+(x+in_x);
+      if ((in_y!=0 || in_x!=0) && rawProcImg[in_pos]<0.f) {
+        nbourCnt+=rawProcImg[in_pos];
+      }
+    }
+  }
+  if (nbourCnt<-6.f)
+    rawContour[pos]=CONTOURVAL;
       }
     }
   }
@@ -196,9 +196,9 @@ template <class PNT_T> void CShapeContour<PNT_T>::ExtractContourPnts(void) {
     for (int x=0;x<m_X;x++) {
       pos=y*m_X+x;
       if (rawContour[pos]==CONTOURVAL) {
-	m_contourPnts[pntCntr].x=(PNT_T)(x);
-	m_contourPnts[pntCntr].y=(PNT_T)(y);
-	pntCntr++;
+  m_contourPnts[pntCntr].x=(PNT_T)(x);
+  m_contourPnts[pntCntr].y=(PNT_T)(y);
+  pntCntr++;
       }
     }
   }

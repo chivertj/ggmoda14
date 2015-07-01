@@ -24,7 +24,7 @@
 
 namespace csvfiling {
   std::string& replaceAll(std::string& context, const std::string& from,
-			  const std::string& to);
+        const std::string& to);
   template <class T> void ReadCSV(const std::string &filename, const std::string &seperator);
   template <class T> void CSVSize(const std::string &filename, const std::string &seperator, int &ncols, int &nrows);
   template <class T> void ReadCSVtoMat(const std::string &filename, const std::string &seperator, cv::Mat_<T> &datamat);
@@ -39,11 +39,11 @@ namespace csvfiling {
     std::string line;
     while (std::getline(csvfile,line)) {
       if (seperator!=" ")
-	csvfiling::replaceAll(line,seperator," ");
+  csvfiling::replaceAll(line,seperator," ");
       std::stringstream ss(line);
       T dataelement;
       while (ss>>dataelement) {
-	std::cout <<dataelement<<std::endl;
+  std::cout <<dataelement<<std::endl;
       }
     }
   }
@@ -53,7 +53,7 @@ namespace csvfiling {
     std::string line;
     std::getline(csvfile,line);
     if (seperator!=" ")
-	csvfiling::replaceAll(line,seperator," ");
+  csvfiling::replaceAll(line,seperator," ");
     std::stringstream ss(line);
     T dataelement;
     ncols=0;
@@ -76,11 +76,11 @@ namespace csvfiling {
       T *rawdata=(T*)(datamat.ptr(j));
       std::getline(csvfile,line);
       if (seperator!=" ")
-	csvfiling::replaceAll(line,seperator," ");
+  csvfiling::replaceAll(line,seperator," ");
       std::stringstream ss(line);
       for (int i=0;i<ncols && ss>>*rawdata; i++,rawdata++);
       //      for (int i=0;i<ncols;i++)
-      //	ss>>rawdata[i];
+      //  ss>>rawdata[i];
     }
   }
 

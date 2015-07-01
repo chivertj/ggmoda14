@@ -22,9 +22,9 @@ namespace gg {
       cv::Mat img=colm.col(i);
       img.convertTo(byteimg,byteimg.type());
       if (transpose)
-	byteimg=byteimg.reshape(1,Y).t();
+  byteimg=byteimg.reshape(1,Y).t();
       else
-	byteimg=byteimg.reshape(1,Y); //.t();
+  byteimg=byteimg.reshape(1,Y); //.t();
       region::ExportImage(byteimg,name,3,i);
     }
   }
@@ -65,7 +65,7 @@ namespace gg {
 
 
   cv::PCA compressPCA(const cv::Mat& pcaset, int maxComponents,
-		      const cv::Mat& testset, cv::Mat& compressed, cv::Mat &reconstructset) {
+          const cv::Mat& testset, cv::Mat& compressed, cv::Mat &reconstructset) {
     cv::PCA pca(pcaset,cv::Mat(),CV_PCA_DATA_AS_COL,maxComponents);
     // if there is no test data, just return the computed basis, ready-to-use
     if( !testset.data )
@@ -85,7 +85,7 @@ namespace gg {
 
 
   cv::PCA robcompressPCA(const cv::Mat& pcaset, int maxComponents,
-			 const cv::Mat& testset, cv::Mat_<float>& compressed, cv::Mat &reconstructset) {
+       const cv::Mat& testset, cv::Mat_<float>& compressed, cv::Mat &reconstructset) {
     if (maxComponents>pcaset.cols) maxComponents=pcaset.cols;
 
     cv::PCA pca(pcaset,cv::Mat(),CV_PCA_DATA_AS_COL,pcaset.cols);

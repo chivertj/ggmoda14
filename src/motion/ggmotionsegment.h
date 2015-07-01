@@ -36,8 +36,8 @@ namespace gg {
 #if(0)
       fgmap=cv::Scalar(0);
       for (size_t i=0;i<shapecluster.clusters().NoRegions();i++) {
-	shapecluster.backproject(i);
-	cv::bitwise_or(shapecluster.getbp(),fgmap,fgmap);
+  shapecluster.backproject(i);
+  cv::bitwise_or(shapecluster.getbp(),fgmap,fgmap);
       }
       cv::threshold(fgmap,fgmap,200,255,cv::THRESH_BINARY);
       cfgmap=IplImage(fgmap);

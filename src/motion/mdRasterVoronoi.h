@@ -78,13 +78,13 @@ public:
 protected:
   //##########################################
   CvSubdiv2D* init_delaunay( CvMemStorage* _storage,
-			     CvRect _rect ) {
+           CvRect _rect ) {
     CvSubdiv2D* _subdiv;
     
     _subdiv = cvCreateSubdiv2D( CV_SEQ_KIND_SUBDIV2D, sizeof(*_subdiv),
-				sizeof(CvSubdiv2DPoint),
-				sizeof(CvQuadEdge2D),
-				_storage );
+        sizeof(CvSubdiv2DPoint),
+        sizeof(CvQuadEdge2D),
+        _storage );
     cvInitSubdivDelaunay2D( _subdiv, _rect );
 
     return _subdiv;
@@ -99,11 +99,11 @@ protected:
     for( i = 0; i < total; i++ ) {
       CvQuadEdge2D* edge = (CvQuadEdge2D*)(reader.ptr);
       if( CV_IS_SET_ELEM( edge )) {
-	CvSubdiv2DEdge e = (CvSubdiv2DEdge)edge;
-	// left
-	draw_subdiv_facet( _img, cvSubdiv2DRotateEdge( e, 1 ), _pnts);
-	// right
-	draw_subdiv_facet( _img, cvSubdiv2DRotateEdge( e, 3 ), _pnts);
+  CvSubdiv2DEdge e = (CvSubdiv2DEdge)edge;
+  // left
+  draw_subdiv_facet( _img, cvSubdiv2DRotateEdge( e, 1 ), _pnts);
+  // right
+  draw_subdiv_facet( _img, cvSubdiv2DRotateEdge( e, 3 ), _pnts);
       }
       CV_NEXT_SEQ_ELEM( elem_size, reader );
     }
@@ -130,11 +130,11 @@ protected:
       CvSubdiv2DPoint* pt = cvSubdiv2DEdgeDst( cvSubdiv2DRotateEdge( edge, 1 ));
       PNTS::const_iterator labpnt=std::find(_pnts.begin(),_pnts.end(),PNT_T(pt->pt.x,pt->pt.y));
       if ((*labpnt).label!=0)
-	//	cv::fillConvexPoly( _img, edgepts, count, bgcolor, CV_AA, 0 );
-	//	cv::fillConvexPoly( _img, edgepts, count, bgcolor, 8, 0 );
-	//      else
-	cv::fillConvexPoly( _img, edgepts, count, fgcolor, 8, 0 );	
-	//	cv::fillConvexPoly( _img, edgepts, count, fgcolor, CV_AA, 0 );	
+  //  cv::fillConvexPoly( _img, edgepts, count, bgcolor, CV_AA, 0 );
+  //  cv::fillConvexPoly( _img, edgepts, count, bgcolor, 8, 0 );
+  //      else
+  cv::fillConvexPoly( _img, edgepts, count, fgcolor, 8, 0 );  
+  //  cv::fillConvexPoly( _img, edgepts, count, fgcolor, CV_AA, 0 );  
       //      cv::circle( _img, cvPoint(cvRound(pt->pt.x), cvRound(pt->pt.y)), 3, cv::Scalar(0), CV_FILLED, 8, 0 );
     }
   }

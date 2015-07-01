@@ -68,7 +68,7 @@ namespace xjlinalg {
     cv::Mat rectang=dataout(cv::Range(0,data00.rows),cv::Range(0,data00.cols));
     data00.copyTo(rectang);
     rectang=dataout(cv::Range(data00.rows,data00.rows+data11.rows),
-		 cv::Range(data00.cols,data00.cols+data11.cols));
+     cv::Range(data00.cols,data00.cols+data11.cols));
     data11.copyTo(rectang);
     rectang=dataout(cv::Range(0,data01.rows),cv::Range(data00.cols,data00.cols+data01.cols));
     data01.copyTo(rectang);

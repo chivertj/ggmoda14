@@ -53,25 +53,25 @@ inline IMAGEDATA_T CSignedDistT::minForward(int pos, int i, int j) {
     IMAGEDATA_T min = SIGNDIST_INFINITY;
 
     if(i>0 && j>0)
-	m_mask[0] = m_rawInitLevelSet[pos-m_X-1] + DIST2;
+  m_mask[0] = m_rawInitLevelSet[pos-m_X-1] + DIST2;
     else m_mask[0] = SIGNDIST_INFINITY;
     
     if(j>0)
-	m_mask[1] = m_rawInitLevelSet[pos-m_X] + DIST1;
+  m_mask[1] = m_rawInitLevelSet[pos-m_X] + DIST1;
     else m_mask[1] = SIGNDIST_INFINITY;
     
     if((i<m_X-1) && (j>0))
-	m_mask[2] = m_rawInitLevelSet[pos-m_X+1] + DIST2;
+  m_mask[2] = m_rawInitLevelSet[pos-m_X+1] + DIST2;
     else m_mask[2] = SIGNDIST_INFINITY;
 
     m_mask[3] = m_rawInitLevelSet[pos];
     
     if(i>0)
-	m_mask[4] = m_rawInitLevelSet[pos-1] + DIST1;
+  m_mask[4] = m_rawInitLevelSet[pos-1] + DIST1;
     else m_mask[4] = SIGNDIST_INFINITY;
     
     for(int k=0;k<5;k++)
-	if(m_mask[k]<min) min = m_mask[k];
+  if(m_mask[k]<min) min = m_mask[k];
 
     return min;    
 }
@@ -82,23 +82,23 @@ inline IMAGEDATA_T CSignedDistT::minBackward(int pos, int i, int j) {
     m_mask[0] = m_rawInitLevelSet[pos];
 
     if(i<m_X-1)
-	m_mask[1] = m_rawInitLevelSet[pos+1] + DIST1;
+  m_mask[1] = m_rawInitLevelSet[pos+1] + DIST1;
     else m_mask[1] = SIGNDIST_INFINITY;
 
     if((j<m_Y-1) && (i<m_X-1))
-	m_mask[2] = m_rawInitLevelSet[pos+m_X+1] + DIST2;
+  m_mask[2] = m_rawInitLevelSet[pos+m_X+1] + DIST2;
     else m_mask[2] = SIGNDIST_INFINITY;
 
     if(j<m_Y-1)
-	m_mask[3] = m_rawInitLevelSet[pos+m_X] + DIST1;
+  m_mask[3] = m_rawInitLevelSet[pos+m_X] + DIST1;
     else m_mask[3] = SIGNDIST_INFINITY;
 
     if((i>0) && (j<m_Y-1))
-	m_mask[4] = m_rawInitLevelSet[pos+m_X-1] + DIST2;
+  m_mask[4] = m_rawInitLevelSet[pos+m_X-1] + DIST2;
     else m_mask[4] = SIGNDIST_INFINITY;
 
     for(int k=0;k<5;k++)
-	if(m_mask[k]<min) min = m_mask[k];
+  if(m_mask[k]<min) min = m_mask[k];
 
     return min;
 }

@@ -61,13 +61,13 @@ namespace gg {
     }
     virtual TRACK_T& operator[] (size_t i) {
       if (i<tracks.size()) 
-	return tracks[i]; 
+  return tracks[i]; 
       throw gg::error("ggtracks.hL35"); 
       return nulltrack; 
     }
     virtual const TRACK_T& operator[] (size_t i) const {
       if (i<tracks.size()) 
-	return tracks[i]; 
+  return tracks[i]; 
       throw gg::error("ggtracks.hL41"); 
       return nulltrack; 
     }
@@ -136,7 +136,7 @@ namespace gg {
         change=false;
         for (OBJTRACKit it=tracks.begin();it!=tracks.end();++it) {
           if ((*it).getminframeno()<deletebeforeno) {
-//	    (*it).dump(opfileclassifications);
+//      (*it).dump(opfileclassifications);
             //(*it).dump(std::cout);
             tracks.erase(it);
             change=true;
@@ -155,64 +155,64 @@ namespace gg {
         std::cout <<framenos[tkidx]<<":"<<t[tkidx].uid_hash()<<",";
       std::cout <<std::endl;
       if (tracks.size()>0) {
-	gg::trackpropagator bprop(t,constraints);
-	//	bprop.print();
-	gg::trackmerger merger;
-	bool merging=false;
-	for (size_t i=0;i<tracks.size();i++) {
-	  gg::trackpropagator aprop(tracks[i],constraints);
-	  //	  aprop.print();
-	  if (merger.aresimilar(aprop,bprop)) {
-	    std::cout <<"Merging..."<<std::endl;
+  gg::trackpropagator bprop(t,constraints);
+  //  bprop.print();
+  gg::trackmerger merger;
+  bool merging=false;
+  for (size_t i=0;i<tracks.size();i++) {
+    gg::trackpropagator aprop(tracks[i],constraints);
+    //    aprop.print();
+    if (merger.aresimilar(aprop,bprop)) {
+      std::cout <<"Merging..."<<std::endl;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	    const gg::FRAMENOS &oldframenos=tracks[i].getframenos();
+      const gg::FRAMENOS &oldframenos=tracks[i].getframenos();
             std::cout <<"old frame no size:"<<oldframenos.size()<<" BEG'G:"<<oldframenos[0]<<" END:"<<oldframenos[oldframenos.size()-1]<<std::endl;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
             for (size_t tkidx=0;tkidx<tracks[i].size();tkidx++)
               std::cout <<tracks[i][tkidx].uid_hash()<<",";
             std::cout <<std::endl;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	    merger.combine(aprop,bprop,false);
-	    tracks[i]=merger.getmerged();
-	    merging=true;
+      merger.combine(aprop,bprop,false);
+      tracks[i]=merger.getmerged();
+      merging=true;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	    std::cout <<"MERGED:"<<std::endl;
-	    const gg::FRAMENOS &newframenos=tracks[i].getframenos();
+//      std::cout <<"MERGED:"<<std::endl;
+      const gg::FRAMENOS &newframenos=tracks[i].getframenos();
             std::cout <<"new frame no size:"<<newframenos.size()<<" BEG'G:"<<newframenos[0]<<" END:"<<newframenos[oldframenos.size()-1]<<std::endl;
             for (size_t tkidx=0;tkidx<tracks[i].size();tkidx++)
               std::cout <<tracks[i][tkidx].uid_hash()<<",";
             std::cout <<std::endl;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	    break;
-	  }
-	}
-	if (!merging)
-	  tracks.push_back(t);
+      break;
+    }
+  }
+  if (!merging)
+    tracks.push_back(t);
       }
       else 
-	tracks.push_back(t);
+  tracks.push_back(t);
     }
     void mergesimilar(const gg::trackpropagateconstraints &constraints) {
       if (tracks.size()>1) {
-	bool merging=false;
-	gg::trackmerger merger;
-	do {
-	  merging=false;
-	  for (size_t i=0;i<tracks.size();i++) {
-	    gg::trackpropagator aprop(tracks[i],constraints);
-	    for (size_t j=i+1;j<tracks.size();j++) {
-	      gg::trackpropagator bprop(tracks[j],constraints);
-	      if (merger.aresimilar(aprop,bprop)) {
-		merger.combine(aprop,bprop,false);
-		tracks[i]=merger.getmerged();
-		erase(j);
-		merging=true;
-		break;
-	      }
-	    }
-	    if (merging) break;
-	  }
-	} while (merging);
+  bool merging=false;
+  gg::trackmerger merger;
+  do {
+    merging=false;
+    for (size_t i=0;i<tracks.size();i++) {
+      gg::trackpropagator aprop(tracks[i],constraints);
+      for (size_t j=i+1;j<tracks.size();j++) {
+        gg::trackpropagator bprop(tracks[j],constraints);
+        if (merger.aresimilar(aprop,bprop)) {
+    merger.combine(aprop,bprop,false);
+    tracks[i]=merger.getmerged();
+    erase(j);
+    merging=true;
+    break;
+        }
+      }
+      if (merging) break;
+    }
+  } while (merging);
       }
     }
     virtual void dump(void) {
@@ -306,7 +306,7 @@ namespace gg {
     virtual void operator() (const objtracks<objecttrackproperties> &_tracks, const imgsequencedata &_imgs) {
       tracks.resize(_tracks.size());
       for (size_t i=0;i<_tracks.size();i++) {
-	tracks[i].setdata(_tracks[i],_imgs);
+  tracks[i].setdata(_tracks[i],_imgs);
       }
     }
 #if(0)

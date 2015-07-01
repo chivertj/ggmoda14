@@ -53,9 +53,9 @@ namespace gg {
     virtual const discreteclassification& classify(regionhierarchy &reg) {
       float res=headclassifier.classify(reg.getsubregprops().getphoto().getpdf());
       if (res>0.0001)
-	c.set(helmetclassification::HELMET);  //classification=HELMET;
+  c.set(helmetclassification::HELMET);  //classification=HELMET;
       else
-	c.set(helmetclassification::NOHELMET);  //classification=NOHELMET
+  c.set(helmetclassification::NOHELMET);  //classification=NOHELMET
       return c;
     }
   protected:

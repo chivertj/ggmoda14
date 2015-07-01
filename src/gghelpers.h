@@ -103,7 +103,7 @@ namespace gg {
     for (int j=0;j<data.rows;j++) {
       const T *rawdata=data.ptr<T>(j);
       for (int i=0;i<data.cols;i++) {
-	os <<rawdata[i]<<",";
+  os <<rawdata[i]<<",";
       }
       os <<std::endl;
     }
@@ -113,9 +113,9 @@ namespace gg {
   template <class T, size_t N> std::ostream& op_cvMat(std::ostream &os,const cv::Mat_<cv::Vec<T,N> > &data) {
     for (size_t j=0;j<data.rows;j++) {
       for (size_t i=0;i<data.cols;i++) {
-	for (size_t k=0;k<N;k++) 
-	  os <<data.template at<cv::Vec<T,N> >(j,i)[k]<<",";
-	os <<" ";
+  for (size_t k=0;k<N;k++) 
+    os <<data.template at<cv::Vec<T,N> >(j,i)[k]<<",";
+  os <<" ";
       }
       os <<std::endl;
     }
@@ -141,27 +141,27 @@ namespace gg {
       moments[1]=0.;
       const T *rawdata=data.ptr<T>(0);
       for (int i=0;i<data.cols;i++) {
-	moments[0]+=rawdata[i]*float(i); //mu=sum x p(x)
-	moments[1]+=rawdata[i]*pow(float(i),2.);
-	//sum (x-mu)^2p(x)
-	//=sum (x^2-2.x.mu+mu^2)p(x)
-	//=sum x^2.p(x)-2.mu.sum x.p(x)+mu^2
-	//=sum x^2.p(x)-mu^2
+  moments[0]+=rawdata[i]*float(i); //mu=sum x p(x)
+  moments[1]+=rawdata[i]*pow(float(i),2.);
+  //sum (x-mu)^2p(x)
+  //=sum (x^2-2.x.mu+mu^2)p(x)
+  //=sum x^2.p(x)-2.mu.sum x.p(x)+mu^2
+  //=sum x^2.p(x)-mu^2
       }
       moments[1]-=pow(moments[0],2.);
     }
     else {
       moments=std::vector<float>(4);
       for (int i=0;i<4;i++)
-	moments[i]=0.;
+  moments[i]=0.;
       for (int j=0;j<data.rows;j++) {
-	const T* rawdata=data.ptr<T>(j);
-	for (int i=0;i<data.cols;i++) {
-	  moments[0]+=rawdata[i]*float(i); //mu_x=sum x p(x,y)
-	  moments[1]+=rawdata[i]*float(j); //mu_y=sum y p(x,y)
-	  moments[2]+=rawdata[i]*pow(float(i),2.);
-	  moments[3]+=rawdata[i]*pow(float(j),2.);
-	}
+  const T* rawdata=data.ptr<T>(j);
+  for (int i=0;i<data.cols;i++) {
+    moments[0]+=rawdata[i]*float(i); //mu_x=sum x p(x,y)
+    moments[1]+=rawdata[i]*float(j); //mu_y=sum y p(x,y)
+    moments[2]+=rawdata[i]*pow(float(i),2.);
+    moments[3]+=rawdata[i]*pow(float(j),2.);
+  }
       }
       moments[2]-=pow(moments[0],2.);
       moments[3]-=pow(moments[1],2.);

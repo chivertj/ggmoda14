@@ -57,7 +57,7 @@ namespace gg {
       this->release();
       ks=KARRAY(_km.size());
       for (size_t i=0;i<ks.size();i++) {
-	ks[i]=CloneKalman(_km[i]);
+  ks[i]=CloneKalman(_km[i]);
       }
       return *this;
     }
@@ -67,7 +67,7 @@ namespace gg {
   protected:
     void release(void) {
       for (size_t i=0;i<ks.size();i++)
-	cvReleaseKalman(&ks[i]);
+  cvReleaseKalman(&ks[i]);
       ks.clear();
     }
     KARRAY ks;
@@ -105,9 +105,9 @@ namespace gg {
       ms=MARRAY(_ms.size());
       N=_ms.N;
       for (size_t i=0;i<_ms.size();i++) {
-	MSMNT m(N,1);
-	_ms[i].copyTo(m);
-	ms[i]=m;
+  MSMNT m(N,1);
+  _ms[i].copyTo(m);
+  ms[i]=m;
       }
       return *this;
     }
@@ -153,7 +153,7 @@ namespace gg {
 
       cvZero(k->gain);
       if (k->control_matrix)
-	cvZero(k->control_matrix);
+  cvZero(k->control_matrix);
       cvZero(k->temp1);
       cvZero(k->temp2);
       cvZero(k->temp3);
@@ -192,7 +192,7 @@ namespace gg {
 
       cvCopy(d.k->gain,k->gain);
       if (d.k->control_matrix)
-	cvCopy(d.k->control_matrix,k->control_matrix);
+  cvCopy(d.k->control_matrix,k->control_matrix);
       cvCopy(d.k->temp1,k->temp1);
       cvCopy(d.k->temp2,k->temp2);
       cvCopy(d.k->temp3,k->temp3);
@@ -299,15 +299,15 @@ namespace gg {
     virtual const FRAMENOS& getframenos(void) const { return framenos; }
     gg::FRAMENO getminframeno(void) const {
       if (framenos.empty()) 
-	return -1; 
+  return -1; 
       if (framenos[0]<framenos[framenos.size()-1])
-	return framenos[0];
+  return framenos[0];
       return framenos[framenos.size()-1];
     }
     gg::FRAMENO getmaxframeno(void) const {
       if (framenos.empty()) return -1; 
       if (framenos[0]<framenos[framenos.size()-1])
-	return framenos[framenos.size()-1];
+  return framenos[framenos.size()-1];
       return framenos[0];
     }
     virtual const Measurements& getmeasurements(void) const { return ms; }
@@ -465,19 +465,19 @@ namespace gg {
     }
     void setimgdata(const imgsequencedata &isd) {
       if (isd.isreversed())
-    	  throw gg::error("ggregiontrack.hL344"); //not implemented
+        throw gg::error("ggregiontrack.hL344"); //not implemented
       imgdata.clear();
       for (size_t i=0,nxtimgidx=0,j;i<framenos.size();i++) {
-    	  for (j=nxtimgidx;j<isd.size();j++) {
-    		  if (framenos[i]==isd.gettimes()[j]) {
-	    //	    imgdata.add(isd.getimgs()[j],isd.gettimes()[j]);
-    			  imgdata.add(isd,j);
-    			  nxtimgidx=j;
-    			  break;
-    		  }
-    	  }
-    	  if (j>nxtimgidx)
-    		  throw gg::error("ggregiontrack.hL356"); //img data not available
+        for (j=nxtimgidx;j<isd.size();j++) {
+          if (framenos[i]==isd.gettimes()[j]) {
+      //      imgdata.add(isd.getimgs()[j],isd.gettimes()[j]);
+            imgdata.add(isd,j);
+            nxtimgidx=j;
+            break;
+          }
+        }
+        if (j>nxtimgidx)
+          throw gg::error("ggregiontrack.hL356"); //img data not available
       }
     }
     virtual void clear(void) {
