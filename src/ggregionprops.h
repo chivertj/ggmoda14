@@ -121,7 +121,6 @@ namespace gg {
       r.angle=_r.angle;
     }
     void merge(const regionproperties &rp) {
-      std::cout <<"WARNING- UNTESTED"<<std::endl;
       float prop=float(size)/float(size+rp.size);
       region::MeanWeightedPoint(rp.cog,prop,cog);
       //template <class T> void MergePointSets(const cv::Mat_<T> &a, cv::Mat_<T> &b) {

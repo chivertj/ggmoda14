@@ -248,7 +248,6 @@ namespace region {
 
   //specialize to cv::Point in the cv::Mat...
   template <class T> void cvMat2REGIONPNTS(const cv::Mat_<T> &ip, REGIONPNTS &op) {
-    std::cout <<"rows "<<ip.rows<<std::endl;
     op=REGIONPNTS(ip.rows);
     for (size_t i=0;i<ip.rows;i++) {
       op[i].x=ip(i,0);
@@ -328,12 +327,14 @@ namespace region {
   //################################################
   template <class T> void AppendMatRowDir(const cv::Mat_<T> &a, cv::Mat_<T> &b) {
     assert(a.cols==b.cols);
-    cv::Mat newmat(a.rows+b.rows,a.cols,cv::DataType<T>::type);
-    cv::Mat newmatrange=newmat.rowRange(0,a.rows);
-    a.copyTo(newmatrange);
-    newmatrange=newmat.rowRange(a.rows,a.rows+b.rows);
-    b.copyTo(newmatrange);
-    newmatrange.copyTo(b);
+    if (a.rows>0) {
+      cv::Mat newmat(a.rows+b.rows,a.cols,cv::DataType<T>::type);
+      cv::Mat newmatrange=newmat.rowRange(0,a.rows);
+      a.copyTo(newmatrange);
+      newmatrange=newmat.rowRange(a.rows,a.rows+b.rows);
+      b.copyTo(newmatrange);
+      newmatrange.copyTo(b);
+    }
   }
   //################################################
   void MergePointSets(const cv::Mat &a, cv::Mat &b);

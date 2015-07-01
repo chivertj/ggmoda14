@@ -204,10 +204,17 @@ namespace region{
     b.copyTo(newpntsrange);
     newpnts.copyTo(b);
 #else
-    const cv::Mat_<cv::Point2f> ta(a);
-    cv::Mat_<cv::Point2f> tb(b);
-//    AppendMatRowDir<cv::Point2f>(const cv::Mat_<cv::Point2f>(a),cv::Mat_<cv::Point2f>(b));
-    AppendMatRowDir<cv::Point2f>(ta,tb);
+    //    if (a.type()==cv::DataType<float>::type && b.type()==cv::DataType<float>::type) {
+    if (a.cols>0) {
+      if (b.cols==0) 
+	b=a;
+      else {
+	const cv::Mat_<cv::Point2f> ta(a);
+	cv::Mat_<cv::Point2f> tb(b);
+	//    AppendMatRowDir<cv::Point2f>(const cv::Mat_<cv::Point2f>(a),cv::Mat_<cv::Point2f>(b));
+	AppendMatRowDir<cv::Point2f>(ta,tb);
+      }
+    }
 #endif
   }
   cv::RotatedRect mergeRects(const cv::RotatedRect R1, const cv::RotatedRect R2) {
