@@ -307,7 +307,7 @@ namespace gg {
     gg::FRAMENO getmaxframeno(void) const {
       if (framenos.empty()) return -1; 
       if (framenos[0]<framenos[framenos.size()-1])
-  return framenos[framenos.size()-1];
+        return framenos[framenos.size()-1];
       return framenos[0];
     }
     virtual const Measurements& getmeasurements(void) const { return ms; }

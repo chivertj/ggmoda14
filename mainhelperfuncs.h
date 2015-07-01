@@ -20,12 +20,14 @@
 #include "src/ggtracker.h"
 #include "src/region.h"
 #include "src/ggframe.h"
+#include "src/ggregiontracker.h"
 
 namespace mainhelpers {
   void FGOutlines(IplImage *fgmap, IplImage *colorop, const CvScalar &coloredge, bool thick=true);
   void LabelRegions(IplImage *img, const gg::frame &framedata, cv::Scalar color=cv::Scalar::all(255));
   void LabelRegion(cv::Mat &img, const gg::frameregion &freg, cv::Scalar color=cv::Scalar::all(255));
   void DrawBoxes(IplImage *img, const gg::frame &framedata, cv::Scalar color=cv::Scalar(255,0,255));
+  void DrawBoxes(IplImage *img, const gg::regiontracker::OBJTRACKS_T &tracks, cv::Scalar color=cv::Scalar(0,255,100));
 
   void DrawBox(const cv::RotatedRect &R, const cv::Scalar color, IplImage *colorop);
   void TrimRegions(const region::REGIONS &regs, const size_t nregs, region::REGIONS &newregs, size_t &new_nregs);

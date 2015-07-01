@@ -54,7 +54,7 @@ namespace gg {
     }
     void predict(void) {
       for (size_t i=0;i<cframe.size();i++) 
-  ctrackers[i].predict();
+        ctrackers[i].predict();
     }
     const ROIS& prediction(void) {
       predictedROIs.resize(cframe.size());
@@ -66,7 +66,7 @@ namespace gg {
     }
     void correct(frame &_cframe, const regioncorrespondences &corrs) {
       if (finalised)
-  throw gg::error("ggregiontrackerL44");
+        throw gg::error("ggregiontrackerL44");
       pframe=cframe;
       cframe=_cframe;
       ptrackers=ctrackers;
@@ -75,38 +75,38 @@ namespace gg {
       for (size_t i=0;i<cframe.size();i++) {
         const cv::RotatedRect &rr=cframe[i].getregprops().getboundbox();
         cv::Mat_<float> m=region::Rects::getMatrixVals(cframe[i].getregprops().getboundbox());
-  previdx=corrs.getcurr2prev()[i];
-  if (previdx!=-1) { //XXX this is where measurements are logged
-    ptrackers[previdx].correct(m,cframe.gettime(),cframe[i],cframe.getimgdata());
-    ctrackers[i]=ptrackers[previdx];
-  }
-  else
-    ctrackers[i].initkalman(m,cframe.gettime(),cframe[i],cframe.getimgdata());
+        previdx=corrs.getcurr2prev()[i];
+        if (previdx!=-1) { //XXX this is where measurements are logged
+          ptrackers[previdx].correct(m,cframe.gettime(),cframe[i],cframe.getimgdata());
+          ctrackers[i]=ptrackers[previdx];
+        }
+        else
+          ctrackers[i].initkalman(m,cframe.gettime(),cframe[i],cframe.getimgdata());
         cframe[i].correctboundingbox(ctrackers[i].getmostrecent().getregprops().getboundbox());
         _cframe[i].correctboundingbox(ctrackers[i].getmostrecent().getregprops().getboundbox());
-  std::cout <<"Track "<<i<<" length "<<ctrackers[i].count()<<" frameno:"<<ctrackers[i].getmaxframeno()<<std::endl;
+        std::cout <<"Track "<<i<<" length "<<ctrackers[i].count()<<" frameno:"<<ctrackers[i].getmaxframeno()<<std::endl;
       }
       for (size_t i=0;i<pframe.size();i++) {
-  int curridx=corrs.getprev2curr()[i];
-  if (curridx==-1) {
-    if (ptrackers[i].count()>MINSEQLENGTH) {
+        int curridx=corrs.getprev2curr()[i];
+        if (curridx==-1) {
+          if (ptrackers[i].count()>MINSEQLENGTH) {
 #if(0)
-      goodtracks.push_back_merge(constraints,ptrackers[i]);
-      goodtracks.remove_before(constraints,ctrackers.earliestframeno(),finishedtracks);
+            goodtracks.push_back_merge(constraints,ptrackers[i]);
+            goodtracks.remove_before(constraints,ctrackers.earliestframeno(),finishedtracks);
 #else
             goodtracks.push_back(ptrackers[i]);
             goodtracks.remove_before(constraints,ctrackers.earliestframeno(),finishedtracks);
 #endif
-    }
-  }
+          }
+        }
       }
       //      std::cout <<"FINISHED CORRECT in gg::regiontracker"<<std::endl;
     }
     /// Only call this function when no more frames are to be added.
     void finalise(void) {
       for (size_t i=0;i<cframe.size();i++) {
-  if (ctrackers[i].count()>MINSEQLENGTH)
-    goodtracks.push_back(ctrackers[i]);
+        if (ctrackers[i].count()>MINSEQLENGTH)
+          goodtracks.push_back(ctrackers[i]);
         goodtracks.remove_merge(constraints,finishedtracks);
       }
       finalised=true;
@@ -116,6 +116,7 @@ namespace gg {
     OBJTRACKS_T& getfinishedtracks(void) { return finishedtracks; }
     const OBJTRACKS_T& getfinishedtracks(void) const { return finishedtracks; }
     void clearfinishedtracks(void) { finishedtracks.clear(); }
+    const OBJTRACKS_T& getcurrenttracks(void) const {return ctrackers;}
   };
 }
 

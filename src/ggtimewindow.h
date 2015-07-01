@@ -97,6 +97,12 @@ namespace gg {
     const regiontracker::OBJTRACKS_T& getgoodtracks(void) const { 
       return regtracker.getgoodtracks(); 
     }
+    const regiontracker getregiontracker(void) const {
+      return regtracker;
+    }
+    const regiontracker::OBJTRACKS_T& getcurrenttracks(void) const {
+      return regtracker.getcurrenttracks();
+    }
     const frame& getcurrentframe(void) const { return frames[idx]; }
     void makeimgtracks(void) { 
       imgtrackdata(regtracker.getgoodtracks());
