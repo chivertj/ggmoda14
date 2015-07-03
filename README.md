@@ -1,12 +1,14 @@
 gg-moda-14
 =============
 
-This code is related to object shape tracking using C++ and OpenCV. The code includes level set based active contour code, correspondence analysis and various probabilistic models. Much of the code was developed over the time period 2007-2014. The present form is the combination of two main projects being merged which however has not been finalised. There are therefore bugs and the systems have not been fully intergrated, so obviously this is a work in progress.
+This code is related to object shape tracking using C++ and OpenCV. The code includes level set based active contour code, correspondence analysis and various probabilistic models. Much of the underlying framework has been developed over the time period 2007-2015. The present form is the combination of two main (previously published) projects being merged and some more recent (unpublished) work in the form online shape filtering of shapes extracted from tracklets. The system and framework as a whole is a work in progress.
 
 Publications
 -------------
 
 There are a number of publications associated with the code:
+
+ - Chiverton John (2015) Online Tracklet Shape Filtering: submitted.
 
  - Chiverton John (2012) Helmet presence classification with motorcycle detection and tracking IET Intelligent Transport Systems 6 (3): 259 10.1049/iet-its.2011.0138
 
