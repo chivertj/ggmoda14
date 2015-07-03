@@ -21,19 +21,19 @@
 
 namespace gg {
 
-  class LowPass {
-  public:
-    LowPass(void) {}
-    virtual ~LowPass(void) {}
-    void operator() (const cv::Mat &_img);
-    const cv::Mat& GetLowPass(void) const { return lowpassf; }
-    const cv::Mat& GetLowPassScaled(void) const { return lowpass; }
-  protected:
-    cv::Mat img;
-    cv::Mat imgf;
-    cv::Mat lowpass;
-    cv::Mat lowpassf;
-  };
+class LowPass {
+public:
+  LowPass(void) {}
+  virtual ~LowPass(void) {}
+  void operator() (const cv::Mat &_img);
+  const cv::Mat& GetLowPass(void) const { return lowpassf; }
+  const cv::Mat& GetLowPassScaled(void) const { return lowpass; }
+protected:
+  cv::Mat img;
+  cv::Mat imgf;
+  cv::Mat lowpass;
+  cv::Mat lowpassf;
+};
 }
 
 #endif //GGLOWPASS_NS

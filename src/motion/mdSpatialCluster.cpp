@@ -83,8 +83,8 @@ void md::mdSpatialCluster::TrimSingleFeatureRegions(void) {
     region::REGIT featit;
     region::ComponentIndexs::iterator compit;
     for ( idx=0,regit=m_regions.begin(),iregit=m_iregions.begin(),featit=m_regionfeatures.begin(),compit=componentidxs.begin();
-          idx<m_regionfeatures.size();
-          ++idx,++regit,++iregit,++featit,++compit) {
+        idx<m_regionfeatures.size();
+        ++idx,++regit,++iregit,++featit,++compit) {
       if (m_regionfeatures[idx].size()<=1) {
         m_regions.erase(regit);
         m_iregions.erase(iregit);

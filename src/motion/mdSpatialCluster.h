@@ -34,8 +34,7 @@ public:
     m_iregions(region::MAXNOREGIONSB4TRIM),
     rastervoronoi(_rect),
     m_noregs(0),
-    tmpcntr(0)
-  {
+    tmpcntr(0) {
     mask=cv::Mat::zeros(_rect.size(),cv::DataType<uchar>::type);
     cmask=IplImage(mask);
     for (size_t i=0;i<region::MAXNOREGIONSB4TRIM;i++)

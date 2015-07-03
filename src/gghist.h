@@ -24,33 +24,33 @@
 #define GGHIST_H_
 
 namespace gg {
-  template <typename T>
-  class gghist {
-  public:
-    gghist(void) {}
-     virtual ~gghist(void) {}
-    void operator() (const cv::Mat_<T> &img, const cv::Mat_<uchar> &mask, const T &nobins, uchar maskval) {
-      if (mask.empty()) {
-        size_t X=img.cols,Y=img.rows;
-        for (size_t y=0;y<Y;y++) {
+template <typename T>
+class gghist {
+public:
+  gghist(void) {}
+  virtual ~gghist(void) {}
+  void operator() (const cv::Mat_<T> &img, const cv::Mat_<uchar> &mask, const T &nobins, uchar maskval) {
+    if (mask.empty()) {
+      size_t X=img.cols,Y=img.rows;
+      for (size_t y=0;y<Y;y++) {
 
-        }
       }
     }
-  protected:
-  };
-  class CvMDLMixtModel {
-  public:
-    CvMDLMixtModel(void);
-    virtual ~CvMDLMixtModel(void);
-    void Init(IplImage **imgs, int noImgs, IplImage *mask, bool grtr, MDLMM_T maskVal=0, double minCov=1.);
-    void OptNumMixes(void);
-    void Learn(void);
+  }
+protected:
+};
+class CvMDLMixtModel {
+public:
+  CvMDLMixtModel(void);
+  virtual ~CvMDLMixtModel(void);
+  void Init(IplImage **imgs, int noImgs, IplImage *mask, bool grtr, MDLMM_T maskVal=0, double minCov=1.);
+  void OptNumMixes(void);
+  void Learn(void);
 
-    double GetProb(MDLMM_T *imgData);
-    int GetNoMaskPnts(void);
-    int GetNoMixes(void);
-    void GetProb(MDLMM_T *imgData, double *probs);
+  double GetProb(MDLMM_T *imgData);
+  int GetNoMaskPnts(void);
+  int GetNoMixes(void);
+  void GetProb(MDLMM_T *imgData, double *probs);
 protected:
 };
 }

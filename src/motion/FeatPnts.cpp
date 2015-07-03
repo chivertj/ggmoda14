@@ -34,28 +34,28 @@ void cvMatToPnt(CvMat *mat, CvPoint2D32f *pnt) {
 
 //oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 CFeatPnts::CFeatPnts(void) 
-  :        m_pntLabels(0),
-     PNTDISTTHRESH(0.3),  //1.
-     m_X(0),m_Y(0),  
-     m_needToInitPnts(true),
-     m_noPnts(0),
-     m_pntStatus(0),
-     m_featerrs(0),
-     m_objPnts(0),
-     m_noObjPnts(0),
-     m_grey(0),m_prev_grey(0),m_pyramid(0),m_prev_pyramid(0),
-     m_tmpSwapImg(0),
-     m_tmppyramid(0),
-     m_tmpSwapPnts(0),
-     m_gftteig(0),
-     m_gftttemp(0),
-     m_gfttquality(0.01),
-     m_gfttmindistance(MotClustNS::HFLKPNTDENSITY),
-     m_featmask(0),
-     m_pntdists(0),
-     m_variance(30.),
-     m_forwardidxs(MAX_PNTCOUNT),
-     m_backwardidxs(MAX_PNTCOUNT)
+:        m_pntLabels(0),
+         PNTDISTTHRESH(0.3),  //1.
+         m_X(0),m_Y(0),
+         m_needToInitPnts(true),
+         m_noPnts(0),
+         m_pntStatus(0),
+         m_featerrs(0),
+         m_objPnts(0),
+         m_noObjPnts(0),
+         m_grey(0),m_prev_grey(0),m_pyramid(0),m_prev_pyramid(0),
+         m_tmpSwapImg(0),
+         m_tmppyramid(0),
+         m_tmpSwapPnts(0),
+         m_gftteig(0),
+         m_gftttemp(0),
+         m_gfttquality(0.01),
+         m_gfttmindistance(MotClustNS::HFLKPNTDENSITY),
+         m_featmask(0),
+         m_pntdists(0),
+         m_variance(30.),
+         m_forwardidxs(MAX_PNTCOUNT),
+         m_backwardidxs(MAX_PNTCOUNT)
 {
   m_pnts[0]=0;
   m_pnts[1]=0;
@@ -93,7 +93,7 @@ void CFeatPnts::Init(int width, int height) {
   assert(height>0);
   Clear();
   m_X=width;  m_Y=height;
-  
+
   m_grey=cvCreateImage(cvSize(width,height),IPL_DEPTH_8U,1);
   m_prev_grey = cvCreateImage( cvSize(width,height), IPL_DEPTH_8U, 1 );
   m_pyramid = cvCreateImage( cvSize(width+8,height/3.), IPL_DEPTH_32F, 1 );
@@ -143,7 +143,7 @@ void CFeatPnts::PerformOp(IplImage *greyimg) {
   else if (m_noPnts>0) {
     //Predict();
     Measure();
-//    Correct();
+    //    Correct();
 
     CheckBounds();
     CheckProximity();
@@ -167,10 +167,10 @@ void CFeatPnts::InitPnts(void) {
   cvZero(m_gftttemp);
   m_noPnts = MAX_PNTCOUNT;
   cvGoodFeaturesToTrack(m_grey,m_gftteig,m_gftttemp,m_pnts[0],&m_noPnts,
-        m_gfttquality,m_gfttmindistance,NULL);
+      m_gfttquality,m_gfttmindistance,NULL);
   cvFindCornerSubPix( m_grey, m_pnts[0], m_noPnts,
-          m_trackWinSize, cvSize(-1,-1),
-          cvTermCriteria(CV_TERMCRIT_ITER|CV_TERMCRIT_EPS,20,0.03));
+      m_trackWinSize, cvSize(-1,-1),
+      cvTermCriteria(CV_TERMCRIT_ITER|CV_TERMCRIT_EPS,20,0.03));
   CvMat *pnt=cvCreateMat(2,1,CV_32FC1);
   for (int i=0;i<m_noPnts;i++) {
     cvPntToMat(&m_pnts[0][i],pnt);
@@ -184,10 +184,10 @@ void CFeatPnts::InitPnts(void) {
 void CFeatPnts::Measure(void) {
   memset((void*)m_pnts[1],0,MAX_PNTCOUNT*sizeof(CvPoint2D32f));
   cvCalcOpticalFlowPyrLK( m_prev_grey, m_grey, m_prev_pyramid, m_pyramid,
-        m_pnts[0], m_pnts[1], m_noPnts, m_trackWinSize, 3, 
-        m_pntStatus, m_featerrs,
-        cvTermCriteria(CV_TERMCRIT_ITER|CV_TERMCRIT_EPS,20,0.03), 
-        m_lkPyrFlags );
+      m_pnts[0], m_pnts[1], m_noPnts, m_trackWinSize, 3,
+      m_pntStatus, m_featerrs,
+      cvTermCriteria(CV_TERMCRIT_ITER|CV_TERMCRIT_EPS,20,0.03),
+      m_lkPyrFlags );
 }
 //oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 void CFeatPnts::ReCountPnts(void) {
@@ -264,7 +264,7 @@ void CFeatPnts::GetNewFeatures(CvPoint2D32f *pnts, int &nopnts, int useharris) {
   cvNot(m_featmask,m_featmask);
   int extra=MAX_PNTCOUNT-nopnts;
   cvGoodFeaturesToTrack( m_grey, m_gftteig, m_gftttemp, pnts+nopnts, &extra,
-       m_gfttquality, m_gfttmindistance, m_featmask, 3, useharris, 0.04 );
+      m_gfttquality, m_gfttmindistance, m_featmask, 3, useharris, 0.04 );
   CvMat *mpnt=cvCreateMat(2,1,CV_32FC1);
   for (int i=nopnts;i<nopnts+extra;i++) {
     m_pntStatus[i]=1;

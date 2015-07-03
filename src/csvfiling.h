@@ -23,66 +23,66 @@
 #include "globalCVHeader.h"
 
 namespace csvfiling {
-  std::string& replaceAll(std::string& context, const std::string& from,
-        const std::string& to);
-  template <class T> void ReadCSV(const std::string &filename, const std::string &seperator);
-  template <class T> void CSVSize(const std::string &filename, const std::string &seperator, int &ncols, int &nrows);
-  template <class T> void ReadCSVtoMat(const std::string &filename, const std::string &seperator, cv::Mat_<T> &datamat);
-  void ReadCSVtoMatAlt(const std::string &filename, const std::string &seperator, cv::Mat &datamat);
+std::string& replaceAll(std::string& context, const std::string& from,
+    const std::string& to);
+template <class T> void ReadCSV(const std::string &filename, const std::string &seperator);
+template <class T> void CSVSize(const std::string &filename, const std::string &seperator, int &ncols, int &nrows);
+template <class T> void ReadCSVtoMat(const std::string &filename, const std::string &seperator, cv::Mat_<T> &datamat);
+void ReadCSVtoMatAlt(const std::string &filename, const std::string &seperator, cv::Mat &datamat);
 }
 
 
 namespace csvfiling {
 
-  template <class T> void ReadCSV(const std::string &filename, const std::string &seperator) {
-    std::ifstream csvfile(filename.c_str());
-    std::string line;
-    while (std::getline(csvfile,line)) {
-      if (seperator!=" ")
-  csvfiling::replaceAll(line,seperator," ");
-      std::stringstream ss(line);
-      T dataelement;
-      while (ss>>dataelement) {
-  std::cout <<dataelement<<std::endl;
-      }
-    }
-  }
-
-  template <class T> void CSVSize(const std::string &filename, const std::string &seperator, int &ncols, int &nrows) {
-    std::ifstream csvfile(filename.c_str());
-    std::string line;
-    std::getline(csvfile,line);
+template <class T> void ReadCSV(const std::string &filename, const std::string &seperator) {
+  std::ifstream csvfile(filename.c_str());
+  std::string line;
+  while (std::getline(csvfile,line)) {
     if (seperator!=" ")
-  csvfiling::replaceAll(line,seperator," ");
+      csvfiling::replaceAll(line,seperator," ");
     std::stringstream ss(line);
     T dataelement;
-    ncols=0;
-    while (ss>>dataelement)
-      ncols++;
-    nrows=1;      
-    while (std::getline(csvfile,line))
-      nrows++;
-  }
-
-  template <class T> void ReadCSVtoMat(const std::string &filename, const std::string &seperator, cv::Mat_<T> &datamat) {
-    int ncols,nrows;
-    CSVSize<T>(filename,seperator,ncols,nrows);
-    datamat=cv::Mat_<T>(nrows,ncols,0.);
-
-    std::ifstream csvfile(filename.c_str());
-    std::string line;
-
-    for (int j=0;j<nrows;j++) {
-      T *rawdata=(T*)(datamat.ptr(j));
-      std::getline(csvfile,line);
-      if (seperator!=" ")
-  csvfiling::replaceAll(line,seperator," ");
-      std::stringstream ss(line);
-      for (int i=0;i<ncols && ss>>*rawdata; i++,rawdata++);
-      //      for (int i=0;i<ncols;i++)
-      //  ss>>rawdata[i];
+    while (ss>>dataelement) {
+      std::cout <<dataelement<<std::endl;
     }
   }
+}
+
+template <class T> void CSVSize(const std::string &filename, const std::string &seperator, int &ncols, int &nrows) {
+  std::ifstream csvfile(filename.c_str());
+  std::string line;
+  std::getline(csvfile,line);
+  if (seperator!=" ")
+    csvfiling::replaceAll(line,seperator," ");
+  std::stringstream ss(line);
+  T dataelement;
+  ncols=0;
+  while (ss>>dataelement)
+    ncols++;
+  nrows=1;
+  while (std::getline(csvfile,line))
+    nrows++;
+}
+
+template <class T> void ReadCSVtoMat(const std::string &filename, const std::string &seperator, cv::Mat_<T> &datamat) {
+  int ncols,nrows;
+  CSVSize<T>(filename,seperator,ncols,nrows);
+  datamat=cv::Mat_<T>(nrows,ncols,0.);
+
+  std::ifstream csvfile(filename.c_str());
+  std::string line;
+
+  for (int j=0;j<nrows;j++) {
+    T *rawdata=(T*)(datamat.ptr(j));
+    std::getline(csvfile,line);
+    if (seperator!=" ")
+      csvfiling::replaceAll(line,seperator," ");
+    std::stringstream ss(line);
+    for (int i=0;i<ncols && ss>>*rawdata; i++,rawdata++);
+    //      for (int i=0;i<ncols;i++)
+    //  ss>>rawdata[i];
+  }
+}
 
 }
 

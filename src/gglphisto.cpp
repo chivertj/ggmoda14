@@ -17,37 +17,37 @@
 #include "gghelpers.h"
 
 namespace gg {
-  void LPHisto::operator() (const LowPass &lowpass, const cv::Mat &mask, int _nbins) {
-    assert(lowpass.GetLowPassScaled().size()==mask.size());
-    assert(mask.type()==cv::DataType<uchar>::type);
-    assert(lowpass.GetLowPassScaled().type()==cv::DataType<uchar>::type);
-    int nbins=_nbins;
-    if (hist.dims==0) {
-      const int sizes[]={nbins};
-      hist=cv::MatND(1,sizes,cv::DataType<float>::type,cv::Scalar(0.));
-    }
-    else hist=cv::Scalar(0.);
-    float ranges[]={0.,255.};
-    const cv::Mat img=lowpass.GetLowPassScaled();
-    int imgdims[]={img.rows,img.cols};
-    size_t v;
-    for (size_t y=0;y<imgdims[0];y++) {
-      const uchar *rawdata=img.ptr<uchar>(y);
-      const uchar *rawmask=mask.ptr<uchar>(y);
-      for (size_t x=0;x<imgdims[1];x++) {
-  if (rawmask[x]>0) {
-    v=bincalc_nobins(float(rawdata[x]),ranges[0],ranges[1],nbins);
-    hist.at<float>(v)++;
+void LPHisto::operator() (const LowPass &lowpass, const cv::Mat &mask, int _nbins) {
+  assert(lowpass.GetLowPassScaled().size()==mask.size());
+  assert(mask.type()==cv::DataType<uchar>::type);
+  assert(lowpass.GetLowPassScaled().type()==cv::DataType<uchar>::type);
+  int nbins=_nbins;
+  if (hist.dims==0) {
+    const int sizes[]={nbins};
+    hist=cv::MatND(1,sizes,cv::DataType<float>::type,cv::Scalar(0.));
   }
+  else hist=cv::Scalar(0.);
+  float ranges[]={0.,255.};
+  const cv::Mat img=lowpass.GetLowPassScaled();
+  int imgdims[]={img.rows,img.cols};
+  size_t v;
+  for (size_t y=0;y<imgdims[0];y++) {
+    const uchar *rawdata=img.ptr<uchar>(y);
+    const uchar *rawmask=mask.ptr<uchar>(y);
+    for (size_t x=0;x<imgdims[1];x++) {
+      if (rawmask[x]>0) {
+        v=bincalc_nobins(float(rawdata[x]),ranges[0],ranges[1],nbins);
+        hist.at<float>(v)++;
       }
     }
-    if (pdf.dims==0)
-      pdf=cv::MatND(hist.dims,hist.size,hist.type(),cv::Scalar(0.));
-    cv::Mat mhist(hist);
-    cv::Mat mpdf(pdf);
-    gg::normalise(mhist,mpdf);
   }
-  void LPHisto::CalcDefault1D(void) {
-    default1d=cv::Mat(pdf).t();
-  }
+  if (pdf.dims==0)
+    pdf=cv::MatND(hist.dims,hist.size,hist.type(),cv::Scalar(0.));
+  cv::Mat mhist(hist);
+  cv::Mat mpdf(pdf);
+  gg::normalise(mhist,mpdf);
+}
+void LPHisto::CalcDefault1D(void) {
+  default1d=cv::Mat(pdf).t();
+}
 }

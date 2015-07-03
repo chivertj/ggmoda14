@@ -29,32 +29,32 @@
 
 
 namespace gg {
-  //need to learn over a set of images and class masks -> number of classes = number of masks
-  //need to test over a set of images with single mask
-  //is this too fat? something simpler for most cases?
-  //also have 1 ggmatlearn per learning class? then another class to calculate posterior probabilities
-  typedef float featT;
-  typedef double logprobT;
-  //  template <typename featT=float, typename logprobT=double>
-  class ggmatlearn {
-  public:
-    typedef cv::Mat_<featT> FEATIMG;
-    typedef cv::Mat_<logprobT> PROBIMG;
-    typedef float MASKT;
-    typedef cv::Mat_<MASKT> MASKIMG;
-    ggmatlearn(void) {}
-    virtual ~ggmatlearn(void) {}
-    void learn(const std::vector<FEATIMG> &learnimgfeats, const MASKIMG &mask);
-    void learn(IplImage **imgs, int noImgs, IplImage *mask);
-    logprobT GetLogProb(const cv::Mat_<featT> &samplevalue) const;
-    logprobT GetLogProb(featT *rawdata) const;
-    int GetNoMaskPnts(void) const { return m_nmaskpnts; }
-  protected:
-    cv::EM m_em_model;
-    int m_nfeatures=0;
-    const int MINLEARNSIZE=10;
-    int m_nmaskpnts;
-  };
+//need to learn over a set of images and class masks -> number of classes = number of masks
+//need to test over a set of images with single mask
+//is this too fat? something simpler for most cases?
+//also have 1 ggmatlearn per learning class? then another class to calculate posterior probabilities
+typedef float featT;
+typedef double logprobT;
+//  template <typename featT=float, typename logprobT=double>
+class ggmatlearn {
+public:
+  typedef cv::Mat_<featT> FEATIMG;
+  typedef cv::Mat_<logprobT> PROBIMG;
+  typedef float MASKT;
+  typedef cv::Mat_<MASKT> MASKIMG;
+  ggmatlearn(void) {}
+  virtual ~ggmatlearn(void) {}
+  void learn(const std::vector<FEATIMG> &learnimgfeats, const MASKIMG &mask);
+  void learn(IplImage **imgs, int noImgs, IplImage *mask);
+  logprobT GetLogProb(const cv::Mat_<featT> &samplevalue) const;
+  logprobT GetLogProb(featT *rawdata) const;
+  int GetNoMaskPnts(void) const { return m_nmaskpnts; }
+protected:
+  cv::EM m_em_model;
+  int m_nfeatures=0;
+  const int MINLEARNSIZE=10;
+  int m_nmaskpnts;
+};
 }
 
 #endif /* GGMATLEARN_H_ */

@@ -15,13 +15,13 @@
 ////////////////////////////////////////////////////////////////////////
 #include "csvfiling.h"
 
-  //from thinking in C++ vol 2 by Bruce Eckel and Chuck Allison
+//from thinking in C++ vol 2 by Bruce Eckel and Chuck Allison
 std::string& csvfiling::replaceAll(std::string& context, const std::string& from,
-           const std::string& to) {
+    const std::string& to) {
   size_t lookHere = 0;
   size_t foundHere;
   while((foundHere = context.find(from, lookHere))
-  != std::string::npos) {
+      != std::string::npos) {
     context.replace(foundHere, from.size(), to);
     lookHere = foundHere + to.size();
   }
@@ -33,10 +33,10 @@ void csvfiling::ReadCSVtoMatAlt(const std::string &filename, const std::string &
   int ncols,nrows;
   CSVSize<float>(filename,seperator,ncols,nrows);
   datamat=cv::Mat(nrows,ncols,CV_32FC1,cv::Scalar(0.));
-  
+
   std::ifstream csvfile(filename.c_str());
   std::string line;
-  
+
   for (int j=0;j<nrows;j++) {
     float *rawdata=datamat.ptr<float>(j);
     std::getline(csvfile,line);

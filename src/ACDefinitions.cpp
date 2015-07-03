@@ -18,37 +18,37 @@
 #include <sstream>
 //=============================================================
 void ACDefinitions::ACCentralDiff(IplImage *img, IplImage *result, int xorder, int yorder, int aperture_size, IplImage *tmp) {
-    cvSobel(img,tmp,xorder,yorder,aperture_size);
-    cvConvertScale(tmp, result, 0.5 );
+  cvSobel(img,tmp,xorder,yorder,aperture_size);
+  cvConvertScale(tmp, result, 0.5 );
 }
 //=============================================================
 void ACDefinitions::ACSaveImg(const IplImage *img, const std::string &filename) {
-    IplImage *scaled = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,1);
-    double min,max;
-    cvMinMaxLoc(img,&min,&max);
+  IplImage *scaled = cvCreateImage(cvGetSize(img),IPL_DEPTH_8U,1);
+  double min,max;
+  cvMinMaxLoc(img,&min,&max);
 #if(1) //bad dynamic range check
-    if (min < -100.)  min = -100.;
-    if (max >  100.)  max =  100.;
+  if (min < -100.)  min = -100.;
+  if (max >  100.)  max =  100.;
 #endif
-    //    min=-5;
-    //    max=5;
-    double scale,shift;
+  //    min=-5;
+  //    max=5;
+  double scale,shift;
 
-    if (min>max) {
-      double tmp=min;
-      min=max;
-      max=tmp;
-    }
-    if ((max-min)>ACSMALL){
-      scale=255/(max-min);
-      shift=-min*scale;
-      cvConvertScale(img,scaled,scale,shift);
-    }
-    else {
-      cvZero(scaled);
-    }
-    cvSaveImage(filename.c_str(),scaled);
-    cvReleaseImage(&scaled);
+  if (min>max) {
+    double tmp=min;
+    min=max;
+    max=tmp;
+  }
+  if ((max-min)>ACSMALL){
+    scale=255/(max-min);
+    shift=-min*scale;
+    cvConvertScale(img,scaled,scale,shift);
+  }
+  else {
+    cvZero(scaled);
+  }
+  cvSaveImage(filename.c_str(),scaled);
+  cvReleaseImage(&scaled);
 }
 //=============================================================
 void ACDefinitions::ACSaveImgColor(const IplImage *img, const std::string &filename) {
@@ -62,55 +62,55 @@ void ACDefinitions::ACSaveImgColor(const IplImage *img, const std::string &filen
 }
 //=============================================================
 void ACDefinitions::ACZeroContourAndColourMergeAndSave(IplImage *image, IplImage *levelSet, const std::string &filename) {
-    IplImage *imgToSave=ACZeroContourAndColourMerge(image,levelSet);
-    cvSaveImage(filename.c_str(),imgToSave);
-    cvReleaseImage(&imgToSave);
+  IplImage *imgToSave=ACZeroContourAndColourMerge(image,levelSet);
+  cvSaveImage(filename.c_str(),imgToSave);
+  cvReleaseImage(&imgToSave);
 }
 //=============================================================
 IplImage* ACDefinitions::ACZeroContourAndColourMerge(IplImage *image, IplImage *levelSet) {
-    assert(levelSet&&image);
-    IplImage *zeroContour = cvCreateImage(cvGetSize(levelSet),IPL_DEPTH_8U,3);
-    cvConvertScale(image,zeroContour);
-    int X=levelSet->width,Y=levelSet->height;
-    float *rawLevelSet = (float*)(levelSet->imageData);
+  assert(levelSet&&image);
+  IplImage *zeroContour = cvCreateImage(cvGetSize(levelSet),IPL_DEPTH_8U,3);
+  cvConvertScale(image,zeroContour);
+  int X=levelSet->width,Y=levelSet->height;
+  float *rawLevelSet = (float*)(levelSet->imageData);
 
-    int i;
-    //    CvScalar contourCol=cvScalar(255,0,0);
-    //    CvScalar contourCol=cvScalar(255,0,255);
-    CvScalar contourCol=cvScalar(0,255,255);
-    //    CvScalar contourCol=cvScalar(0,0,255);
-    for (int y=1;y<Y-1;y++) {
-  for (int x=1;x<X-1;x++) {
+  int i;
+  //    CvScalar contourCol=cvScalar(255,0,0);
+  //    CvScalar contourCol=cvScalar(255,0,255);
+  CvScalar contourCol=cvScalar(0,255,255);
+  //    CvScalar contourCol=cvScalar(0,0,255);
+  for (int y=1;y<Y-1;y++) {
+    for (int x=1;x<X-1;x++) {
       i=y*X+x;
       if (rawLevelSet[i]>(-ACLITTLENUMBER) && rawLevelSet[i]<ACLITTLENUMBER ) {
         //    cvSet2D(zeroContour,y,x,cvScalarAll(255));
-    cvSet2D(zeroContour,y,x,contourCol);
-    cvSet2D(zeroContour,y,x-1,contourCol);
-    cvSet2D(zeroContour,y+1,x,contourCol);
+        cvSet2D(zeroContour,y,x,contourCol);
+        cvSet2D(zeroContour,y,x-1,contourCol);
+        cvSet2D(zeroContour,y+1,x,contourCol);
       }
-  }
     }
-    return zeroContour;
+  }
+  return zeroContour;
 }
 //=============================================================
 IplImage* ACDefinitions::ACPosNegThreshold(IplImage *levelSet, bool negThresh) {
-    assert(levelSet);
-    IplImage *threshold=cvCreateImage(cvGetSize(levelSet),IPL_DEPTH_8U,1);
-    cvZero(threshold);
-    int X=levelSet->width,Y=levelSet->height;
-//    IMAGEBYTE_T *rawLevelSet=(IMAGEBYTE_T*)(levelSet->imageData);
-    float *rawLevelSet=(float*)(levelSet->imageData);
-    IMAGEBYTE_T *rawThreshold=(IMAGEBYTE_T*)(threshold->imageData);
-    float levelSetVal;
-    for (int y=0;y<Y;y++) {
-  for (int x=0;x<X;x++) {
+  assert(levelSet);
+  IplImage *threshold=cvCreateImage(cvGetSize(levelSet),IPL_DEPTH_8U,1);
+  cvZero(threshold);
+  int X=levelSet->width,Y=levelSet->height;
+  //    IMAGEBYTE_T *rawLevelSet=(IMAGEBYTE_T*)(levelSet->imageData);
+  float *rawLevelSet=(float*)(levelSet->imageData);
+  IMAGEBYTE_T *rawThreshold=(IMAGEBYTE_T*)(threshold->imageData);
+  float levelSetVal;
+  for (int y=0;y<Y;y++) {
+    for (int x=0;x<X;x++) {
       levelSetVal=rawLevelSet[y*X+x];
       if ((negThresh && levelSetVal<=0.) || (!negThresh && levelSetVal>=0.)) {
-    rawThreshold[y*X+x]=255;
+        rawThreshold[y*X+x]=255;
       }
-  }
     }
-    return threshold;
+  }
+  return threshold;
 }
 //=============================================================
 std::string ACDefinitions::StringAndZeroPad(int digit,int noDigits) {

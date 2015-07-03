@@ -21,56 +21,56 @@
 #include "ggclassification.h"
 
 namespace gg {
-  //############################################
-  //############################################
-  /**
-   * Subdivides a region (gg::regionhierarchy::regprops using gg::regionproperties)\n
-   * into a subregion (gg::regionhierarchy::subregprops using gg::regionproperties)\n
-   * and an immediate background region (gg::regionhierarchy::bgsubregprops using gg::regionproperties)\n
-   */
-  class regionhierarchy {
-  public:
-    regionhierarchy(void) {}
-    regionhierarchy(const regionhierarchy &rh) {set(rh);}
-    regionhierarchy(const cv::Mat &img, const cv::Mat &mask, const cv::Mat &_regpnts) : regprops(img,mask,_regpnts) { }
-    void set(const regionhierarchy &rh) {
-      regprops=rh.regprops;
-      subregprops=rh.subregprops;
-      bgsubregprops=rh.bgsubregprops;
-    }
-    void set(const cv::Mat &img, const cv::Mat &mask, const cv::Mat &_regpnts) { regprops.set(img,mask,_regpnts); }
-    const regionhierarchy& operator=(const regionhierarchy &rh) { set(rh); return *this; }
+//############################################
+//############################################
+/**
+ * Subdivides a region (gg::regionhierarchy::regprops using gg::regionproperties)\n
+ * into a subregion (gg::regionhierarchy::subregprops using gg::regionproperties)\n
+ * and an immediate background region (gg::regionhierarchy::bgsubregprops using gg::regionproperties)\n
+ */
+class regionhierarchy {
+public:
+  regionhierarchy(void) {}
+  regionhierarchy(const regionhierarchy &rh) {set(rh);}
+  regionhierarchy(const cv::Mat &img, const cv::Mat &mask, const cv::Mat &_regpnts) : regprops(img,mask,_regpnts) { }
+  void set(const regionhierarchy &rh) {
+    regprops=rh.regprops;
+    subregprops=rh.subregprops;
+    bgsubregprops=rh.bgsubregprops;
+  }
+  void set(const cv::Mat &img, const cv::Mat &mask, const cv::Mat &_regpnts) { regprops.set(img,mask,_regpnts); }
+  const regionhierarchy& operator=(const regionhierarchy &rh) { set(rh); return *this; }
 
-    const regionproperties& getregprops(void) const { return regprops; }
-    regionproperties& getregprops(void) { return regprops; }
-    void setregprops(const regionproperties &_regprops) { regprops=_regprops; }
+  const regionproperties& getregprops(void) const { return regprops; }
+  regionproperties& getregprops(void) { return regprops; }
+  void setregprops(const regionproperties &_regprops) { regprops=_regprops; }
 
-    const regionproperties& getsubregprops(void) const { return subregprops; }
-    regionproperties& getsubregprops(void) { return subregprops; }
-    void setsubregprops(const regionproperties &_subregprops) { subregprops=_subregprops; }
+  const regionproperties& getsubregprops(void) const { return subregprops; }
+  regionproperties& getsubregprops(void) { return subregprops; }
+  void setsubregprops(const regionproperties &_subregprops) { subregprops=_subregprops; }
 
-    const regionproperties& getbgsubregprops(void) const { return bgsubregprops; }
-    regionproperties& getbgsubregprops(void) { return bgsubregprops; }
-    void setbgsubregprops(const regionproperties &_bgsubregprops) { bgsubregprops=_bgsubregprops; }
+  const regionproperties& getbgsubregprops(void) const { return bgsubregprops; }
+  regionproperties& getbgsubregprops(void) { return bgsubregprops; }
+  void setbgsubregprops(const regionproperties &_bgsubregprops) { bgsubregprops=_bgsubregprops; }
 
-    const feature& getphoto(void) const {return regprops.getphoto();}
-    const feature& getphoto(void) {return regprops.getphoto();}
-    const cv::Point& getcog(void) const {return regprops.getcog();}
-    size_t getsize(void) const {return regprops.getsize();}
-    const cv::Mat& getpnts(void) const {return regprops.getpnts();}
-    const cv::RotatedRect& getboundbox(void) const {return regprops.getboundbox();}
-    void setboundbox(const region::Rects::R &_r) {regprops.setboundbox(_r);}
+  const feature& getphoto(void) const {return regprops.getphoto();}
+  const feature& getphoto(void) {return regprops.getphoto();}
+  const cv::Point& getcog(void) const {return regprops.getcog();}
+  size_t getsize(void) const {return regprops.getsize();}
+  const cv::Mat& getpnts(void) const {return regprops.getpnts();}
+  const cv::RotatedRect& getboundbox(void) const {return regprops.getboundbox();}
+  void setboundbox(const region::Rects::R &_r) {regprops.setboundbox(_r);}
 
-    void merge(const regionhierarchy &rh) {
-      regprops.merge(rh.regprops);
-      subregprops.merge(rh.subregprops);
-      bgsubregprops.merge(rh.bgsubregprops);
-    }
-  protected:
-    regionproperties regprops;
-    regionproperties subregprops;
-    regionproperties bgsubregprops;
-  };
+  void merge(const regionhierarchy &rh) {
+    regprops.merge(rh.regprops);
+    subregprops.merge(rh.subregprops);
+    bgsubregprops.merge(rh.bgsubregprops);
+  }
+protected:
+  regionproperties regprops;
+  regionproperties subregprops;
+  regionproperties bgsubregprops;
+};
 }
 
 #endif //GGREGIONHIERARCHY

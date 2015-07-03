@@ -22,8 +22,8 @@
 
 
 CClusterPnts::CClusterPnts(void) 
-  :
-  m_labels(0), m_nopnts(0), m_noinsubset(5), m_nosubsets(5), m_xtolerance(0.3), m_ytolerance(0.3)
+:
+m_labels(0), m_nopnts(0), m_noinsubset(5), m_nosubsets(5), m_xtolerance(0.3), m_ytolerance(0.3)
 {
   m_pnts[0]=0; m_pnts[1]=0;
   m_intlabels=LABT(MotClustNS::MAXLKPNTCNT);
@@ -80,11 +80,11 @@ void CClusterPnts::PerformOp(CvPoint2D32f *currentpnts, CvPoint2D32f *previouspn
     }
 
     int modelmeanidx=CalcModelMean(m_submeans,cnt,m_corr);
-    
+
     cv::Point2f modelmean(0.,0.);
     for (uint i=0;i<m_corr.size();i++) {
       if (m_corr[i]>0)
-  modelmean+=m_submeans[i];
+        modelmean+=m_submeans[i];
     }
     float invcnt=1./float(cnt);
     modelmean*=invcnt;
@@ -92,28 +92,28 @@ void CClusterPnts::PerformOp(CvPoint2D32f *currentpnts, CvPoint2D32f *previouspn
     //label points that do not match
     for (uint i=0;i<m_corr.size();i++) {
       if (m_corr[i]==0) {
-  for (uint j=0;j<m_indxs[i].size();j++) 
-    m_intlabels[m_indxs[i][j]]=FOREGROUND;
+        for (uint j=0;j<m_indxs[i].size();j++)
+          m_intlabels[m_indxs[i][j]]=FOREGROUND;
       }
     }
 
     //now test every untested point in the data
     for (int i=0;i<m_nopnts;i++) {
       if (Equal(modelmean,m_dispnts[i]))
-  m_intlabels[i]=BACKGROUND;
+        m_intlabels[i]=BACKGROUND;
       else
-  m_intlabels[i]=FOREGROUND;
+        m_intlabels[i]=FOREGROUND;
     }
-  
+
     accept=0,notaccept=0;
     for (int i=0;i<m_nopnts;i++) {
       if (m_intlabels[i]==BACKGROUND) {
-  accept++;
-  m_labels[i]=0;
+        accept++;
+        m_labels[i]=0;
       }
       else { //foreground...
-  notaccept++;
-  m_labels[i]=1;
+        notaccept++;
+        m_labels[i]=1;
       }
     }
   } while(accept<notaccept && iter++<maxiter);
@@ -158,13 +158,13 @@ int CClusterPnts::CalcModelMean(PNTS &submeans, int &cnt, region::IDXT &corr) {
     idxm(j,j)=1;
     for (uint i=j+1;i<idxm.size2();i++) {
       if (Equal(submeans[i],submeans[j])) {
-  idxm(j,i)=1;
-  idxm(i,j)=1;
+        idxm(j,i)=1;
+        idxm(i,j)=1;
       }
     }
     for (uint i=0;i<idxm.size2();i++) {
       if (idxm(j,i)==1)
-  rowsum[j]++;
+        rowsum[j]++;
     }
     if (rowsum[j]>maxrowsum) {
       maxrowsum=rowsum[j];
@@ -191,7 +191,7 @@ void CClusterPnts::CalcDispPnts(void) {
   assert(m_pnts[1]);
   for (int i=0;i<m_nopnts;i++) 
     m_dispnts[i]=cv::Point2f(m_pnts[0][i].x-m_pnts[1][i].x,
-           m_pnts[0][i].y-m_pnts[1][i].y);
+        m_pnts[0][i].y-m_pnts[1][i].y);
 }
 
 void CClusterPnts::CalcMeanAll(void) {

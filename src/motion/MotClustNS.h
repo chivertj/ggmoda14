@@ -21,20 +21,20 @@
 using namespace ACDefinitions;
 
 namespace MotClustNS {
-  const int MAXLKPNTCNT=5000;
-  const int LKPNTDENSITY=10;
-  const int HFLKPNTDENSITY=5;
-  void SumImgs(IplImage **imgs,int noImgs,IplImage *opImg);
-  void MultImgs(IplImage **imgs,int noImgs,IplImage *opImg);
-  void ScaleImg(IplImage *ipImg, IplImage *opImg, double scale);
-  void RenderPnts(IplImage *img, const CvPoint2D32f *pnts, const int *pntlabels, int nopnts);
-  void ExportImg(int idx, IplImage *opImg);
-  const CvScalar FGCOL=CV_RGB(0,255,255);
-  const CvScalar HALOCOL=CV_RGB(255,255,0);
-  const AC3TUPLE<IMAGEBYTE_T> FGCOL_B(0,255,255);
-  const AC3TUPLE<IMAGEBYTE_T> HALOCOL_B(255,255,0);
-  enum MASK {FG,HALO,COMB};
-  enum MASKT {B,FL};
+const int MAXLKPNTCNT=5000;
+const int LKPNTDENSITY=10;
+const int HFLKPNTDENSITY=5;
+void SumImgs(IplImage **imgs,int noImgs,IplImage *opImg);
+void MultImgs(IplImage **imgs,int noImgs,IplImage *opImg);
+void ScaleImg(IplImage *ipImg, IplImage *opImg, double scale);
+void RenderPnts(IplImage *img, const CvPoint2D32f *pnts, const int *pntlabels, int nopnts);
+void ExportImg(int idx, IplImage *opImg);
+const CvScalar FGCOL=CV_RGB(0,255,255);
+const CvScalar HALOCOL=CV_RGB(255,255,0);
+const AC3TUPLE<IMAGEBYTE_T> FGCOL_B(0,255,255);
+const AC3TUPLE<IMAGEBYTE_T> HALOCOL_B(255,255,0);
+enum MASK {FG,HALO,COMB};
+enum MASKT {B,FL};
 }
 #endif //MOTCLUSTNS_NAMESPACE
 

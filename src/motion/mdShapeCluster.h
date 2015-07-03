@@ -20,22 +20,22 @@
 #include "mdBackProjector.h"
 
 namespace md {
-  class ShapeCluster : public MotionCluster {
-  public:
-    ShapeCluster(const cv::Rect &_rect) : MotionCluster(_rect),bproj(_rect),greyimg(_rect.size(),cv::DataType<uchar>::type) {}
-    void operator()(const cv::Mat &colorimg) {
-      cv::cvtColor(colorimg,greyimg,CV_BGR2GRAY);
-      MotionCluster::operator()(greyimg);
-      bproj.setimg(colorimg);
-    }
-    void backproject(int idx) {
-      bproj(clusters().BorrowIRegion(idx));
-    }
-    const cv::Mat& getbp(void) { return bproj(); }
-  protected:
-    BackProjector bproj;
-    cv::Mat greyimg;
-  };
+class ShapeCluster : public MotionCluster {
+public:
+  ShapeCluster(const cv::Rect &_rect) : MotionCluster(_rect),bproj(_rect),greyimg(_rect.size(),cv::DataType<uchar>::type) {}
+  void operator()(const cv::Mat &colorimg) {
+    cv::cvtColor(colorimg,greyimg,CV_BGR2GRAY);
+    MotionCluster::operator()(greyimg);
+    bproj.setimg(colorimg);
+  }
+  void backproject(int idx) {
+    bproj(clusters().BorrowIRegion(idx));
+  }
+  const cv::Mat& getbp(void) { return bproj(); }
+protected:
+  BackProjector bproj;
+  cv::Mat greyimg;
+};
 }
 
 #endif //MDSHAPECLUSTER

@@ -27,13 +27,13 @@
 
 namespace gg {
 #if(0)
-  ///Can be used from main to export track information
-  void dumptrackdata(const gg::timewindow &trackerdata);
-  ///Can be used from main to export track information
-  void exportforegrounddata(gg::timewindow &trackerdata);
+///Can be used from main to export track information
+void dumptrackdata(const gg::timewindow &trackerdata);
+///Can be used from main to export track information
+void exportforegrounddata(gg::timewindow &trackerdata);
 #endif
-  std::ostream& operator<<(std::ostream &os, const cv::RotatedRect &r);
-  std::ostream& operator<<(std::ostream &os, const cv::Rect &r);
+std::ostream& operator<<(std::ostream &os, const cv::RotatedRect &r);
+std::ostream& operator<<(std::ostream &os, const cv::Rect &r);
 }
 
 #endif /* GGEXPORTERS_H_ */

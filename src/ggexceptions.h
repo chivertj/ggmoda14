@@ -19,13 +19,13 @@
 #include <iostream>
 
 namespace gg {
-  class error : public std::exception {
-    std::string s;
-  public:
-    error(const std::string &_s) throw() : s(_s) {}
-    virtual ~error(void) throw() {}
-    virtual const char* what (void) const throw() { return s.c_str(); }
-  };
+class error : public std::exception {
+  std::string s;
+public:
+  error(const std::string &_s) throw() : s(_s) {}
+  virtual ~error(void) throw() {}
+  virtual const char* what (void) const throw() { return s.c_str(); }
+};
 }
 
 #endif //GGEXCEPTIONS

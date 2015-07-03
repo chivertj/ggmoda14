@@ -112,11 +112,11 @@ inline void CFeatPnts::InitKalman(int idx, CvMat *initpnt) {
   // 0 0 0 0 0 1
   cvSetIdentity( m_kalman[idx]->transition_matrix, cvRealScalar(1.) );
   //velocity
-    cvmSet(m_kalman[idx]->transition_matrix,0,2,0.01);
-    cvmSet(m_kalman[idx]->transition_matrix,1,3,0.01);
+  cvmSet(m_kalman[idx]->transition_matrix,0,2,0.01);
+  cvmSet(m_kalman[idx]->transition_matrix,1,3,0.01);
   //acceleration
-    cvmSet(m_kalman[idx]->transition_matrix,2,4,0.01);
-    cvmSet(m_kalman[idx]->transition_matrix,3,5,0.01);
+  cvmSet(m_kalman[idx]->transition_matrix,2,4,0.01);
+  cvmSet(m_kalman[idx]->transition_matrix,3,5,0.01);
   cvSetIdentity( m_kalman[idx]->measurement_matrix, cvRealScalar(1.) );
   //  mk::utils::opencv::PrintMat<float>(m_kalman[idx]->measurement_matrix);
   //cvSetIdentity( m_kalman[idx]->process_noise_cov, cvRealScalar(m_variance*2.) ); //how believable is the model?

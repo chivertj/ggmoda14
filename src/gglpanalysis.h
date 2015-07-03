@@ -23,24 +23,24 @@
 #include "gglphisto.h"
 
 namespace gg {
-  //#######################################
-  //#######################################
-  class LPAnalysis {
-  public:
-    LPAnalysis(void) {}
-    ~LPAnalysis(void) {}
-    void operator() (region::IREGv &grndtrths, region::IREGv &colorimgs, gg::LowPass &lowpass, gg::LPHisto &histo);
-    void operator() (const cv::Mat &fg, const cv::Mat &img, gg::LowPass &lowpass, gg::LPHisto &histo);
-    void operator() (const cv::Mat &fg, const cv::Mat &img);
-    void Label(std::vector<std::string> &labels);
-    const cv::Mat& AllPDFs(void) const {return allpdfs;}
-    const cv::Mat& Labelled(void) const {return labelled;}
-  protected:
-    cv::Mat allpdfs;
-    cv::Mat labelled;
-  };
+//#######################################
+//#######################################
+class LPAnalysis {
+public:
+  LPAnalysis(void) {}
+  ~LPAnalysis(void) {}
+  void operator() (region::IREGv &grndtrths, region::IREGv &colorimgs, gg::LowPass &lowpass, gg::LPHisto &histo);
+  void operator() (const cv::Mat &fg, const cv::Mat &img, gg::LowPass &lowpass, gg::LPHisto &histo);
+  void operator() (const cv::Mat &fg, const cv::Mat &img);
+  void Label(std::vector<std::string> &labels);
+  const cv::Mat& AllPDFs(void) const {return allpdfs;}
+  const cv::Mat& Labelled(void) const {return labelled;}
+protected:
+  cv::Mat allpdfs;
+  cv::Mat labelled;
+};
 
-  void AnalyseLP(const cv::Mat &fgmap, gg::LowPass &lowpass, gg::LPHisto &histo, cv::Mat &pdf);
+void AnalyseLP(const cv::Mat &fgmap, gg::LowPass &lowpass, gg::LPHisto &histo, cv::Mat &pdf);
 
 }
 

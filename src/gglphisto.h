@@ -20,19 +20,19 @@
 #include "gglowpass.h"
 
 namespace gg {
-  class LPHisto {
-  public:
-    LPHisto(void) {}
-    virtual ~LPHisto(void) {}
-    virtual void operator() (const LowPass &lowpass, const cv::Mat &mask, int _nbins=30);
-    virtual void CalcDefault1D(void);
-    const cv::Mat& Default1D(void) const {return default1d;}
-    const cv::MatND& PDF(void) const {return pdf;}
-  protected:
-    cv::Mat default1d;
-    cv::MatND pdf;
-    cv::MatND hist;
-  };
+class LPHisto {
+public:
+  LPHisto(void) {}
+  virtual ~LPHisto(void) {}
+  virtual void operator() (const LowPass &lowpass, const cv::Mat &mask, int _nbins=30);
+  virtual void CalcDefault1D(void);
+  const cv::Mat& Default1D(void) const {return default1d;}
+  const cv::MatND& PDF(void) const {return pdf;}
+protected:
+  cv::Mat default1d;
+  cv::MatND pdf;
+  cv::MatND hist;
+};
 }
 
 #endif //GGLPHISTO_NS

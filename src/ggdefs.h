@@ -24,14 +24,14 @@
 #define GGDEFS_H_
 
 namespace gg {
-    typedef cv::RotatedRect ROI;
-    typedef std::vector<ROI> ROIS;
-    //    const size_t MINSEQLENGTH=10; //=5, 10, 20
-    const size_t MINSEQLENGTH=5; //=5, 10, 20
-    const size_t _WINDOWSIZE=20;
-    const size_t _MAXNREGIONS=region::MAXNOREGIONS;
+typedef cv::RotatedRect ROI;
+typedef std::vector<ROI> ROIS;
+//    const size_t MINSEQLENGTH=10; //=5, 10, 20
+const size_t MINSEQLENGTH=5; //=5, 10, 20
+const size_t _WINDOWSIZE=20;
+const size_t _MAXNREGIONS=region::MAXNOREGIONS;
 //    const size_t _MAXPROPAGATE=50; // 50,100
-    const size_t _MAXPROPAGATE=5; // 50,100
-    const float REGINTERSECTPROP=0.25;
+const size_t _MAXPROPAGATE=5; // 50,100
+const float REGINTERSECTPROP=0.25;
 }
 #endif /* GGDEFS_H_ */

@@ -22,47 +22,47 @@
 #include "ggclassification.h"
 
 namespace gg {
-  //############################################
-  //############################################
-  /**
-   *  Abstract base class for classifiers.
-   */
-  class classifier {
-  public:
-    classifier(void) {}
-    virtual ~classifier(void) {}
-    virtual void train(const cv::Mat &trainingdata, const cv::Mat &labels) =0;
-    //    virtual const discreteclassification& classify(const cv::Mat &feature) =0;
-    virtual const discreteclassification& classify(regionhierarchy &reg) =0;
-  protected:
-    discreteclassification c;
-  };
-  //############################################
-  //############################################
-  /**
-   * Classifier specialization for helmets.\n
-   * gg::helmetclassifier::c = 0 (gg::discreteclassification) for no classification\n
-   * gg::helmetclassifier::c = 1 (gg::discreteclassification) for helmet present\n
-   * gg::helmetclassifier::c = 2 (gg::discreteclassification) for helmet not present\n
-   */
-  class helmetclassifier : public classifier {
-  public:
-    helmetclassifier(const HeadClassifier &_headclassifier) : headclassifier(_headclassifier) {}
-    virtual ~helmetclassifier(void) {}
-    //    const discreteclassification& classify(const cv::Mat &feature) {
-    virtual const discreteclassification& classify(regionhierarchy &reg) {
-      float res=headclassifier.classify(reg.getsubregprops().getphoto().getpdf());
-      if (res>0.0001)
-  c.set(helmetclassification::HELMET);  //classification=HELMET;
-      else
-  c.set(helmetclassification::NOHELMET);  //classification=NOHELMET
-      return c;
-    }
-  protected:
-    helmetclassifier(void);
-    void train(const cv::Mat &trainingdata, const cv::Mat &labels) {}
-    const HeadClassifier &headclassifier;
-  };
+//############################################
+//############################################
+/**
+ *  Abstract base class for classifiers.
+ */
+class classifier {
+public:
+  classifier(void) {}
+  virtual ~classifier(void) {}
+  virtual void train(const cv::Mat &trainingdata, const cv::Mat &labels) =0;
+  //    virtual const discreteclassification& classify(const cv::Mat &feature) =0;
+  virtual const discreteclassification& classify(regionhierarchy &reg) =0;
+protected:
+  discreteclassification c;
+};
+//############################################
+//############################################
+/**
+ * Classifier specialization for helmets.\n
+ * gg::helmetclassifier::c = 0 (gg::discreteclassification) for no classification\n
+ * gg::helmetclassifier::c = 1 (gg::discreteclassification) for helmet present\n
+ * gg::helmetclassifier::c = 2 (gg::discreteclassification) for helmet not present\n
+ */
+class helmetclassifier : public classifier {
+public:
+  helmetclassifier(const HeadClassifier &_headclassifier) : headclassifier(_headclassifier) {}
+  virtual ~helmetclassifier(void) {}
+  //    const discreteclassification& classify(const cv::Mat &feature) {
+  virtual const discreteclassification& classify(regionhierarchy &reg) {
+    float res=headclassifier.classify(reg.getsubregprops().getphoto().getpdf());
+    if (res>0.0001)
+      c.set(helmetclassification::HELMET);  //classification=HELMET;
+    else
+      c.set(helmetclassification::NOHELMET);  //classification=NOHELMET
+    return c;
+  }
+protected:
+  helmetclassifier(void);
+  void train(const cv::Mat &trainingdata, const cv::Mat &labels) {}
+  const HeadClassifier &headclassifier;
+};
 
 }
 #endif //GGCLASSIFY

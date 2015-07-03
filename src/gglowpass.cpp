@@ -17,20 +17,20 @@
 #include "gghelpers.h"
 
 namespace gg {
-  void LowPass::operator() (const cv::Mat &_img) {
-    assert(_img.type()==cv::DataType<cv::Vec3b>::type);
-    if (img.empty()) {
-      img=cv::Mat::zeros(_img.rows,_img.cols,cv::DataType<uchar>::type);
-      imgf=cv::Mat::zeros(_img.rows,_img.cols,cv::DataType<float>::type);
-      lowpass=cv::Mat::zeros(_img.rows,_img.cols,cv::DataType<uchar>::type);
-      lowpassf=cv::Mat::zeros(_img.rows,_img.cols,cv::DataType<float>::type);
-    }
-    cv::cvtColor(_img,img,CV_RGB2GRAY);
-    img.convertTo(imgf,imgf.type());
-    //    cv::GaussianBlur(imgf,lowpassf,cv::Size(7,7),3); //5->2, 3->0.8
-    cv::GaussianBlur(imgf,lowpassf,cv::Size(11,11),3); //5->2, 3->0.8
-    //    imgf.copyTo(lowpassf);
-    //  MinMaxScale(lowpassf,lowpass);
-    lowpassf.convertTo(lowpass,lowpass.type());
+void LowPass::operator() (const cv::Mat &_img) {
+  assert(_img.type()==cv::DataType<cv::Vec3b>::type);
+  if (img.empty()) {
+    img=cv::Mat::zeros(_img.rows,_img.cols,cv::DataType<uchar>::type);
+    imgf=cv::Mat::zeros(_img.rows,_img.cols,cv::DataType<float>::type);
+    lowpass=cv::Mat::zeros(_img.rows,_img.cols,cv::DataType<uchar>::type);
+    lowpassf=cv::Mat::zeros(_img.rows,_img.cols,cv::DataType<float>::type);
   }
+  cv::cvtColor(_img,img,CV_RGB2GRAY);
+  img.convertTo(imgf,imgf.type());
+  //    cv::GaussianBlur(imgf,lowpassf,cv::Size(7,7),3); //5->2, 3->0.8
+  cv::GaussianBlur(imgf,lowpassf,cv::Size(11,11),3); //5->2, 3->0.8
+  //    imgf.copyTo(lowpassf);
+  //  MinMaxScale(lowpassf,lowpass);
+  lowpassf.convertTo(lowpass,lowpass.type());
+}
 }

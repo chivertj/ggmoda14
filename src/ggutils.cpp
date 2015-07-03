@@ -16,17 +16,17 @@
 #include "ggutils.h"
 
 namespace gg {
-  size_t inc(const size_t &limit, const size_t &idx) { if (idx>=limit-1) return 0; return idx+1;}
-  size_t dec(const size_t &limit, const size_t &idx) { if (idx<=1) return limit-1; return idx-1;}
-  std::ostream& printmatdetails(std::ostream &os, const cv::Mat &m) {
-    os <<m.rows<<","<<m.cols<<","<<m.channels()<<","<<m.depth()<<","<<m.type()<<std::endl;
-    return os;
-  }
-  int refcount(const cv::Mat &m) {
-    int r=-1;
-    if (!m.empty())
-      r=*(m.refcount);
-    return r;
-  }
+size_t inc(const size_t &limit, const size_t &idx) { if (idx>=limit-1) return 0; return idx+1;}
+size_t dec(const size_t &limit, const size_t &idx) { if (idx<=1) return limit-1; return idx-1;}
+std::ostream& printmatdetails(std::ostream &os, const cv::Mat &m) {
+  os <<m.rows<<","<<m.cols<<","<<m.channels()<<","<<m.depth()<<","<<m.type()<<std::endl;
+  return os;
+}
+int refcount(const cv::Mat &m) {
+  int r=-1;
+  if (!m.empty())
+    r=*(m.refcount);
+  return r;
+}
 }
 

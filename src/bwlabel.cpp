@@ -44,7 +44,7 @@ void CBWLabel::Init(IplImage *ipimg) {
 
     labelimg=cvCloneImage(ipimg);
     labelimgC=cvCreateImage(cvGetSize(ipimg),IPL_DEPTH_8U,3);
-    
+
     labelimgUS=cvCreateImage(cvSize(width,height),IPL_DEPTH_16U,1);
 
     cvZero(labelimg);
@@ -55,7 +55,7 @@ void CBWLabel::Init(IplImage *ipimg) {
       iregs[i]=cvCreateImage(cvSize(ipimg->width,ipimg->height),IPL_DEPTH_8U,1);
       cvZero(iregs[i]);
     }
-    
+
     IUS=cvCreateImage(cvSize(width,height),IPL_DEPTH_16U,1);
   }
 }
@@ -146,8 +146,8 @@ int CBWLabel::CalcRegions(void){
 
   ConnectedComponents cc(maxnoregions);
   label_count=cc.process( (lblT *)(IUS->imageData),
-        (lblT *)(labelimgUS->imageData),
-        width, height);
+      (lblT *)(labelimgUS->imageData),
+      width, height);
 
   cvConvertScale(IUS,IUS,1./255.);
   cvMul(IUS,labelimgUS,labelimgUS);
@@ -161,18 +161,18 @@ int CBWLabel::CalcRegions(void){
   for(int i=0;i<height;i++){
     for(int j=0;j<width;j++,data++){
       if ((*data)!=0) {
-  pt.y=i;
-  pt.x=j;
-  iter=unique_labels.find(*data);
-  if (iter!=unique_labels.end())
-    *data=(*iter).second;
-  else {
-    tmplblcnt++;
-    unique_labels.insert(make_pair(*data,tmplblcnt));
-    *data=tmplblcnt;
-  }
-  if ((*data)<=maxnoregions)
-    regions[*data-1].push_back(pt);
+        pt.y=i;
+        pt.x=j;
+        iter=unique_labels.find(*data);
+        if (iter!=unique_labels.end())
+          *data=(*iter).second;
+        else {
+          tmplblcnt++;
+          unique_labels.insert(make_pair(*data,tmplblcnt));
+          *data=tmplblcnt;
+        }
+        if ((*data)<=maxnoregions)
+          regions[*data-1].push_back(pt);
       }
     }
   }

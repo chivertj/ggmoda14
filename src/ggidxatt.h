@@ -17,39 +17,39 @@
 #include <vector>
 
 namespace gg {
-  struct idxcontainer {
-    size_t idx;
-    inline virtual bool operator () (const idxcontainer &lhs, const idxcontainer &rhs) {
-      return lhs.idx<rhs.idx;
-    }
-  };
- 
-  template <class T, class I> struct idxattribute : public idxcontainer {
-    I item;
-    T attribute;
-    inline virtual bool operator () (const idxattribute &lhs, const idxattribute &rhs) {
-      return lhs.attribute<rhs.attribute;
-    }
-  };
+struct idxcontainer {
+  size_t idx;
+  inline virtual bool operator () (const idxcontainer &lhs, const idxcontainer &rhs) {
+    return lhs.idx<rhs.idx;
+  }
+};
 
-  template <class T, class I> struct idxattcollection {
-    idxattcollection(size_t N) { init(N); }
-    idxattcollection(void) {}
-    void init(size_t N) {
-      v.resize(N);
-      for (size_t n=0;n<N;n++) 
-  v[n].idx=n;
-    }
-    inline const T& operator [] (size_t n) const { return v[n]; }
-    inline idxattribute<T,I>& operator [] (size_t n) { return v[n]; }
-    std::vector<idxattribute<T, I> > v;
-    void sort(void) {
-      std::sort(v.begin(),v.end(),idxattribute<T,I>());
-    }
-    void sortidx(void) {
-      std::sort(v.begin(),v.end(),idxcontainer());
-    }
-  };
+template <class T, class I> struct idxattribute : public idxcontainer {
+  I item;
+  T attribute;
+  inline virtual bool operator () (const idxattribute &lhs, const idxattribute &rhs) {
+    return lhs.attribute<rhs.attribute;
+  }
+};
 
-  typedef idxattcollection<int,cv::Mat> imgattcollection;
+template <class T, class I> struct idxattcollection {
+  idxattcollection(size_t N) { init(N); }
+  idxattcollection(void) {}
+  void init(size_t N) {
+    v.resize(N);
+    for (size_t n=0;n<N;n++)
+      v[n].idx=n;
+  }
+  inline const T& operator [] (size_t n) const { return v[n]; }
+  inline idxattribute<T,I>& operator [] (size_t n) { return v[n]; }
+  std::vector<idxattribute<T, I> > v;
+  void sort(void) {
+    std::sort(v.begin(),v.end(),idxattribute<T,I>());
+  }
+  void sortidx(void) {
+    std::sort(v.begin(),v.end(),idxcontainer());
+  }
+};
+
+typedef idxattcollection<int,cv::Mat> imgattcollection;
 }
