@@ -86,11 +86,13 @@ public:
       _cframe[i].correctboundingbox(ctrackers[i].getmostrecent().getregprops().getboundbox());
       std::cout <<"Track "<<i<<" length "<<ctrackers[i].count()<<" frameno:"<<ctrackers[i].getmaxframeno()<<std::endl;
     }
+    std::cout <<"pre goodtracks.size()="<<goodtracks.size()<<std::endl;
+    std::cout <<"pre finished.size()="<<finishedtracks.size()<<std::endl;
     for (size_t i=0;i<pframe.size();i++) {
       int curridx=corrs.getprev2curr()[i];
       if (curridx==-1) {
         if (ptrackers[i].count()>MINSEQLENGTH) {
-#if(0)
+#if(1)
           goodtracks.push_back_merge(constraints,ptrackers[i]);
           goodtracks.remove_before(constraints,ctrackers.earliestframeno(),finishedtracks);
 #else
@@ -100,17 +102,24 @@ public:
         }
       }
     }
+    std::cout <<"post goodtracks.size()="<<goodtracks.size()<<std::endl;
+    std::cout <<"post finished.size()="<<finishedtracks.size()<<std::endl;
     //      std::cout <<"FINISHED CORRECT in gg::regiontracker"<<std::endl;
   }
   /// Only call this function when no more frames are to be added.
   void finalise(void) {
+    std::cout <<">>>>>>>>>>>>>>>>FINALISING<<<<<<<<<<<<<<<<"<<std::endl;
+    std::cout <<"cframe.size()="<<cframe.size()<<std::endl;
+    std::cout <<"ctrackers.size()="<<ctrackers.size()<<std::endl;
     for (size_t i=0;i<cframe.size();i++) {
+      std::cout <<"ctrackers["<<i<<"].count()=="<<ctrackers[i].count()<<std::endl;
       if (ctrackers[i].count()>MINSEQLENGTH)
         goodtracks.push_back(ctrackers[i]);
       goodtracks.remove_merge(constraints,finishedtracks);
     }
     finalised=true;
     std::cout <<"NO OF GOOD TRACKS AFTER FINALISE:"<<goodtracks.size()<<std::endl;
+    std::cout <<"NO OF FINALISED TRACKS AFTER FINALISE:"<<finishedtracks.size()<<std::endl;
   }
   const OBJTRACKS_T& getgoodtracks(void) const { return goodtracks; }
   OBJTRACKS_T& getgoodtracks(void) { return goodtracks; }

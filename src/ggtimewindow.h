@@ -76,7 +76,7 @@ public:
       corrs[idx](sims[idx],frames[idx],frames[pidx]);
       corrs[idx].setstates(frames[idx]);
 
-      //  imgdata.add(f.getimgdata(),timeval);
+        imgdata.add(f.getimgdata(),timeval);
       frames[idx].settime(timeval);
 
       regtracker.correct(frames[idx],corrs[idx]);
@@ -85,7 +85,7 @@ public:
       init=true;
       frames[idx].set(f);
 
-      //  imgdata.add(f.getimgdata(),timeval);
+        imgdata.add(f.getimgdata(),timeval);
       frames[idx].settime(timeval);
     }
     //      region::ExportImage(f.getimgdata(),"timwin",3,framecntr);
@@ -105,7 +105,8 @@ public:
   }
   const frame& getcurrentframe(void) const { return frames[idx]; }
   void makeimgtracks(void) {
-    imgtrackdata(regtracker.getgoodtracks());
+//    imgtrackdata(regtracker.getgoodtracks());
+    imgtrackdata(regtracker.getfinishedtracks());
     //      imgtrackdata(regtracker.getgoodtracks(),imgdata);
   }
   const imgtracks& getimgtracks(void) const { return imgtrackdata; }
