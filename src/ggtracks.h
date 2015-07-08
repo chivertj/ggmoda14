@@ -116,7 +116,7 @@ public:
       change=false;
       for (OBJTRACKit it=tracks.begin();it!=tracks.end();++it) {
         if ((*it).getminframeno()<deletebeforeno) {
-          //            (*it).dump();
+                      (*it).dump(opfileclassifications);
           removedtracks.push_back(*it);
           tracks.erase(it);
           change=true;
@@ -136,7 +136,7 @@ public:
       change=false;
       for (OBJTRACKit it=tracks.begin();it!=tracks.end();++it) {
         if ((*it).getminframeno()<deletebeforeno) {
-          //      (*it).dump(opfileclassifications);
+                (*it).dump(opfileclassifications);
           //(*it).dump(std::cout);
           tracks.erase(it);
           change=true;
