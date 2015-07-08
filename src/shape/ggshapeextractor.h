@@ -37,7 +37,7 @@ namespace gg {
     /// Use bounding box around shape of isolated extracted feature points
     /// but re-positioned using the motion estimation...
     void operator () (shapetrackproperties &track) {
-#if(0) // removed to try to remove shape extraction process
+#ifdef ENABLE_SHAPEEXTRACTION // removed to try to remove shape extraction process
       const REGIONDATA &regiondata=track.getregiondata();
       assert(regiondata[0].isvalid() && !track.img(0).empty());
 

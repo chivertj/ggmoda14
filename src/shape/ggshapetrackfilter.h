@@ -54,7 +54,7 @@ namespace gg {
 
       std::cout <<"rankthenboxshapes"<<std::endl;
       rankthenboxshapes(stp);
-#if(0)
+#ifdef ENABLE_SHAPEEXTRACTION
       std::cout <<"rankfilterboxedshapes"<<std::endl;
       rankfilterboxedshapes();
       //XXX Not complete yet! Even if this compiles etc. It isn't in the right place yet.
