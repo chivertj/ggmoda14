@@ -223,7 +223,7 @@ protected:
     os << "*objtracks*" << std::endl;
     os << "no of tracks:" <<tracks.size()<<std::endl;
     for (size_t i=0;i<tracks.size();i++) {
-      os <<"TRACK:"<<i<<",";
+      os <<"TRACK:"<<i<<"("<<uint(tracks[i].uid_hash())<<")"<<",";
       os <<"START:"<<tracks[i].getframenos()[0]<<","<<tracks[i][0].uid_hash()<<",";
       int last=tracks[i].getframenos().size()-1;
       assert(last>=0);
@@ -252,17 +252,17 @@ protected:
       sequencefilename="box-";
       sequencefilename+=std::to_string(uint(tracks[i].uid_hash()));
       sequencefilename+="-";
-      stf.dump(sequencefilename,stf.getboxedshapes());
+      stf.dump(sequencefilename,stf.getboxedshapes(),tracks[i].getframenos());
 
       sequencefilename="unbox-";
       sequencefilename+=std::to_string(uint(tracks[i].uid_hash()));
       sequencefilename+="-";
-      stf.dump(sequencefilename,stf.getunboxedshapes());
+      stf.dump(sequencefilename,stf.getunboxedshapes(),tracks[i].getframenos());
 
       sequencefilename="origroi-";
       sequencefilename+=std::to_string(uint(tracks[i].uid_hash()));
       sequencefilename+="-";
-      stf.dump(sequencefilename,stf.getorigrois());
+      stf.dump(sequencefilename,stf.getorigrois(),tracks[i].getframenos());
     }
   }
   objtracks(void) {}
