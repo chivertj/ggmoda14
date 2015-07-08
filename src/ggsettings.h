@@ -23,6 +23,8 @@
 #define BOUNDINGBOX_SHAPEBOOSTING
 //#define ALPHAHULL_SHAPEBOOSTING
 
-
+namespace gg{
+const int EDGETHICKNESS=12;
+}
 #endif //GGSETTINGS_HEADER
 

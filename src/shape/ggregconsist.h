@@ -26,6 +26,7 @@
 #include "../region.h"
 #include <vector>
 #include "../ggidxatt.h"
+#include "../ggsettings.h"
 
 namespace gg {
   //#############
@@ -48,7 +49,7 @@ namespace gg {
   struct simpleedge {
     cv::Mat operator() (const cv::Mat &inputimg) {
       cv::threshold(inputimg,outputimg,128,255,cv::THRESH_BINARY);
-      cv::dilate(outputimg,outputimg,cv::Mat(),cv::Point(-1,-1),2);
+      cv::dilate(outputimg,outputimg,cv::Mat(),cv::Point(-1,-1),gg::EDGETHICKNESS);
       cv::Sobel(outputimg,res01,CV_32F,0,1);
       cv::Sobel(outputimg,res10,CV_32F,1,0);
       cv::magnitude(res01,res10,res01);
