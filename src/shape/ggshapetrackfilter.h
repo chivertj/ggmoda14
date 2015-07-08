@@ -54,7 +54,7 @@ namespace gg {
 
       std::cout <<"rankthenboxshapes"<<std::endl;
       rankthenboxshapes(stp);
-#if(1)
+#if(0)
       std::cout <<"rankfilterboxedshapes"<<std::endl;
       rankfilterboxedshapes();
       //XXX Not complete yet! Even if this compiles etc. It isn't in the right place yet.
@@ -81,6 +81,29 @@ namespace gg {
     const SHAPES& getfilteredshapes(void) { return filteredshapes; }
     const SHAPES& getrankfilteredshapes(void) { return rankfilteredshapes; }
     const SHAPES& getunboxedshapes(void) { return unboxedshapes; }
+    //added to enable dumping out of images with appropriate framenos!
+    virtual void dump(const std::string &basename, const region::MREGv &shapes, const std::deque<int> &framenos) {
+      std::cout <<"Dumping video: shapetrackfilter"<<std::endl;
+      assert(shapes.size()>0);
+      cv::Mat imgtowrite;
+      for (size_t i=0;i<shapes.size();i++) {
+        if (!shapes[i].empty()) {
+          imgtowrite=cv::Mat(shapes[i].size(),CV_8UC3);
+          break;
+        }
+      }
+      for (size_t i=0;i<shapes.size();i++) {
+        if (!shapes[i].empty() && shapes[i].channels()==1)
+          cv::cvtColor(shapes[i],imgtowrite,CV_GRAY2BGR);
+        else if (shapes[i].empty())
+          imgtowrite=cv::Scalar::all(0);
+        else
+          shapes[i].copyTo(imgtowrite);
+        region::ExportImage(imgtowrite,basename,3,framenos[i]);
+      }
+      std::cout <<"Finished dumping video."<<std::endl;
+    }
+    //dumping out of images
     virtual void dump(const std::string &basename, const region::MREGv &shapes) {
       std::cout <<"Dumping video: shapetrackfilter"<<std::endl;
       assert(shapes.size()>0);
@@ -189,7 +212,7 @@ namespace gg {
               std::cout <<" ";
               cvVecdump(std::cout,interpolated[i+1]);
               }
-#if(1           )
+#if(1)
 //            else if (i>1 && interpolated[i-2][3]>0.5)
             else if (i>1 && !boxedshapes[i-2].empty())
               { grad=gg::diff(interpolated[i-2],interpolated[i-1]);
@@ -450,7 +473,7 @@ std::cout <<"Y2.i"<<std::endl;
       std::transform(unboxedshapes.begin(),unboxedshapes.end(),unboxedshapes.begin(),gg::simpleedge());
       std::transform(unboxedshapes.begin(),unboxedshapes.end(),unboxedshapes.begin(),gg::cvtColorFunctor(CV_GRAY2BGR));
       std::transform(unboxedshapes.begin(),unboxedshapes.end(),unboxedshapes.begin(),
-          gg::changeColorFunctor<cv::Vec3b>(cv::Vec3b(0,0,255),cv::Vec3b(0,0,0)));
+          gg::changeColorFunctor<cv::Vec3b>(cv::Vec3b(225,220,45),cv::Vec3b(0,0,0)));
       std::transform(unboxedshapes.begin(),unboxedshapes.end(),
                      imgdata.begin(),unboxedshapes.begin(),
                      gg::BinaryPtrFunctorIO(cv::bitwise_or));

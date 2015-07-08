@@ -37,6 +37,7 @@ namespace gg {
     /// Use bounding box around shape of isolated extracted feature points
     /// but re-positioned using the motion estimation...
     void operator () (shapetrackproperties &track) {
+#if(0) // removed to try to remove shape extraction process
       const REGIONDATA &regiondata=track.getregiondata();
       assert(regiondata[0].isvalid() && !track.img(0).empty());
 
@@ -52,6 +53,23 @@ namespace gg {
         }
       }
       track.setshapes(shapes);
+#else
+      const REGIONDATA &regiondata=track.getregiondata();
+      assert(regiondata[0].isvalid() && !track.img(0).empty());
+
+      md::BackProjector bp(cv::Rect(0,0,regiondata[0].binarytemp().cols,regiondata[0].binarytemp().rows));
+      cv::Mat binaryimg=regiondata[0].binarytemp().clone();
+      shapes.resize(regiondata.size());
+
+      for (size_t i=0; i<regiondata.size();i++) {
+        if (regiondata[i].isvalid()) {
+          binaryimg=cv::Scalar::all(0);
+          region::Rects::drawrect(regiondata[i].getregprops().getboundbox(),binaryimg);
+          shapes[i]=binaryimg.clone();
+        }
+      }
+      track.setshapes(shapes);
+#endif
     }
 #endif //BOUNDINGBOX_SHAPEBOOSTING
 
