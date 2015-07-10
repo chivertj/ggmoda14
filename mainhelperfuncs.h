@@ -34,6 +34,30 @@ namespace mainhelpers {
   CvPoint R2Ipnt(CvPoint2D32f &r);
   //  void DrawOutlines(IplImage *img, const gg::frame &framedata)
   void Draw_bgheads(IplImage *img, const gg::frame &framedata);
+  template <class T> void TrimRegions(const vector<T> &regs, const size_t nregs, vector<T> &newregs, size_t &new_nregs) {
+    new_nregs=0;
+    if (new_nregs>=region::MAXNOREGIONS) {
+      std::vector<bool> sampled(new_nregs);
+      vector<T> newnewregs(region::MAXNOREGIONSB4TRIM);
+      for (size_t i=0;i<new_nregs;i++)
+	sampled[i]=false;
+      size_t newnew_nregs=0;
+      //      std::srand(time(NULL));
+      std::srand(__rdtsc());
+      size_t nloops=0,maxnloops=region::MAXNOREGIONSB4TRIM;
+      do {
+	size_t sidx=std::rand()%new_nregs;
+	if (!sampled[sidx]) {
+	  sampled[sidx]=true;
+	  newnewregs[newnew_nregs]=newregs[sidx];
+	  newnew_nregs++;
+	}
+	nloops++;
+      }while (newnew_nregs<(region::MAXNOREGIONS-1) && nloops<maxnloops);
+      newregs=newnewregs;
+      new_nregs=newnew_nregs;
+    }    
+  }
 }
 
 #endif //MAINHELPERFUNCS

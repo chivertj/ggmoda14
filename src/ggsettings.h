@@ -27,7 +27,7 @@ namespace gg{
 const int EDGETHICKNESS=12;
 }
 
-#define ENABLE_SHAPEEXTRACTION
+//#define ENABLE_SHAPEEXTRACTION
 
 #endif //GGSETTINGS_HEADER
 
