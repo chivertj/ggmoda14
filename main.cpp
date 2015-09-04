@@ -44,9 +44,6 @@ using namespace mainhelpers;
 #include "src/motion/ggmotionsegment.h"
 
 #include "src/ggclassification.h"
-const int gg::discreteclassification::NOCLASSIFICATION;
-const int gg::helmetclassification::HELMET;
-const int gg::helmetclassification::NOHELMET;
 
 #include "src/ggexceptions.h"
 #include "src/ggutils.h"
